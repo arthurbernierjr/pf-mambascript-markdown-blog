@@ -14,8 +14,6 @@ About = (props)->
       $ AppLayout, { title: props.post.data.title, description: props.post.data.subTitle, primary: yes}, =>
         $ 'main', { id: 'projects-page', className: 'container showpage' }, =>
          $ FullBlog, { post: props.post }
-         $ 'a', { href: '/' }, =>
-           $.text 'Home Page'
 
   )
 
