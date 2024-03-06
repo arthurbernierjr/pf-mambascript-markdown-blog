@@ -6,12 +6,12 @@ featureImage: '/img/image1.jpeg'
 date: '10/21/21'
 ---
 
-### Interview on Tech is The New Black
+### Interview on <br>'Tech is The New Black'
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/kTL6gU5AYh8?si=MZRojVxMydBasMoy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Bio, Story & Mission
 
-#### Greetings! My name is Arthur Bernier Jr. aka 'Big Poppa Code', A Black Software Engineer 🧑🏾‍💻: An entrepreneur at heart, investing in real estate, digital assets, startups, and options trading, with a love for basketball and anime. I'm a seasoned Software Engineer with a deep expertise in JavaScript technologies, including Node, React, and VueJs. My passion extends beyond coding; I am dedicated to assisting businesses in engaging their ideal audience. I have help positions as a Tech Lead at a Billion Dollar Space Scale Up, a Senior Engineer at a black owned media juggernaut, CTO at a 7 figure venture backed start up, a Coding Bootcamp Instructor at the biggest coding bootcamp in the world and a Senior Director at a National Non-Profit Education Company. Through strategic communication, I help forge strong connections between brands and their communities, fostering trust and loyalty.
+#### Greetings! My name is Arthur Bernier Jr. aka 'Big Poppa Code', A Black Software Engineer 🧑🏾‍💻: An entrepreneur at heart, investing in real estate, digital assets, startups, and options trading, with a love for basketball and anime. I'm a seasoned Software Engineer with a deep expertise in JavaScript technologies, including Node, React, and VueJs. My passion extends beyond coding; I am dedicated to assisting businesses in engaging their ideal audience. I have held many positions, some of which are, a Tech Lead at a Billion Dollar Space Scale Up, a Senior Engineer at a black owned media juggernaut, CTO at a 7 figure venture backed start up, a Coding Bootcamp Instructor at the biggest coding bootcamp in the world teaching over 600 students and a Senior Director at a National Non-Profit Technical Education Company. Through strategic communication, I help forge strong connections between brands and their communities, fostering trust and loyalty.
 
 #### My Mission is to revolutionize how technology is perceived, making it accessible, understandable, and impactful for a broader audience. Through innovative AI solutions, insightful discussions, and educational content, we aim to demystify technology, highlighting its potential to solve real-world problems and improve daily life.
 
@@ -22,7 +22,7 @@ date: '10/21/21'
 #### "Deeper Than Code" is a groundbreaking podcast that transcends the traditional boundaries of technology discussions. Hosted by Arthur Bernier Jr., it delves into the profound impact of technology on society and our daily lives, beyond just the code and algorithms. This podcast brings to light the human stories behind technological advancements, exploring how digital innovation shapes our world in ways we often overlook. Through engaging conversations and insightful analysis, "Deeper Than Code" aims to demystify complex tech concepts, making them accessible to everyone. Whether you're a tech enthusiast, a professional in the field, or simply curious about the digital world around you, this podcast offers a unique perspective that empowers and enlightens. Join us on a journey to understand technology not just as a tool, but as a pivotal force in our collective story.
 
 ### Monetisphere AI
-#### "At Monetisphere, we're building the future of the creator economy, leveraging AI to offer unmatched support to digital creators in managing, analyzing, and monetizing their content. We're seeking partners who are as passionate as we are about empowering creators with technology that understands their needs and amplifies their potential. Whether you're in tech, media, or creative industries, partnering with Monetisphere means joining a movement that values innovation, supports creators, and seeks to redefine the digital landscape. Together, we can provide creators with the tools they need to succeed, creating a thriving ecosystem where creativity meets opportunity."
+#### At Monetisphere, we're building the future of the creator economy, leveraging AI to offer unmatched support to digital creators in managing, analyzing, and monetizing their content. We're seeking partners who are as passionate as we are about empowering creators with technology that understands their needs and amplifies their potential. Whether you're in tech, media, or creative industries, partnering with Monetisphere means joining a movement that values innovation, supports creators, and seeks to redefine the digital landscape. Together, we can provide creators with the tools they need to succeed, creating a thriving ecosystem where creativity meets opportunity.
 
 ### Becoming The GOAT
 
@@ -38,6 +38,8 @@ date: '10/21/21'
 
 #### MambaScript is a high-level programming language designed to compile into ES5 JavaScript, offering an exceptional blend of readability and simplicity. This makes it an ideal choice for beginners seeking an accessible entry point into programming. The language is crafted with three specific users in mind:
 
+<br><br>
+
 <h4>
 
 1.Freelancers who prioritize productivity and need to revisit their code years later with ease, ensuring quick comprehension of their past work.
@@ -52,8 +54,10 @@ date: '10/21/21'
 
 </h4>
 
+<br><br>
 
 #### Why MambaScript? The name reflects the essence of what this language aims to achieve. Drawing inspiration from the mamba snake, just as Python does, MambaScript emphasizes strict indentation to enhance code cleanliness and readability. The term "Script" acknowledges its roots in scripting languages like JavaScript, while also nodding to the concept of Mamba Mentality. This mentality played a pivotal role when I transitioned from treating coding as a hobby to embracing it as my full-time profession. Despite financial hardships, my mindset and determination never wavered. I committed to honing my skills daily, embodying the relentless spirit of Mamba Mentality. This language is a tribute to that journey and to the legendary Kobe Bryant. RIP Kobe.
+
 
 <div class="card" style="background:transparent!important; border: none;">
   <div>
@@ -61,6 +65,7 @@ date: '10/21/21'
       <h2 class="card-title">What People Are Saying...</h2>
     </div>
   </div>
+</div>
 
   <div class="jss177 jss176 ">
     <div class="card">
@@ -117,11 +122,11 @@ date: '10/21/21'
       </div>
       </div>
       </div>
-      </div>
-      </div>
+</div>
+<br><br>
 
 
-### Press Coverage, Event Etc
+### Press Coverage, Events Etc
 |  | 
 | ------------------ | 
 |[Gifts To Our People Colection in Bossip](https://bossip.com/2126945/gifts-to-our-people-nft-brylan-donaldson/) |
@@ -132,7 +137,7 @@ date: '10/21/21'
 
 #### BigPoppaCode Also has appeared in various digital panels, and in-person live events since 2019.
 
-### Social Media
+### Official Social Media Links
 |  | 
 | ------------------ | 
 | [Linkedin Big Poppa Code](https://linkedin.com/in/bigpoppacode)|
@@ -141,7 +146,7 @@ date: '10/21/21'
 | [TikTok @bigpoppacode](https://www.tiktok.com/@bigpoppacode)|
 | [ X @bigpoppacode](https://x.com/bigpoppacode)|
 
-### Some Selected Projects
+### Selected Projects
 
 | Project | Description | Website |
 | ------------------ | ------------------------------------------ |  --------------------- |

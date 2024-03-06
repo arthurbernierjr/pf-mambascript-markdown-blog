@@ -10,7 +10,7 @@ AppMobileNavBar = ->
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/allposts' },  'Lessons'
       $ 'li', { className: 'nav-item' }, =>
-        $ 'a', { href: '/projects' },  'Projects'
+        $ 'a', { href: '/about' },  'About Me'
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/contact' },  'Contact'
       $ 'li', { className: 'nav-item' }, =>
