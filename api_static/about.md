@@ -9,7 +9,7 @@ date: '10/21/21'
 ### Interview on Tech is The New Black
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/kTL6gU5AYh8?si=MZRojVxMydBasMoy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Bio
+### Bio, Story & Mission
 
 #### Greetings! My name is Arthur Bernier Jr. aka 'Big Poppa Code', A Black Software Engineer 🧑🏾‍💻: An entrepreneur at heart, investing in real estate, digital assets, startups, and options trading, with a love for basketball and anime. I'm a seasoned Software Engineer with a deep expertise in JavaScript technologies, including Node, React, and VueJs. My passion extends beyond coding; I am dedicated to assisting businesses in engaging their ideal audience. I have help positions as a Tech Lead at a Billion Dollar Space Scale Up, a Senior Engineer at a black owned media juggernaut, CTO at a 7 figure venture backed start up, a Coding Bootcamp Instructor at the biggest coding bootcamp in the world and a Senior Director at a National Non-Profit Education Company. Through strategic communication, I help forge strong connections between brands and their communities, fostering trust and loyalty.
 
@@ -120,19 +120,17 @@ date: '10/21/21'
       </div>
       </div>
 
-### Story and Mission
 
 ### Press Coverage, Event Etc
+|  | 
+| ------------------ | 
+|[Gifts To Our People Colection in Bossip](https://bossip.com/2126945/gifts-to-our-people-nft-brylan-donaldson/) |
+|[Deeper than code on fox news](https://fox2now.com/business/press-releases/ein-presswire/653952166/exploratory-podcast-deeper-than-code-seeks-to-demystify-technologys-broader-impacts-on-society-and-daily-lives/) |
+|[Deeper than code New York Business Review](https://newyorkbusinessnow.com/unveiling-the-human-element-in-tech-deeper-than-code-with-arthur-bernier-jr/) |
+|[Speaking at RideCon by Rolling Out 2024](https://rollingout.com/ride/) |
+|[Speaking at The PropTech House at SXSW 2023](https://www.theproptechhouse.com/) |
 
-- [Gifts To Our People Colection in Bossip](https://bossip.com/2126945/gifts-to-our-people-nft-brylan-donaldson/)
-- [Deeper than code on fox news](https://fox2now.com/business/press-releases/ein-presswire/653952166/exploratory-podcast-deeper-than-code-seeks-to-demystify-technologys-broader-impacts-on-society-and-daily-lives/)
-- [Deeper than code New York Business Review](https://newyorkbusinessnow.com/unveiling-the-human-element-in-tech-deeper-than-code-with-arthur-bernier-jr/)
-- [Speaking at RideCon by Rolling Out 2024](https://rollingout.com/ride/)
-- [Speaking at The PropTech House at SXSW 2023](https://www.theproptechhouse.com/)
-
-Also has appeared in various digital panels, and live events since 2019.
-
-
+#### BigPoppaCode Also has appeared in various digital panels, and in-person live events since 2019.
 
 ### Social Media
 |  | 
