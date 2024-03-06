@@ -24,7 +24,7 @@ date: '10/21/21'
 ### Monetisphere AI
 #### At Monetisphere, we're building the future of the creator economy, leveraging AI to offer unmatched support to digital creators in managing, analyzing, and monetizing their content. We're seeking partners who are as passionate as we are about empowering creators with technology that understands their needs and amplifies their potential. Whether you're in tech, media, or creative industries, partnering with Monetisphere means joining a movement that values innovation, supports creators, and seeks to redefine the digital landscape. Together, we can provide creators with the tools they need to succeed, creating a thriving ecosystem where creativity meets opportunity.
 
-### Becoming The GOAT
+### Becoming The GOAT Book Series
 
 #### "Becoming The Goat" is an inspiring book series authored by Arthur Bernier Jr., designed to guide readers on a transformative journey towards achieving unparalleled success in their personal and professional lives. The series kicks off with its compelling first installment, "Sidestepping: Mastering the Art of Overcoming Self-Imposed Roadblocks to Success," setting the stage for a deep dive into the art of navigating through and beyond the barriers we often place in our own paths.
 
