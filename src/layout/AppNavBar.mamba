@@ -12,6 +12,6 @@ AppNavBar = ->
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/allposts' },  'Lessons'
       $ 'li', { className: 'nav-item' }, =>
-        $ 'a', { href: '/projects' },  'Projects'
+        $ 'a', { href: '/about' },  'About Me'
 
 module.exports = AppNavBar

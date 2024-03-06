@@ -353,6 +353,13 @@ $ 'nav', { className: 'navbar card'}, =>
     display: flex;
     flex-direction: column;
   }
+  @include grid-media($mamba-grid-sm) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include grid-media($mamba-grid-md) {
+    display: none;
+  }
 }
 
 .app-layout{
@@ -485,13 +492,21 @@ table{
       justify-content: space-around;
       align-items: space-between;
       border: 1px solid white;
+      min-height: 3.5rem;
       @include grid-media($mamba-grid-xs) {
         flex-direction: column;
+      }
+      @include grid-media($mamba-grid-sm) {
+        flex-direction: column;
+      }
+      @include grid-media($mamba-grid-lg) {
+        flex-direction: row;
       }
       td {
         display: flex;
         justify-content: center;
         text-align: center;
+        align-items: center;
       }
     }
   }

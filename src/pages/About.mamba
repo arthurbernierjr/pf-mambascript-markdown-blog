@@ -12,7 +12,7 @@ About = (props)->
       $ 'h1', 'Loading ...'
     else
       $ AppLayout, { title: props.post.data.title, description: props.post.data.subTitle, primary: yes}, =>
-        $ 'main', { id: 'about-page', className: 'container showpage' }, =>
+        $ 'main', { id: 'projects-page', className: 'container showpage' }, =>
          $ FullBlog, { post: props.post }
          $ 'a', { href: '/' }, =>
            $.text 'Home Page'

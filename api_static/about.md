@@ -1,25 +1,50 @@
 ---
 title: 'About Me'
-subTitle: '''Technical Co-Founder and Head of Engineering at Seventh Ave. Inc  
-& SEI Instructional Lead at General Assembly'''
+subTitle: '''Entrepreneur, Engineer, Technologist, Investor and Educator'''
 excerpt: 'This is the About Page'
-featureImage: '/img/profile.jpg'
+featureImage: '/img/image1.jpeg'
 date: '10/21/21'
 ---
-<div id="about">
-<h4>
-  Hello! I am Arthur Bernier Jr. I work as a Software Engineer specializing in JavaScript Technologies like Node, React and VueJs. I have a passion for helping businesses reach their perfect audience and using my skill to help them communicate to that audience in a way that makes them know, like and trust them.
-</h4>
-<br>
-<br>
-<h4>If your looking for a creative and knowledgable Software Engineering Leader? Search no further, because I am ready for the job.
-With 10+ years of total Web Development experience, 5 years of experience as a full-time freelancer, and 4 Years of Start-Up Experience, a proven leader &amp; self starter as a military vet, former Senior Sailor of the Year (highest individual navy award for enlisted service-member), Presidential Service Award recipient, and sought after trainer, I can make an immediate impact on any team anywhere.
-<br>
-<br>
-<br>If you are seeking someone who is willing to learn multiple languages, is skilled at handling project deliveries, that is exactly what I am prepared to do and what I am known to excel at.<br>I am well versed in Full Stack JavaScript with React, Vue, Express, NodeJS, Sequelize, MongoDB, Gulp, Webpack, and Babel.
-<br>
-<br>
-I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive experience in WordPress and have worked with headless CMS's like CosmicJS. I am comfortable with working in the IOS App Development Environment, with React Native, Expo, and XCode. I am incredibly comfortable in a Linux Environment and am very familiar with Digital Ocean as well as AWS, and GCP. </h4></div></div>
+
+### Interview on Tech is The New Black
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/kTL6gU5AYh8?si=MZRojVxMydBasMoy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Bio
+
+#### Greetings! My name is Arthur Bernier Jr. aka 'Big Poppa Code', A Black Software Engineer 🧑🏾‍💻: An entrepreneur at heart, investing in real estate, digital assets, startups, and options trading, with a love for basketball and anime. I'm a seasoned Software Engineer with a deep expertise in JavaScript technologies, including Node, React, and VueJs. My passion extends beyond coding; I am dedicated to assisting businesses in engaging their ideal audience. I have help positions as a Tech Lead at a Billion Dollar Space Scale Up, a Senior Engineer at a black owned media juggernaut, CTO at a 7 figure venture backed start up, a Coding Bootcamp Instructor at the biggest coding bootcamp in the world and a Senior Director at a National Non-Profit Education Company. Through strategic communication, I help forge strong connections between brands and their communities, fostering trust and loyalty.
+
+#### My Mission is to revolutionize how technology is perceived, making it accessible, understandable, and impactful for a broader audience. Through innovative AI solutions, insightful discussions, and educational content, we aim to demystify technology, highlighting its potential to solve real-world problems and improve daily life.
+
+## Current Projects 
+
+### Deeper Than Code Podcast
+
+#### "Deeper Than Code" is a groundbreaking podcast that transcends the traditional boundaries of technology discussions. Hosted by Arthur Bernier Jr., it delves into the profound impact of technology on society and our daily lives, beyond just the code and algorithms. This podcast brings to light the human stories behind technological advancements, exploring how digital innovation shapes our world in ways we often overlook. Through engaging conversations and insightful analysis, "Deeper Than Code" aims to demystify complex tech concepts, making them accessible to everyone. Whether you're a tech enthusiast, a professional in the field, or simply curious about the digital world around you, this podcast offers a unique perspective that empowers and enlightens. Join us on a journey to understand technology not just as a tool, but as a pivotal force in our collective story.
+
+### Monetisphere AI
+#### "At Monetisphere, we're building the future of the creator economy, leveraging AI to offer unmatched support to digital creators in managing, analyzing, and monetizing their content. We're seeking partners who are as passionate as we are about empowering creators with technology that understands their needs and amplifies their potential. Whether you're in tech, media, or creative industries, partnering with Monetisphere means joining a movement that values innovation, supports creators, and seeks to redefine the digital landscape. Together, we can provide creators with the tools they need to succeed, creating a thriving ecosystem where creativity meets opportunity."
+
+### Becoming The GOAT
+
+#### "Becoming The Goat" is an inspiring book series authored by Arthur Bernier Jr., designed to guide readers on a transformative journey towards achieving unparalleled success in their personal and professional lives. The series kicks off with its compelling first installment, "Sidestepping: Mastering the Art of Overcoming Self-Imposed Roadblocks to Success," setting the stage for a deep dive into the art of navigating through and beyond the barriers we often place in our own paths.
+
+#### This groundbreaking series is planned to unfold over eight volumes, each focusing on a unique aspect of personal and professional growth. Through "Becoming The Goat," Arthur Bernier Jr. shares a wealth of knowledge, experiences, and strategies, drawing from his extensive background in technology, leadership, and personal development. The series promises to equip readers with the tools and insights needed to sidestep obstacles, harness their potential, and achieve excellence in every endeavor.
+
+#### With each book, readers will be invited to explore different dimensions of success, from mastering mindset and cultivating resilience to leveraging technology and innovation for growth. Bernier's approachable writing style, combined with actionable advice and real-world examples, makes this series an invaluable resource for anyone aspiring to reach the pinnacle of their capabilities.
+
+#### "Becoming The Goat" is more than just a book series; it's a movement towards becoming the Greatest Of All Time in your field. Whether you're an entrepreneur, a professional, a student, or simply someone seeking to unlock your full potential, this series will inspire you to push boundaries, overcome challenges, and achieve greatness. Stay tuned for the subsequent volumes, as each will unveil new layers of wisdom and strategies to propel you towards your ultimate goal of becoming the GOAT in your arena.
+
+### Mambascript
+
+#### MambaScript is a high-level programming language designed to compile into ES5 JavaScript, offering an exceptional blend of readability and simplicity. This makes it an ideal choice for beginners seeking an accessible entry point into programming. The language is crafted with three specific users in mind:
+
+- Freelancers who prioritize productivity and need to revisit their code years later with ease, ensuring quick comprehension of their past work.
+
+- New programmers struggling to grasp the meaning behind their code. MambaScript's readability is unparalleled, facilitating an easy writing and learning experience.
+
+- Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to JS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
+
+#### Why MambaScript? The name reflects the essence of what this language aims to achieve. Drawing inspiration from the mamba snake, just as Python does, MambaScript emphasizes strict indentation to enhance code cleanliness and readability. The term "Script" acknowledges its roots in scripting languages like JavaScript, while also nodding to the concept of Mamba Mentality. This mentality played a pivotal role when I transitioned from treating coding as a hobby to embracing it as my full-time profession. Despite financial hardships, my mindset and determination never wavered. I committed to honing my skills daily, embodying the relentless spirit of Mamba Mentality. This language is a tribute to that journey and to the legendary Kobe Bryant. RIP Kobe.
 
 <div class="card" style="background:transparent!important; border: none;">
   <div>
@@ -29,26 +54,6 @@ I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive expe
   </div>
 
   <div class="jss177 jss176 ">
-  <!--
-  $ 'div', { className: 'card' }, =>
-    $ 'a', { href: "/#{post._id}" }, =>
-      $ 'h5', { className: 'card-header'}, post.data.title
-    $ 'div', { className: 'card-body' }, =>
-        $ 'h5', { className: 'card-title'}, post.data.subTitle
-        $ 'p', { className: 'card-text'}, post.data.excerpt
-
-
-        $ 'div',{ className: 'full-blog container'}, =>
-          $ 'div', { className: 'card' }, =>
-            $ 'a', { href: "/#{post._id}" }, =>
-              $ 'h2', { className: 'card-header'}
-            $ 'div', { className: 'card-body' }, =>
-                $ 'h2', { className: 'card-title'}, post.data.title
-                $ 'h5', { className: 'card-title'}, post.data.subTitle
-                $ 'div', { className: 'card-img-container'}, =>
-                  $ 'img', { className: 'card-img', src: post.data.featureImage, alt: post.data.title }
-                $ 'div', { className: 'container mx-auto', dangerouslySetInnerHTML: { __html: post.content }}
-  -->
     <div class="card">
       <div class="card-header">
         <div class="card-img-container">
@@ -65,7 +70,7 @@ I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive expe
     </div>
     </div>
 
-    <div class="card">
+  <div class="card">
     <div class="card-header"><div class="card-img-container">
     <a href="#pablo"><img class="card-image" src="/img/girdle.de33f386.jpg" alt="..."></a></div>
     <div class="card-body">
@@ -77,7 +82,6 @@ I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive expe
     </div>
     </div>
     </div>
-
     <div class="card">
     <div class="card-header"><div class="card-img-container">
       <a href="#pablo"><img class="card-img" src="/img/tyler.26837006.jpeg" alt="..."></a>
@@ -92,7 +96,7 @@ I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive expe
     </div>
     </div>
 
-    <div class="card">
+  <div class="card">
       <div class="card-header"><div class="card-img-container"><a href="#pablo">
       <img class="card-img" src="/img/danny.cb9f92fc.jpeg" alt="..."></a></div>
       <div class="card-body">
@@ -106,4 +110,38 @@ I am familiar with Ruby, PHP, GoLang, Dart, C# and Python. I have extensive expe
       </div>
       </div>
       </div>
-</div>
+
+### Story and Mission
+
+### Press Coverage, Event Etc
+
+- [Gifts To Our People Colection in Bossip](https://bossip.com/2126945/gifts-to-our-people-nft-brylan-donaldson/)
+- [Deeper than code on fox news](https://fox2now.com/business/press-releases/ein-presswire/653952166/exploratory-podcast-deeper-than-code-seeks-to-demystify-technologys-broader-impacts-on-society-and-daily-lives/)
+- [Deeper than code New York Business Review](https://newyorkbusinessnow.com/unveiling-the-human-element-in-tech-deeper-than-code-with-arthur-bernier-jr/)
+- [Speaking at RideCon by Rolling Out 2024](https://rollingout.com/ride/)
+- [Speaking at The PropTech House at SXSW 2023](https://www.theproptechhouse.com/)
+
+Also has appeared in various digital panels, and live events since 2019.
+
+
+
+### Social Media
+
+- [Linkedin Big Poppa Code](https://linkedin.com/in/bigpoppacode)
+- [Instagram @bigpoppcode](https://instagram.com/bigpoppacode)
+- [Youtube @bigpoppcode](https://youtube.com/@bigpoppacode)
+- [TikTok @bigpoppacode](https://www.tiktok.com/@bigpoppacode)
+- [ X @bigpoppacode](https://x.com/bigpoppacode)
+
+### Some Selected Projects
+
+| Project | Description | Website |
+| ------------------ | ------------------------------------------ |  --------------------- |
+| Strat & Momentum Trading Indicator | Built and Compiled | <a target="_blank" href="https://www.tradingview.com/script/NixZYqho-Big-Poppa-Code-Strat-Momentum/">Strat & Momentum Indicator</a>|
+| Blavity.com | Full Stack Development & Ad Integrations | <a target="_blank" href="https://blavity.com">Blavity.com</a>|
+| Travelnoire.com | Full Stack Development & Ad Integrations | <a target="_blank" href="https://travelnoire.com">TravelNoire.com</a>|
+| Shadowandact.com | NodeJs Backend Development | <a target="_blank" href="https://shadowandact.com">ShadowAndAct.com</a>|
+| The Shade Room | Modern Wordpress Widgets & Ad Integrations | <a target="_blank" href="https://theshaderoom.com">TheShadeRoom.com</a>|
+| Parking Pass Desktop Application | Front End Development | <a target="_blank" href="https://oncallparking.com">OnCallParking.com</a>|
+| Baller Alert | Modern Wordpress Widgets & Ad Integrations | <a target="_blank" href="https://balleralert.com">BallerAlert.com</a>|
+| General Assembly | Software Engineering Lead Instructor| <a target="_blank" href="https://generalassemb.ly/instructors/arthur-m-bernier-jr/21139">GA Instructor Page</a>|
