@@ -1,7 +1,7 @@
 ---
-title: 'About Me'
-subTitle: '''Entrepreneur, Engineer, Technologist, Investor and Educator'''
-excerpt: 'This is the About Page'
+title: 'Arthur "BigPoppaCode" Bernier Jr'
+subTitle: 'Entrepreneur, Engineer, Technologist, Investor and Educator'
+excerpt: 'This is my About Page'
 featureImage: '/img/image1.jpeg'
 date: '10/21/21'
 ---
