@@ -48,7 +48,7 @@ date: '10/21/21'
 
 <br><br>
 
- 3.Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to JS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
+ 3.Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to TS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
 
 </h4>
 
