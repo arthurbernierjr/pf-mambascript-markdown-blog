@@ -135,12 +135,13 @@ Also has appeared in various digital panels, and live events since 2019.
 
 
 ### Social Media
-
-- [Linkedin Big Poppa Code](https://linkedin.com/in/bigpoppacode)
-- [Instagram @bigpoppcode](https://instagram.com/bigpoppacode)
-- [Youtube @bigpoppcode](https://youtube.com/@bigpoppacode)
-- [TikTok @bigpoppacode](https://www.tiktok.com/@bigpoppacode)
-- [ X @bigpoppacode](https://x.com/bigpoppacode)
+|  | 
+| ------------------ | 
+| [Linkedin Big Poppa Code](https://linkedin.com/in/bigpoppacode)|
+| [Instagram @bigpoppcode](https://instagram.com/bigpoppacode)|
+| [Youtube @bigpoppcode](https://youtube.com/@bigpoppacode)|
+| [TikTok @bigpoppacode](https://www.tiktok.com/@bigpoppacode)|
+| [ X @bigpoppacode](https://x.com/bigpoppacode)|
 
 ### Some Selected Projects
 
