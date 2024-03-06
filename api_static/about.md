@@ -42,11 +42,11 @@ date: '10/21/21'
 
 1.Freelancers who prioritize productivity and need to revisit their code years later with ease, ensuring quick comprehension of their past work.
 
-<br>
+<br><br>
 
 2.New programmers struggling to grasp the meaning behind their code. MambaScript's readability is unparalleled, facilitating an easy writing and learning experience.
 
-<br>
+<br><br>
 
  3.Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to JS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
 
