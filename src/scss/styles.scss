@@ -549,6 +549,12 @@ table{
     .card-img {
       max-width: 80%;
     }
+    h4 {
+      @include grid-media($mamba-grid-xs) {
+        font-size: 12px;
+        margin-bottom: 2.5rem;
+      }
+    }
   }
 
 
