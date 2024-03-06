@@ -38,11 +38,16 @@ date: '10/21/21'
 
 #### MambaScript is a high-level programming language designed to compile into ES5 JavaScript, offering an exceptional blend of readability and simplicity. This makes it an ideal choice for beginners seeking an accessible entry point into programming. The language is crafted with three specific users in mind:
 
+<h4>
+
 - Freelancers who prioritize productivity and need to revisit their code years later with ease, ensuring quick comprehension of their past work.
 
 - New programmers struggling to grasp the meaning behind their code. MambaScript's readability is unparalleled, facilitating an easy writing and learning experience.
 
 - Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to JS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
+
+</h4>
+
 
 #### Why MambaScript? The name reflects the essence of what this language aims to achieve. Drawing inspiration from the mamba snake, just as Python does, MambaScript emphasizes strict indentation to enhance code cleanliness and readability. The term "Script" acknowledges its roots in scripting languages like JavaScript, while also nodding to the concept of Mamba Mentality. This mentality played a pivotal role when I transitioned from treating coding as a hobby to embracing it as my full-time profession. Despite financial hardships, my mindset and determination never wavered. I committed to honing my skills daily, embodying the relentless spirit of Mamba Mentality. This language is a tribute to that journey and to the legendary Kobe Bryant. RIP Kobe.
 
