@@ -14,6 +14,8 @@ AppMobileNavBar = ->
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/contact' },  'Contact'
       $ 'li', { className: 'nav-item' }, =>
+        $ 'a', { href: '/programs' },  'My Programs'
+      $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/linkedin' }, 'LinkedIn'
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/youtube' }, 'YouTube'

@@ -1,0 +1,19 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ useState, useEffect, Fragment } = require 'react'
+$ = Decision(React).$
+FullBlog = require '../components/FullBlog.mamba'
+# { Link } = require 'react-router-mambascript'
+AppLayout = require '../layout/AppLayout.mamba'
+
+Show = (props)->
+  return (
+    unless Object.keys(props.post).length
+      $ 'h1', 'Loading ...'
+    else
+      $ AppLayout, { title: props.post.data.title, description: props.post.data.subTitle}, =>
+        $ 'main', { className: 'container program' }, =>
+         $ FullBlog, { post: props.post }
+  )
+
+module.exports = Show

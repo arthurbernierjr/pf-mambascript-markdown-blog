@@ -380,6 +380,35 @@ $ 'nav', { className: 'navbar card'}, =>
 .container.showpage {
   max-width: 100%;
 }
+
+.container.program {
+  max-width: 100%;
+  h1, h2, a {
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px rgba(0,77,0, 0.7), 0 0 50px rgba(0,77,0, 0.7), 0 0 60px rgba(0,77,0, 0.7), 0 0 70px rgba(0,77,0, 0.7), 0 0 80px rgba(0,77,0, 0.7);
+  }
+  .subTitle, h2.card-title, .card-body, h5.card-title {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h5.card-title, strong {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}
+
+
 .post-content{
   .card {
     &-header {
@@ -724,15 +753,18 @@ h3 + ol, h2 + ol, h3 + ul, h2 + ul {
   font-size: 1.5rem;
   text-align: center;
   li {
-    @include keyframes(glow) {
-      from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60011, 0 0 40px #e60011, 0 0 50px #e60011, 0 0 60px #e60011, 0 0 70px #e60011;
-      }
-      to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px rgba(0,77,0, 0.7), 0 0 50px rgba(0,77,0, 0.7), 0 0 60px rgba(0,77,0, 0.7), 0 0 70px rgba(0,77,0, 0.7), 0 0 80px rgba(0,77,0, 0.7);
-      }
-    }
-   @include animate(glow, 1s, ease-in-out, infinite, alternate);
+    // @include keyframes(glow) {
+    //   from {
+    //     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60011, 0 0 40px #e60011, 0 0 50px #e60011, 0 0 60px #e60011, 0 0 70px #e60011;
+    //   }
+    //   to {
+    //     text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px rgba(0,77,0, 0.7), 0 0 50px rgba(0,77,0, 0.7), 0 0 60px rgba(0,77,0, 0.7), 0 0 70px rgba(0,77,0, 0.7), 0 0 80px rgba(0,77,0, 0.7);
+    //   }
+    // }
+    // text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px rgba(0,77,0, 0.7), 0 0 50px rgba(0,77,0, 0.7), 0 0 60px rgba(0,77,0, 0.7), 0 0 70px rgba(0,77,0, 0.7), 0 0 80px rgba(0,77,0, 0.7);
+  //  @include animate(glow, 3s, ease-in-out, 3s, alternate);
    margin-bottom: 0.5rem;
   }
 }
+
+
