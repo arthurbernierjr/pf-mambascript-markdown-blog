@@ -46,7 +46,7 @@ function createEngine(engineOptions) {
       markup += ReactDOMServer.renderToStaticMarkup(
         React.createElement(component, options)
       );
-      markup += `<div class="copyright"><span>&copy; ${new Date().getFullYear()} BigPoppaCode & Progress and Fortune LLC </span></div>`
+      markup += `<div class="copyright"><span>&copy; ${new Date().getFullYear()} BigPoppaCode & Progress and Fortune LLC </span></div> <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"53e647e9586036c96057c41e957a05d7"})});</script>`
     } catch (e) {
       return cb(e);
     } finally {
