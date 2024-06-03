@@ -1,0 +1,18 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ Fragment } = require 'react'
+$ = Decision(React).$
+# { Link } = require 'react-router-mambascript'
+
+FullBlog= (props) ->
+  { post } = props
+  return (
+    $ 'div',{ className: 'container'}, =>
+      $ 'div', { className: 'card' }, =>
+        $ 'div', { className: 'card-body' }, =>
+            $ 'h1', { className: 'card-title'}, post.data.title
+            $ 'h3', { className: 'card-title'}, post.data.subTitle
+            $ 'div', { className: 'container mx-auto', dangerouslySetInnerHTML: { __html: post.content }}
+  )
+
+module.exports = FullBlog

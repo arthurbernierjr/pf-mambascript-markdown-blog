@@ -1,0 +1,19 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ useState, useEffect, Fragment } = require 'react'
+$ = Decision(React).$
+Plain = require '../components/Plain.mamba'
+# { Link } = require 'react-router-mambascript'
+SalesLayout = require '../layout/SalesLayout.mamba'
+
+Show = (props)->
+  return (
+    unless Object.keys(props.post).length
+      $ 'h1', 'Loading ...'
+    else
+      $ SalesLayout, { title: props.post.data.title, description: props.post.data.subTitle}, =>
+        $ 'main', { className: 'container' }, =>
+         $ Plain, { post: props.post }
+  )
+
+module.exports = Show
