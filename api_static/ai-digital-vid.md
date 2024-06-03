@@ -11,7 +11,7 @@ date: '10/21/21'
   width="640"
   height="360" 
   style="height: auto; width: 80%; aspect-ratio: 640 / 360;"
-  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+  allow="fullscreen; encrypted-media; picture-in-picture"
   allowfullscreen
   frameborder="0"
 ></iframe>
