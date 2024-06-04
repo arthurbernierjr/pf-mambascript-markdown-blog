@@ -16,6 +16,8 @@ AppLayout = (props)->
       $ 'meta', { name: 'viewport', content: 'width=device-width, initial-scale=1'}
       $ 'title', props.title
       $ 'meta', { name: 'description', content: props.description}
+      $ 'meta', { property: 'og:description', content: props.description}
+      $ 'meta', { property: 'og:image', content: props.featureImage or '/img/BigPapaCode.png'}
       $ 'link', { rel:'stylesheet', href: '/css/styles.css' }
       $ 'link', { rel:'stylesheet', href: '/prism.css' }
       $ 'link', { rel:"apple-touch-icon", sizes:"180x180", href:"/apple-touch-icon.png"}
