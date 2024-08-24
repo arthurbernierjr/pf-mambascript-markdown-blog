@@ -15,17 +15,12 @@ Contact = (props)->
         $ 'main', { className: 'container showpage', id: 'contact-page' }, =>
           $ 'h4', { className: 'allposts-transition'}, =>
             $ 'span', {style: {display: 'block', fontSize: '3rem', textDecoration: 'underline' }}, 'CONTACT ME'
-          $ 'a', { className: 'btn btn-dark btn-block', href: 'mailto:boss@bigpoppacode.io'}, =>
+          $ 'a', { className: 'btn btn-dark btn-block', href: 'mailto:him@bigpoppacode.io'}, =>
             $ 'h4', { className: 'motto email' }, =>
-              $.text 'Click Here to Email Me at boss@bigpoppacode.io'
+              $.text 'Click Here to Email Me at him@bigpoppacode.io'
           $ 'a', { className: 'btn btn-dark btn-block', href: 'https://my.community.com/bigpoppacode'}, =>
             $ 'h4', { className: 'motto community' }, =>
               $.text 'Click Here or Text +14049620908 To Sign Up For Text Updates/Chat With Me'
-          $ 'span', { className: 'btn btn-dark btn-block' }, =>
-            $ 'h4', { className: 'motto community'}, """
-              Mail Me at:
-              3015 RN Martin Street #104, East Point, GA 30344, United States
-            """
           $ PillarContent, { post: props.post }
           $ 'h1', { style: { textAlign: 'center' }}, =>
             $.text 'Book An Appointment With Me'
