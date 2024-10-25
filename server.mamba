@@ -28,6 +28,7 @@ db.on 'open', -> present 'Connected to Mongo'
 
 # Middleware
 app.use express.json()
+app.use express.urlencoded({ extended: true })
 app.set 'views', './src'
 app.set 'view engine', 'mamba'
 app.engine 'mamba', require('./engine.js').createEngine()
@@ -35,7 +36,7 @@ app.use express.static('public')
 app.use '/addLead', leads
 
 app.get '/linkedin', (req, res) ->
-  res.redirect('https://linkedin.com/in/developmentandmanagement')
+  res.redirect('https://linkedin.com/in/bigpoppacode')
 
 app.get '/twitter', (req, res) ->
   res.redirect('https://twitter.com/bigpoppacode')
@@ -119,6 +120,18 @@ app.get '/a7575/ai-in-digital-marketing', (req, res) ->
       } 
 app.get '/go/ai-in-digital-marketing-video', (req, res) -> 
   res.sendFile path.resolve(__dirname, 'public','main.html')
+
+app.get '/go/5million', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','5Million.html')
+
+app.get '/go/5Million', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','5Million.html')
+
+app.get '/go/2032', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','2032.html')
+
+app.get '/go/2032/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','2032Book.pdf')
 
 app.get '/start-here', (req, res) ->
   fs.readFile "#{pillar}/start-here.json", 'utf8', (err, file) ->

@@ -7,7 +7,7 @@
   --old-light-background: #fff;
   --old-dark-background: #000;
  */
-
+  --thug-color: #023864;
   --primary-color: #00bf63;
   --primary-color-half-opacity: #00bf6380;
   --alternative-green-color: #026435e2;
@@ -158,7 +158,7 @@
 
 .logo-p-1 {
   background: linear-gradient(
-    #026435,
+    #023864,
     white
   );
   background-clip: text;
@@ -170,7 +170,7 @@
 .logo-p-2 {
   background: linear-gradient(
     white,
-    #026435
+    #023864
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -181,7 +181,7 @@
 .logo-p-3 {
   background: linear-gradient(
     white,
-    #026435
+    #028cfd
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -216,6 +216,11 @@
   .logo-p-3 {
     font-size: 2.2rem !important;
   }
+}
+input.text[type="text"]{
+  height: 3.5rem;
+  max-width: 90%; 
+  font-size: 2.2rem;
 }
 
 /* --- */

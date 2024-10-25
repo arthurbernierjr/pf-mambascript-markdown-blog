@@ -10,9 +10,10 @@ router.get '/', (req, res) ->
 router.post '/', (req, res) ->
   Lead.create(req.body, (err, createdLead) ->
     unless err
-      res.status(200).json({ msg: 'lead created' })
+      res.redirect('/go/2032')
     else
-      res.status(400).json({ msg: err.message })
+      console.error(err)
+      res.status(400).redirect('/')
   )
 
 module.exports = router
