@@ -130,6 +130,9 @@ app.get '/go/5Million', (req, res) ->
 app.get '/go/2032', (req, res) -> 
   res.sendFile path.resolve(__dirname, 'public','2032.html')
 
+app.get '/go/2032/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','2032thankyou.html')
+
 app.get '/go/2032/qwertyuiopxz', (req, res) -> 
   res.sendFile path.resolve(__dirname, 'public','2032Book.pdf')
 
