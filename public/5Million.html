@@ -87,20 +87,24 @@
           <br>
           <div class="formcontent" style="min-width:320px; width: 100%; margin:0px auto;padding-top:5px;">
 
-            <!-- YOUR AUTORESPONDER CODE STARTS HERE -->
+            <!-- YOUR AUTORESPONDER CODE STARTS HERE dog -->
 
-            <form action="/addlead" method="post">
+            <form action="/addlead" method="post" onsubmit="return validateForm()">
               <input class="text" type="text" size="30" placeholder="Enter your name..." name="name"
                 onblur="if (this.value == '') {this.value = 'Enter your name...';}"
-                onfocus="if (this.value == 'Enter your name...') {this.value = '';}" /><br />
-              <input class="text" type="text" size="30" placeholder="Enter your email..." name="email"
+                onfocus="if (this.value == 'Enter your name...') {this.value = '';}" required />
+              <br/>
+              <input class="text" type="email" size="30" placeholder="Enter your email..." name="email"
                 onblur="if (this.value == '') {this.value = 'Enter your email...';}"
-                onfocus="if (this.value == 'Enter your email...') {this.value = '';}" />
+                onfocus="if (this.value == 'Enter your email...') {this.value = '';}" required />
               <div style="padding-top:5px;">
                 <center>
                   <input class="button1" id="submit" type="image" src="/orange_getaccessnow.png" name="submit"
                     value="Get Access Now" />
                 </center>
+              </div>
+              <div id="error-message" style="color: #ff0000; font-weight: bold; margin-top: 10px; display: none;">
+                Your email/name was invalid please try again
               </div>
             </form>
 
@@ -219,20 +223,25 @@
             <br>
             <div class="formcontent" style="min-width:320px; width: 100%; margin:0px auto;padding-top:5px;">
 
-              <!-- YOUR AUTORESPONDER CODE STARTS HERE -->
+              <!-- YOUR AUTORESPONDER CODE STARTS HERE dog -->
 
-              <form action="/addlead" method="post">
+              <form action="/addlead" method="post" onsubmit="return validateForm()">
+                <center>
                 <input class="text" type="text" size="30" placeholder="Enter your name..." name="name"
                   onblur="if (this.value == '') {this.value = 'Enter your name...';}"
-                  onfocus="if (this.value == 'Enter your name...') {this.value = '';}" />
-                <input class="text" type="text" size="30" placeholder="Enter your email..." name="email"
+                  onfocus="if (this.value == 'Enter your name...') {this.value = '';}" required />
+                <br/>
+                <input class="text" type="email" size="30" placeholder="Enter your email..." name="email"
                   onblur="if (this.value == '') {this.value = 'Enter your email...';}"
-                  onfocus="if (this.value == 'Enter your email...') {this.value = '';}" />
+                  onfocus="if (this.value == 'Enter your email...') {this.value = '';}" required />
                 <div style="padding-top:5px;">
-                  <center>
+                 
                     <input class="button1" id="submit" type="image" src="/orange_getaccessnow.png" name="submit"
                       value="Get Access Now" />
                   </center>
+                </div>
+                <div id="error-message" style="color: #ff0000; font-weight: bold; margin-top: 10px; display: none;">
+                  Your email/name was invalid please try again
                 </div>
               </form>
 
@@ -347,6 +356,24 @@
     document.getElementById('num-copy').innerHTML = `&copy; ${new Date().getFullYear()} &nbsp;`
   </script>
   <script>function loadScript(a) { var b = document.getElementsByTagName("head")[0], c = document.createElement("script"); c.type = "text/javascript", c.src = "https://tracker.metricool.com/resources/be.js", c.onreadystatechange = a, c.onload = a, b.appendChild(c) } loadScript(function () { beTracker.t({ hash: "53e647e9586036c96057c41e957a05d7" }) });</script>
+  <script>
+  function validateForm() {
+    const name = document.getElementsByName('name')[0].value;
+    const email = document.getElementsByName('email')[0].value;
+    const errorMessage = document.getElementById('error-message');
+    
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!name || name === 'Enter your name...' || !email || !emailRegex.test(email)) {
+      errorMessage.style.display = 'block';
+      return false;
+    }
+    
+    errorMessage.style.display = 'none';
+    return true;
+  }
+  </script>
 </body>
 
 </html>
