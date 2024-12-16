@@ -18,7 +18,7 @@ router.post '/', (req, res) ->
 
   Lead.create(req.body, (err, createdLead) ->
     unless err
-      res.redirect('/go/2032/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc')
+      res.redirect('/go/2032')
     else
       console.error(err)
       res.status(400).redirect('/go/5Million')
