@@ -217,7 +217,7 @@
     font-size: 2.2rem !important;
   }
 }
-input.text[type="text"], input.text[type="email"]{
+input.text[type="text"], input.text[type="email"], input.text[type="tel"]{
   height: 3.5rem;
   max-width: 90%; 
   font-size: 2.2rem;
