@@ -283,6 +283,7 @@
     .testimonial-content {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 1rem;
     }
 
@@ -290,18 +291,20 @@
       font-style: italic;
       color: #666;
       line-height: 1.6;
+      flex-basis: 70%;
     }
 
     .testimonial-author {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-top: 1rem;
+      padding-top: 1rem;
+      flex-basis: 30%;
     }
 
     .testimonial-author img {
-      width: 50px;
-      height: 50px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -309,7 +312,7 @@
     .author-details h4 {
       color: #023864;
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 600;
     }
 
@@ -330,10 +333,139 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .purchase-form-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .purchase-form-card h3 {
+      color: #023864;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      margin-bottom: 1.25rem;
+      border: 2px solid #e1e1e1;
+      border-radius: 8px;
+      font-size: 2rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+      font-weight: 500;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #023864;
+      box-shadow: 0 0 0 3px rgba(2, 56, 100, 0.1);
+    }
+
+    .form-input::placeholder {
+      color: #999;
+      font-size: 2rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background: #ffd700;
+      border: none;
+      border-radius: 8px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #023864;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: #ffe033;
+    }
+
+    #error-message {
+      color: #dc3545;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background-color: #f0f0f0;
+    }
+
+    .modal-message {
+      font-size: 2rem;
+      color: #dc3545;
+      text-align: center;
+      margin: 1rem 0;
+    }
   </style>
 </head>
 
 <body>
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h1>Error</h1>
+      <p>There was an error with your form submission. Please try again. See below for more details.</p>
+      <div class="modal-message" id="modalMessage"></div>
+    </div>
+  </div>
+
   <div class="header blockchain-bg dark-tint">
     <div class="container">
       <div class="row">
@@ -346,50 +478,52 @@
           <h3 style="color: #ffd700; font-weight: 600;">Get the tools, strategies, and step-by-step systems for just $27</h3>
           
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <center>
                 <div class="video-container">
                     <!-- your video url here below -->
-                  <iframe
-                    src="https://player.cloudinary.com/embed/?public_id=VID__withBGM_oxmean&cloud_name=seventh-ave-inc&player[posterOptions][transformation][start_offset]=20&player[autoplay]=true&player[autoplayMode]=on-scroll&player[loop]=true&player[pictureInPictureToggle]=true&player[floatingWhenNotVisible]=right&player[showLogo]=false&source[sourceTypes][0]=webm%2Fvp9&source[sourceTypes][1]=mp4%2Fh264&source[sourceTypes][2]=mp4%2Fh265"
-                    width="700" height="400" 
+                    <iframe
+                    src="https://player.cloudinary.com/embed/?public_id=BigPoppaCode_WhiteBoard_Highlight2_mvxjsz&cloud_name=seventh-ave-inc&profile=loop"
+                    width="640"
+                    height="360"
                     allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                    allowfullscreen frameborder="0">
-                  </iframe>
+                    undefined
+                    allowfullscreen
+                    frameborder="0"
+                  ></iframe>
                 </div>
               </center>
-            </div>
-            <div class="col-md-6">
-              <ul class="list-icon-1" style="margin-top: 2rem;">
-                <li class="text-shadow">Get instant access to proven wealth-building strategies worth $997</li>
-                <li class="text-shadow">Learn how to leverage AI and digital products for passive income</li>
-                <li class="text-shadow">Unlock exclusive bonuses to accelerate your success</li>
-              </ul>
             </div>
           </div>
 
-          <div class="formcontent" style="min-width:320px; width: 100%; margin:0px auto;padding-top:5px;">
+          <div class="purchase-form-card">
             <form action="/start-purchase" method="post" onsubmit="return validateForm()">
-                <h3 style="color: #ffd700; font-weight: 600;">Start Your Purchase Here</h3>
-              <center>
-                <input class="text" type="text" size="30" placeholder="Enter your name..." name="name"
-                  onblur="if (this.value == '') {this.value = 'Enter your name...';}"
-                  onfocus="if (this.value == 'Enter your name...') {this.value = '';}" required />
-                <br/>
-                <input class="text" type="email" size="30" placeholder="Enter your email..." name="email"
-                  onblur="if (this.value == '') {this.value = 'Enter your email...';}"
-                  onfocus="if (this.value == 'Enter your email...') {this.value = '';}" required />
-                <br/>
-                <input class="text" type="tel" size="30" placeholder="Enter your phone..." name="phone"
-                  onblur="if (this.value == '') {this.value = 'Enter your phone...';}"
-                  onfocus="if (this.value == 'Enter your phone...') {this.value = '';}" required />
-                <div style="padding-top:5px;">
-                  <input class="button1" id="submit" type="image" src="/orange_getaccessnow.png" name="submit"
-                    value="Get Access Now" />
-                </div>
-              </center>
-              <div id="error-message" style="color: #ff0000; font-weight: bold; margin-top: 10px; display: none;">
+              <h2 style="color: #ffd700; font-weight: 600;">Start Your Purchase Here</h2>
+              <input 
+                class="form-input" 
+                type="text" 
+                placeholder="Enter your name..." 
+                name="name"
+                required 
+              />
+              <input 
+                class="form-input" 
+                type="email" 
+                placeholder="Enter your email..." 
+                name="email"
+                required 
+              />
+              <input 
+                class="form-input" 
+                type="tel" 
+                placeholder="Enter your phone..." 
+                name="phone"
+                required 
+              />
+              <button type="submit" class="form-submit">
+                Go To Checkout
+              </button>
+              <div id="error-message" style="display: none;">
                 Your email/name was invalid please try again
               </div>
             </form>
@@ -524,27 +658,16 @@
         </div>
       </div>
 
-      <!-- Bonus 6 -->
-      <div class="bonus-card">
-        <div class="bonus-content">
-          <div class="bonus-image">
-            <img src="/bonus6.png" alt="Quick Start Guide" />
-          </div>
-          <div class="bonus-details">
-            <h4>Bonus #6: Quick Start Guide</h4>
-            <p>Step-by-step instructions to maximize your guides and bonuses.</p>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Bonus 7 -->
       <div class="bonus-card">
         <div class="bonus-content">
           <div class="bonus-image">
-            <img src="/bonus7.png" alt="Big Poppa Code Strat" />
+            <img src="/bonus6.png" alt="Big Poppa Code Strat" />
           </div>
           <div class="bonus-details">
-            <h4>Bonus #7: The Big Poppa Code Strat and Momentum Indicator</h4>
+            <h4>Bonus #6: The Big Poppa Code Strat and Momentum Indicator</h4>
             <p>Master day trading with TradingView's advanced strategy combining ATR Fibonacci Levels, Price Action, and Momentum.</p>
           </div>
         </div>
@@ -553,15 +676,30 @@
     <div class="bonus-card">
         <div class="bonus-content">
           <div class="bonus-image">
-            <img src="/bonus8.png" alt="Big Poppa Code Strat" />
+            <img src="/bonus7.png" alt="Big Poppa Code Strat" />
           </div>
           <div class="bonus-details">
-            <h4>Bonus #8: DIY Credit Repair Software</h4>
+            <h4>Bonus #7: DIY Credit Repair Software</h4>
             <p>Take control of your financial future with our DIY Credit Repair Software, designed to help you improve your credit score and maintain a healthy credit profile without expensive credit repair services.</p>
           </div>
         </div>
       </div>
+          <!-- Bonus 8 -->
+          <div class="bonus-card">
+            <div class="bonus-content">
+              <div class="bonus-image">
+                <img src="/quickstartguide.png" alt="Quick Start Guide" />
+              </div>
+              <div class="bonus-details">
+                <h4>Bonus #8: Quick Start Guide</h4>
+                <p>Step-by-step instructions to maximize your guides and bonuses.</p>
+              </div>
+            </div>
+          </div>
+
     </div>
+
+
 
     <h2>Real Results from Real People</h2>
     <div class="testimonial-container">
@@ -570,7 +708,7 @@
         <div class="testimonial-video">
           <div class="video-container">
             <iframe
-              src="YOUR_TESTIMONIAL_VIDEO_URL"
+              src="https://player.cloudinary.com/embed/?public_id=testimonial-short-liberty-dqlpzk&cloud_name=seventh-ave-inc&player[showLogo]=false"
               width="700" height="400"
               allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
               style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
@@ -585,12 +723,13 @@
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-text">
-                <p><em>"This pack showed me how to start earning $2K/month using AI tools. Worth every penny!"</em></p>
+                <p><em>"Arthur delivered exactly what I needed. It's rare you find someone who can take your idea to the next level but I promise if you trust him with your ideas he can develop exactly what you need & more."
+                  </em></p>
               </div>
               <div class="testimonial-author">
-                <img src="/testimonial1.png" alt="Testimonial Author" />
+                <img src="/img/girdle.de33f386.jpg" alt="Testimonial Author" />
                 <div class="author-details">
-                  <h4>John Smith</h4>
+                  <h4>Daniel Girdle</h4>
                   <p>Digital Entrepreneur</p>
                 </div>
               </div>
@@ -601,13 +740,13 @@
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-text">
-                <p><em>"I turned $0 into $400/month passive income with the Rich King Bundle."</em></p>
+                <p><em>"What seperates Arthur is how much time he puts into learning and his own personal growth. He is always looking for ways to improve and grow. I have learned so much from him and I am grateful for his help."</em></p>
               </div>
               <div class="testimonial-author">
-                <img src="/testimonial2.png" alt="Testimonial Author" />
+                <img src="/img/liberty.jpeg" alt="Testimonial Author" />
                 <div class="author-details">
-                  <h4>Sarah Johnson</h4>
-                  <p>Content Creator</p>
+                  <h4>Liberty Madison</h4>
+                  <p>The Oprah of Silicon Valley</p>
                 </div>
               </div>
             </div>
@@ -617,13 +756,13 @@
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-text">
-                <p><em>"The Million Dollar AI Content Play completely changed how I approach content creation. Game changer!"</em></p>
+                <p><em>"What I love most about working with Big Poppa Code is his brain. He's like a human AI. I've learned so much from him and I'm grateful for his help.Whether it's business, personal growth, or just life in general, I'm going to him."</em></p>
               </div>
               <div class="testimonial-author">
-                <img src="/testimonial3.png" alt="Testimonial Author" />
+                <img src="/img/chrissy.jpg" alt="Testimonial Author" />
                 <div class="author-details">
-                  <h4>Mike Williams</h4>
-                  <p>AI Consultant</p>
+                  <h4>Chrissy Todd</h4>
+                  <p>Content Creator and Social Media Influencer</p>
                 </div>
               </div>
             </div>
@@ -633,38 +772,45 @@
     </div>
   </div>
 
-  <div class="header bg-dark blockchain-bg">
+  <div class="header bg-dark blockchain-bg" style="padding: 4rem;">
     <h2 style="color: #fdfcf1; font-weight: 600; text-align: center; font-size: 4.2rem;">Ready to Transform Your Financial Future?</h2>
-    <p style="color: #fdfcf1; font-weight: 600; text-align: center; font-size: 3.2rem;">For just $27, <br> you get lifetime access to 4 guides and 7 exclusive bonuses. <br> This offer won't last forever—act now!</p>
-    <div class="formcontent" style="min-width:320px; width: 100%; margin:0px auto;">
+    <p style="color: #fdfcf1; font-weight: 600; text-align: center; font-size: 3.2rem;">For Just $27, <br> You Get Lifetime Access to 4 Guides and 8 Exclusive Bonuses. <br> This Offer Won't Last Forever—Act Now!</p>
+    <div class="purchase-form-card">
       <form action="/start-purchase" method="post" onsubmit="return validateForm()">
-        <h3 style="color: #ffd700; font-weight: 600; text-align: center;">Start Your Purchase Here</h3>
-        <center>
-          <input class="text" type="text" size="30" placeholder="Enter your name..." name="name"
-            onblur="if (this.value == '') {this.value = 'Enter your name...';}"
-            onfocus="if (this.value == 'Enter your name...') {this.value = '';}" required />
-          <br/>
-          <input class="text" type="email" size="30" placeholder="Enter your email..." name="email"
-            onblur="if (this.value == '') {this.value = 'Enter your email...';}"
-            onfocus="if (this.value == 'Enter your email...') {this.value = '';}" required />
-          <br/>
-          <input class="text" type="tel" size="30" placeholder="Enter your phone..." name="phone"
-            onblur="if (this.value == '') {this.value = 'Enter your phone...';}"
-            onfocus="if (this.value == 'Enter your phone...') {this.value = '';}" required />
-          <div style="padding-top:5px;">
-            <input class="button1" id="submit" type="image" src="/orange_getaccessnow.png" name="submit"
-              value="Get Access Now" />
-          </div>
-        </center>
-        <div id="error-message" style="color: #ff0000; font-weight: bold; margin-top: 10px; display: none;">
+        <h2 style="color: #ffd700; font-weight: 600;">Start Your Purchase Here</h2>
+        <input 
+          class="form-input" 
+          type="text" 
+          placeholder="Enter your name..." 
+          name="name"
+          required 
+        />
+        <input 
+          class="form-input" 
+          type="email" 
+          placeholder="Enter your email..." 
+          name="email"
+          required 
+        />
+        <input 
+          class="form-input" 
+          type="tel" 
+          placeholder="Enter your phone..." 
+          name="phone"
+          required 
+        />
+        <button type="submit" class="form-submit">
+          Get Access Now
+        </button>
+        <div id="error-message" style="display: none;">
           Your email/name was invalid please try again
         </div>
       </form>
     </div>
   </div>
 
-  <p style="color: #ffffff;">
-    <div class="copyright"><span id="num-copy"></span><span>BigPoppaCode & Progress and Fortune LLC &copy; <script>document.write(new Date().getFullYear())</script></span></div>
+  <p>
+    <div class="copyright" style="text-align: center;"><span id="num-copy"></span><span>BigPoppaCode & Progress and Fortune LLC &copy; <script>document.write(new Date().getFullYear())</script></span></div>
     </p>
 
   <script>
@@ -688,6 +834,39 @@
       
       errorMessage.style.display = 'none';
       return true;
+    }
+    
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function showModal(message) {
+      const modal = document.getElementById('errorModal');
+      const modalMessage = document.getElementById('modalMessage');
+      modalMessage.textContent = message;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('errorModal');
+      modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById('errorModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Check for error message on page load
+    window.onload = function() {
+      const errorMessage = getQueryParam('error');
+      if (errorMessage) {
+        showModal(decodeURIComponent(errorMessage));
+      }
     }
   </script>
 </body>

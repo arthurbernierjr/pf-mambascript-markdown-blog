@@ -92,6 +92,15 @@ app.get '/contact', (req, res) ->
         post: JSON.parse(file)
       }
 
+app.get '/chatgpt', (req, res) ->
+  fs.readFile "#{json}_static/chat-gpt-prompts-goldmine.json", 'utf8', (err, file) ->
+    if err
+      console.error(err)
+    else
+      res.render 'pages/Show', {
+        post: JSON.parse(file)
+      }
+
 app.get '/projects', (req, res) ->
   fs.readFile "#{json}_static/projects.json", 'utf8', (err, file) ->
     if err
@@ -149,7 +158,40 @@ app.get '/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b5
   res.sendFile path.resolve(__dirname, 'public','27thankyou.html')
 
 app.get '/go/2032/qwertyuiopxz', (req, res) -> 
-  res.sendFile path.resolve(__dirname, 'public','2032-survival-guide.pdf')
+  res.sendFile path.resolve(__dirname, 'public', 'guides','2032-survival-guide.pdf')
+
+app.get '/go/27/5million/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','5million.pdf')
+
+app.get '/go/27/tewb/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','tewb.pdf')
+
+app.get '/go/27/confessions/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','confessions.pdf')
+
+app.get '/go/27/quickstart/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','quickstartguide.pdf')
+
+app.get '/go/27/bonus1/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus1.pdf')
+
+app.get '/go/27/bonus2/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus2.pdf')
+
+app.get '/go/27/bonus3/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus3.pdf')
+
+app.get '/go/27/bonus4/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus4.pdf')
+
+app.get '/go/27/bonus5/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus5.pdf')
+
+app.get '/go/27/bonus6/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus6.pdf') 
+
+app.get '/go/27/bonus7/qwertyuiopxz', (req, res) -> 
+  res.sendFile path.resolve(__dirname, 'public','guides','bonus7.pdf') 
 
 app.get '/start-here', (req, res) ->
   fs.readFile "#{pillar}/start-here.json", 'utf8', (err, file) ->
