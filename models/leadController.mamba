@@ -29,7 +29,7 @@ router.post '/start-purchase', (req, res) ->
   email = req.body.email
   phone = req.body.phone
   emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/
+  phoneRegex = /^\+?(?:\d{1,3}|\(\d{1,3}\))[-\s]?\d{3}[-\s]?\d{4}$/
 
   isPhoneValid = unless !phone then phoneRegex.test(phone) else true
 
