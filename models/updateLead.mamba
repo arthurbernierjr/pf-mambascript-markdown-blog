@@ -1,0 +1,32 @@
+require('mambascript').register()
+require('dotenv').config()
+Lead = require './Lead.mamba'
+sgMail = require '@sendgrid/mail'
+
+sgMail.setApiKey process.env.SENDGRID_API_KEY
+
+updateLead = (req, res, next) ->
+  id = req.query.utm_content
+  if !id
+    next()
+    return
+
+  Lead.findByIdAndUpdate(id, { $set: { status: 'paid' } }, (err, lead) ->
+    unless err
+      msg = {
+        to: lead.email,
+        from: 'him@bigpoppacode.io',
+        subject: 'Thank you for your purchase!',
+        text: "Peace Family, Thank you for your purchase! We're excited to have you onboard! You can access your purchase here: https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email",
+        html: """<p>Peace Family, 
+        Thank you for your purchase! 
+        We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a></p>"""
+      }
+      sgMail.send(msg)
+      next()
+    else
+      console.error err
+      next()
+  )
+
+module.exports = updateLead
