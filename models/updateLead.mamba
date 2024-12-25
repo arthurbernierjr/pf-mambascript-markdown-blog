@@ -8,6 +8,7 @@ sgMail.setApiKey process.env.SENDGRID_API_KEY
 updateLead = (req, res, next) ->
   id = req.query.utm_content
   if !id
+    present 'error', 'No ID provided'
     next()
     return
 
@@ -22,8 +23,13 @@ updateLead = (req, res, next) ->
         Thank you for your purchase! 
         We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a></p>"""
       }
-      sgMail.send(msg)
-      next()
+      sgMail.send(msg).then(->
+        present 'success', 'Email sent'
+        next()
+      ).catch(->
+        present 'error', 'Error sending email'
+        next()
+      )
     else
       console.error err
       next()
