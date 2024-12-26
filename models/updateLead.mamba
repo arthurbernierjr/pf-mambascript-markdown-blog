@@ -46,10 +46,10 @@ updateLead = (req, res, next) ->
         }
       )
 
-      Lead.findByIdAndUpdate(id, { $set: { status: 'paid' } }, (err, lead) ->
+      Lead.findByIdAndUpdate(id, { $set: { status: '27dollarpack' } }, (err, lead) ->
         unless err
           msg = {
-            to: [lead.email, lead.name, 'to'],
+            to: [{ email: lead.email, name: lead.name }],
             track_opens: yes,
             track_clicks: yes,
             bcc_address: 'him@bigpoppacode.io',
@@ -60,7 +60,8 @@ updateLead = (req, res, next) ->
             html: """<p>Peace Family, 
             Thank you for your purchase! 
             We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a>
-            </p>"""
+            </p>""",
+            attachments: attachments
           }
           mailchimpClient.messages.send({ message: msg }).then((response) ->
             present "success: #{response.email} Email #{response.status} #{if response.status is 'rejected' then response.reject_reason else ''} #{if response.status is 'queued' then response.queued_reason else ''}"
@@ -75,7 +76,7 @@ updateLead = (req, res, next) ->
       ))
     .catch((err) ->
       console.error err
-      present 'error', 'Error processing attachments'
+      present 'error', 'Error with primary functionality'
       next()
     )
 
