@@ -64,6 +64,7 @@ updateLead = (req, res, next) ->
             attachments: attachments
           }
           mailchimpClient.messages.send({ message: msg }).then((response) ->
+            present response
             present "success: #{response.email} Email #{response.status} #{if response.status is 'rejected' then response.reject_reason else ''} #{if response.status is 'queued' then response.queued_reason else ''}"
             next()
           ).catch(->
