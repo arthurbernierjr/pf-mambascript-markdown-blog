@@ -46,7 +46,7 @@ updateLead = (req, res, next) ->
         }
       )
 
-      Lead.findByIdAndUpdate(id, { $set: { status: '27dollarpack' } }, (err, lead) ->
+      Lead.findByIdAndUpdate(id, { $set: { status: 'wealthpack' } }, (err, lead) ->
         unless err
           msg = {
             to: [{ email: lead.email, name: lead.name }],
