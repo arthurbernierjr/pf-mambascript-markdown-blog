@@ -56,14 +56,11 @@ updateLead = (req, res, next) ->
             from_email: 'him@bigpoppacode.io',
             from_name: 'Big Poppa Code',
             subject: 'Your Big Poppa Code 2032 Wealth Pack is ready!',
-            text: "Peace Family, Thank you for your purchase! We're excited to have you onboard! You can access your purchase here: https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email or by viewing the attached PDFs.",
+            text: "Peace Family, Thank you for your purchase! We're excited to have you onboard! You can access your purchase here: https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_source=email or by viewing the attached PDFs.",
             html: """<p>Peace Family, 
             Thank you for your purchase! 
-            We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a>
-            <br>
-            You can also view the attached PDFs.
-            </p>""",
-            attachments: attachments
+            We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a>
+            </p>"""
           }
           mailchimpClient.messages.send({ message: msg }).then((response) ->
             present "success: #{response.email} Email #{response.status} #{if response.status is 'rejected' then response.reject_reason else ''} #{if response.status is 'queued' then response.queued_reason else ''}"
