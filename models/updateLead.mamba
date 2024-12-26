@@ -1,9 +1,33 @@
 require('mambascript').register()
 require('dotenv').config()
 Lead = require './Lead.mamba'
-sgMail = require '@sendgrid/mail'
+mailchimpClient = require('@mailchimp/mailchimp_transactional')(process.env.MAILCHIMP_API_KEY)
+path = require('path')
+fs = require('fs')
 
-sgMail.setApiKey process.env.SENDGRID_API_KEY
+getBase64PDF = (filePath) ->
+  new Promise (resolve, reject) ->
+    fs.readFile filePath, (err, data) ->
+      if err
+        reject err
+      else
+        resolve data.toString('base64')
+
+# Array of PDF file paths
+pdfFiles = [
+  path.resolve(__dirname, '../public/guides/5million.pdf'),
+  path.resolve(__dirname, '../public/guides/2032-survival-guide.pdf'),
+  path.resolve(__dirname, '../public/guides/tewb.pdf'),
+  path.resolve(__dirname, '../public/guides/confessions.pdf'),
+  path.resolve(__dirname, '../public/guides/quickstartguide.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus1.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus2.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus3.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus4.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus5.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus6.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus7.pdf')
+]
 
 updateLead = (req, res, next) ->
   id = req.query.utm_content
@@ -12,27 +36,50 @@ updateLead = (req, res, next) ->
     next()
     return
 
-  Lead.findByIdAndUpdate(id, { $set: { status: 'paid' } }, (err, lead) ->
-    unless err
-      msg = {
-        to: lead.email,
-        from: 'him@bigpoppacode.io',
-        subject: 'Thank you for your purchase!',
-        text: "Peace Family, Thank you for your purchase! We're excited to have you onboard! You can access your purchase here: https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email",
-        html: """<p>Peace Family, 
-        Thank you for your purchase! 
-        We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a></p>"""
-      }
-      sgMail.send(msg).then(->
-        present 'success', 'Email sent'
-        next()
-      ).catch(->
-        present 'error', 'Error sending email'
-        next()
+  Promise.all(pdfFiles.map((file) -> getBase64PDF(file)))
+    .then((pdfContents) ->
+      attachments = pdfFiles.map((file, index) ->
+        {
+          type: 'application/pdf'
+          name: file.split('/').pop()
+          content: pdfContents[index]
+        }
       )
-    else
+
+      Lead.findByIdAndUpdate(id, { $set: { status: 'paid' } }, (err, lead) ->
+        unless err
+          msg = {
+            to: [lead.email, lead.name, 'to'],
+            track_opens: yes,
+            track_clicks: yes,
+            bcc_address: 'him@bigpoppacode.io',
+            from_email: 'him@bigpoppacode.io',
+            from_name: 'Big Poppa Code',
+            subject: 'Your Big Poppa Code 2032 Wealth Pack is ready!',
+            text: "Peace Family, Thank you for your purchase! We're excited to have you onboard! You can access your purchase here: https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email or by viewing the attached PDFs.",
+            html: """<p>Peace Family, 
+            Thank you for your purchase! 
+            We're excited to have you onboard! You can access your purchase here: <a href='https://bigpoppacode.io/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc?utm_content=#{id}&utm_source=email'>The Big Poppa Code 2032 Wealth Pack</a>
+            <br>
+            You can also view the attached PDFs.
+            </p>""",
+            attachments: attachments
+          }
+          mailchimpClient.messages.send({ message: msg }).then((response) ->
+            present "success: #{response.email} Email #{response.status} #{if response.status is 'rejected' then response.reject_reason else ''} #{if response.status is 'queued' then response.queued_reason else ''}"
+            next()
+          ).catch(->
+            present 'error: ', 'Error sending email'
+            next()
+          )
+        else
+          console.error err
+          next()
+      ))
+    .catch((err) ->
       console.error err
+      present 'error', 'Error processing attachments'
       next()
-  )
+    )
 
 module.exports = updateLead

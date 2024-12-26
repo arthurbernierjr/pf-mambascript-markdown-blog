@@ -1,0 +1,57 @@
+require('mambascript').register()
+fs = require 'fs'
+path = require 'path'
+
+getBase64PDF = (filePath) ->
+  new Promise (resolve, reject) ->
+    fs.readFile filePath, (err, data) ->
+      if err
+        reject err
+      else
+        resolve data.toString('base64')
+
+# Array of PDF file paths
+pdfFiles = [
+  path.resolve(__dirname, '../public/guides/5million.pdf'),
+  path.resolve(__dirname, '../public/guides/2032-survival-guide.pdf'),
+  path.resolve(__dirname, '../public/guides/tewb.pdf'),
+  path.resolve(__dirname, '../public/guides/confessions.pdf'),
+  path.resolve(__dirname, '../public/guides/quickstartguide.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus1.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus2.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus3.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus4.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus5.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus6.pdf'),
+  path.resolve(__dirname, '../public/guides/bonus7.pdf')
+]
+
+testPDFMapping = ->
+  console.log "Starting PDF test..."
+  console.log "Number of PDFs to process:", pdfFiles.length
+  
+  Promise.all(pdfFiles.map((file) -> getBase64PDF(file)))
+    .then((pdfContents) ->
+      console.log "\nSuccessfully processed PDFs:"
+      pdfFiles.forEach (file, index) ->
+        fileName = file.split('/').pop()
+        contentLength = pdfContents[index].length
+        console.log "#{index + 1}. #{fileName} - Base64 length: #{contentLength}"
+      
+      # Create test attachment object
+      attachments = pdfFiles.map (file, index) ->
+        {
+          type: 'application/pdf'
+          name: file.split('/').pop()
+          content: pdfContents[index]
+        }
+      
+      console.log "\nTotal attachments created:", attachments.length
+      console.log "Test completed successfully!"
+    )
+    .catch((err) ->
+      console.error "Error processing PDFs:", err
+    )
+
+# Run the test
+testPDFMapping()
