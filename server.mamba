@@ -128,7 +128,10 @@ app.get '/a7575/ai-in-digital-marketing', (req, res) ->
     else
       res.render 'pages/Program', {
         post: JSON.parse(file)
-      } 
+      }
+app.get '/go/drumar', (req, res) ->
+  res.redirect('https://youtu.be/kVV0g1FIBSg')
+
 app.get '/go/ai-in-digital-marketing-video', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','main.html')
