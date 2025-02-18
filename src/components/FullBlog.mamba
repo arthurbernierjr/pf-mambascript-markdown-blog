@@ -10,10 +10,10 @@ FullBlog= (props) ->
     $ 'div',{ className: 'full-blog container'}, =>
       $ 'div', { className: 'card' }, =>
         $ 'a', { href: "/#{post._id}" }, =>
-          $ 'h2', { className: 'card-title'}, =>
+          $ 'h2', { className: 'title'}, =>
             $.text "#{post.data.title}"
         $ 'div', { className: 'card-body' }, =>
-            $ 'h5', { className: 'card-title'}, post.data.subTitle
+            $ 'h4', { className: 'sub-title'}, post.data.subTitle
             $ 'div', { className: 'card-img-container'}, =>
               $ 'img', { className: 'card-img', src: post.data.featureImage, alt: post.data.title }
             $ 'div', { className: 'container mx-auto', dangerouslySetInnerHTML: { __html: post.content }}

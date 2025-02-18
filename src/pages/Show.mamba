@@ -5,13 +5,15 @@ $ = Decision(React).$
 FullBlog = require '../components/FullBlog.mamba'
 # { Link } = require 'react-router-mambascript'
 AppLayout = require '../layout/AppLayout.mamba'
+NewsletterLayout = require '../layout/NewsletterLayout.mamba'
 
 Show = (props)->
+  Layout = if props.post.data.layout == 'newsletter' then NewsletterLayout else AppLayout
   return (
     unless Object.keys(props.post).length
       $ 'h1', 'Loading ...'
     else
-      $ AppLayout, { title: props.post.data.title, description: props.post.data.subTitle}, =>
+      $ Layout, { title: props.post.data.title, description: props.post.data.subTitle}, =>
         $ 'main', { className: 'container showpage' }, =>
          $ FullBlog, { post: props.post }
   )

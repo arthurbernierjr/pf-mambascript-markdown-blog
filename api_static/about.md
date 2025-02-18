@@ -9,54 +9,39 @@ date: '10/21/21'
 ### Interview on <br>'Tech is The New Black'
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/kTL6gU5AYh8?si=MZRojVxMydBasMoy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Bio, Story & Mission
+### **About Arthur “Big Poppa Code” Bernier Jr.**  
 
-#### Greetings! My name is Arthur Bernier Jr. aka 'Big Poppa Code', A Black Software Engineer 🧑🏾‍💻: An entrepreneur at heart, investing in real estate, digital assets, startups, and options trading, with a love for basketball and anime. I'm a seasoned Software Engineer with a deep expertise in JavaScript technologies, including Node, React, and VueJs. My passion extends beyond coding; I am dedicated to assisting businesses in engaging their ideal audience. I have held many positions, some of which are, a Tech Lead at a Billion Dollar Space Scale Up, a Senior Engineer at a black owned media juggernaut, CTO at a 7 figure venture backed start up, a Coding Bootcamp Instructor at the biggest coding bootcamp in the world teaching over 600 students and a Senior Director at a National Non-Profit Technical Education Company. Through strategic communication, I help forge strong connections between brands and their communities, fostering trust and loyalty.
+#### **🚀 Entrepreneur | Technologist | Educator | Investor**  
 
-#### My Mission is to revolutionize how technology is perceived, making it accessible, understandable, and impactful for a broader audience. Through innovative AI solutions, insightful discussions, and educational content, we aim to demystify technology, highlighting its potential to solve real-world problems and improve daily life.
 
-## Current Projects 
 
-### Deeper Than Code Podcast
+##### Arthur Bernier Jr., better known as **Big Poppa Code**, is a **Software Engineer, AI Strategist, and Business Innovator** with a track record of **building tech-driven solutions, scaling startups, and mentoring the next generation of technologists**. As the **Senior Director of Artificial Intelligence, Computer Programming, and Cloud Computing at Per Scholas**, he oversees programs that help over **5,000+ underserved learners break into tech**—reshaping access to high-paying careers in emerging industries.
 
-#### "Deeper Than Code" is a groundbreaking podcast that transcends the traditional boundaries of technology discussions. Hosted by Arthur Bernier Jr., it delves into the profound impact of technology on society and our daily lives, beyond just the code and algorithms. This podcast brings to light the human stories behind technological advancements, exploring how digital innovation shapes our world in ways we often overlook. Through engaging conversations and insightful analysis, "Deeper Than Code" aims to demystify complex tech concepts, making them accessible to everyone. Whether you're a tech enthusiast, a professional in the field, or simply curious about the digital world around you, this podcast offers a unique perspective that empowers and enlightens. Join us on a journey to understand technology not just as a tool, but as a pivotal force in our collective story.
+ 
 
-### Monetisphere AI
-#### At Monetisphere, we're building the future of the creator economy, leveraging AI to offer unmatched support to digital creators in managing, analyzing, and monetizing their content. We're seeking partners who are as passionate as we are about empowering creators with technology that understands their needs and amplifies their potential. Whether you're in tech, media, or creative industries, partnering with Monetisphere means joining a movement that values innovation, supports creators, and seeks to redefine the digital landscape. Together, we can provide creators with the tools they need to succeed, creating a thriving ecosystem where creativity meets opportunity.
+### Beyond his role in technical education, Arthur is the **founder of multiple ventures**, including:  
+#### ✅ **The Deeper Than Code Podcast** – Bridging the gap between **technology, culture, and wealth-building**  
+#### ✅ **Monetisphere AI** – Empowering creators with **AI-driven monetization & automation tools**  
+#### ✅ **The Tech Innovator Elite Mentorship** – Helping aspiring technologists **break into AI & Web3**  
+#### ✅ **Mambascript** – A **developer-friendly** programming language designed for **readability and efficiency**  
 
-### Becoming The GOAT Book Series
+<br>
 
-#### "Becoming The Goat" is an inspiring book series authored by Arthur Bernier Jr., designed to guide readers on a transformative journey towards achieving unparalleled success in their personal and professional lives. The series kicks off with its compelling first installment, "Sidestepping: Mastering the Art of Overcoming Self-Imposed Roadblocks to Success," setting the stage for a deep dive into the art of navigating through and beyond the barriers we often place in our own paths.
+##### His journey spans **engineering leadership at a billion-dollar company**, **CTO roles at VC-backed startups**, and **mentorship for 800+ students at the world’s top coding bootcamp**. With expertise in **JavaScript, AI, and cloud computing**, Arthur is on a mission to **democratize technology, making it accessible, profitable, and game-changing** for entrepreneurs and innovators alike.  
 
-#### This groundbreaking series is planned to unfold over eight volumes, each focusing on a unique aspect of personal and professional growth. Through "Becoming The Goat," Arthur Bernier Jr. shares a wealth of knowledge, experiences, and strategies, drawing from his extensive background in technology, leadership, and personal development. The series promises to equip readers with the tools and insights needed to sidestep obstacles, harness their potential, and achieve excellence in every endeavor.
+---
 
-#### With each book, readers will be invited to explore different dimensions of success, from mastering mindset and cultivating resilience to leveraging technology and innovation for growth. Bernier's approachable writing style, combined with actionable advice and real-world examples, makes this series an invaluable resource for anyone aspiring to reach the pinnacle of their capabilities.
+## **🌍 The Mission: Own the Future, Don’t Just Consume It**  
 
-#### "Becoming The Goat" is more than just a book series; it's a movement towards becoming the Greatest Of All Time in your field. Whether you're an entrepreneur, a professional, a student, or simply someone seeking to unlock your full potential, this series will inspire you to push boundaries, overcome challenges, and achieve greatness. Stay tuned for the subsequent volumes, as each will unveil new layers of wisdom and strategies to propel you towards your ultimate goal of becoming the GOAT in your arena.
+##### Arthur’s work is **rooted in a single mission**: **empower people to build, own, and leverage technology—not just use it**.  
 
-### Mambascript
+##### Whether through **AI-powered businesses, digital ownership strategies, or financial literacy in tech**, his content, mentorship, and companies are designed to help **creators, investors, and founders thrive in the Intelligence Age**.  
 
-#### MambaScript is a high-level programming language designed to compile into ES5 JavaScript, offering an exceptional blend of readability and simplicity. This makes it an ideal choice for beginners seeking an accessible entry point into programming. The language is crafted with three specific users in mind:
+🚀 **Follow Arthur's journey and take control of your digital future.**  
 
-<br><br>
-
-<h4>
-
-1.Freelancers who prioritize productivity and need to revisit their code years later with ease, ensuring quick comprehension of their past work.
-
-<br><br>
-
-2.New programmers struggling to grasp the meaning behind their code. MambaScript's readability is unparalleled, facilitating an easy writing and learning experience.
-
-<br><br>
-
- 3.Myself, as I yearned for a language that combines the readability of Python or Ruby, the flexibility of JavaScript, and a typing system akin to TS, all while incorporating keywords and syntax that resemble everyday language. Unable to find such a language, I explored various tools to create MambaScript, a language tailored to my needs and aspirations.
-
-</h4>
-
-<br><br>
-
-#### Why MambaScript? The name reflects the essence of what this language aims to achieve. Drawing inspiration from the mamba snake, just as Python does, MambaScript emphasizes strict indentation to enhance code cleanliness and readability. The term "Script" acknowledges its roots in scripting languages like JavaScript, while also nodding to the concept of Mamba Mentality. This mentality played a pivotal role when I transitioned from treating coding as a hobby to embracing it as my full-time profession. Despite financial hardships, my mindset and determination never wavered. I committed to honing my skills daily, embodying the relentless spirit of Mamba Mentality. This language is a tribute to that journey and to the legendary Kobe Bryant. RIP Kobe.
+#### 📩 **Subscribe to the Deeper Than Code Newsletter** → __[It’s Deeper Than Code Newsletter](https://cdn.forms-content-1.sg-form.com/79d7c40a-ed86-11ef-9ad5-f2e2cb7600a5)__  
+#### 🎧 **Listen to the Latest Podcast Episode** → __[Deeper Than Code Podcast](https://www.youtube.com/playlist?list=PL5FbxEtzqRiEXmxBtl4RGpQPWyFzhpDNp)__   
+#### 💼 **Let’s Build the Future** → __[LinkedIn](https://www.linkedin.com/in/bigpoppacode)__ | __[Website](https://bigpoppacode.io)__ 
 
 
 <div class="card" style="background:transparent!important; border: none;">

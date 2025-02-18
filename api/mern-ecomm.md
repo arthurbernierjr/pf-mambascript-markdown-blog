@@ -4,7 +4,7 @@ subTitle: 'Building A Simple Full Crud MERN App'
 excerpt: 'I want to be the best. I want to be the best simple and plain, thats what drives me - Kobe Bryant'
 featureImage: '/img/mern-ecomm.png'
 date: '12/25/22'
-order: 3
+order: 1003
 ---
 
 # MERN Architecture
