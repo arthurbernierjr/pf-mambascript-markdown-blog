@@ -13,7 +13,7 @@ Show = (props)->
     unless Object.keys(props.post).length
       $ 'h1', 'Loading ...'
     else
-      $ Layout, { title: props.post.data.title, description: props.post.data.subTitle}, =>
+      $ Layout, { title: props.post.data.title, description: props.post.data.subTitle, featureImage: props.post.data.featureImage}, =>
         $ 'main', { className: 'container showpage' }, =>
          $ FullBlog, { post: props.post }
   )
