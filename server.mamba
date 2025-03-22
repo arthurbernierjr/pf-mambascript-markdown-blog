@@ -159,6 +159,10 @@ app.get '/go/27', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','27.html')
 
+app.get '/go/build-your-own-empire', (req, res) -> 
+  res.setHeader('Content-Type', 'text/html')
+  res.sendFile path.resolve(__dirname, 'public','27.html')
+
 app.get '/go/27/thankyou/4d3b987a3381f0b3b8f0cc44da78432deab50b88872f6faddf7e8b585e4e98dc', updateLead, (req, res) -> 
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','27thankyou.html')
