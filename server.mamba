@@ -151,6 +151,10 @@ app.get '/go/code', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','code-different.html')
 
+app.get '/go/code-class', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.sendFile path.resolve(__dirname, 'public','code-1.html')
+
 app.get '/go/5Million', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','5Million.html')
