@@ -436,27 +436,36 @@
   </p>
 
   <!-- Scripts -->
-  <script src="/js/scrollReveal.js"></script>
-  <script src="/js/jquery-1.11.2.min.js"></script>
   <script type="text/javascript">
-    jQuery(function ($) {
-      window.scrollReveal = new scrollReveal();
-    });
+    // Copyright year update
     document.getElementById('num-copy').innerHTML = `&copy; ${new Date().getFullYear()} &nbsp;`;
-  </script>
-  <script>
+
+    // Metricool tracking script
     function loadScript(a) {
       var b = document.getElementsByTagName("head")[0],
           c = document.createElement("script");
-      c.type = "text/javascript",
-      c.src = "https://tracker.metricool.com/resources/be.js",
-      c.onreadystatechange = a,
-      c.onload = a,
-      b.appendChild(c)
+      c.type = "text/javascript";
+      c.src = "https://tracker.metricool.com/resources/be.js";
+      
+      c.onerror = function() {
+        b.removeChild(c);
+      };
+      
+      c.onload = function() {
+        a();
+        c.onload = null;
+        c.onerror = null;
+      };
+      
+      b.appendChild(c);
     }
-    loadScript(function () {
-      beTracker.t({ hash: "53e647e9586036c96057c41e957a05d7" })
-    });
+
+    // Only load tracking if document is visible
+    if (!document.hidden) {
+      loadScript(function () {
+        beTracker.t({ hash: "53e647e9586036c96057c41e957a05d7" });
+      });
+    }
   </script>
 </body>
 </html>
