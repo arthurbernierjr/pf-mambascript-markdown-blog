@@ -143,6 +143,10 @@ app.get '/go/5million', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','5Million.html')
 
+app.get '/go/mini-portfolio', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.sendFile path.resolve(__dirname, 'public','mini-portfolio.html')
+
 app.get '/go/code-different', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','code-different.html')
