@@ -171,6 +171,22 @@ app.get '/go/digitalbosscode', (req, res) ->
   res.setHeader('Content-Type', 'text/html')
   res.redirect('https://www.skool.com/digitalbosscode/about?ref=e3a89aaa604f4418b93b6e5d316026fe')
 
+app.get '/go/dbc', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.redirect('https://www.skool.com/digitalbosscode/about?ref=e3a89aaa604f4418b93b6e5d316026fe')
+
+app.get '/go/dbav1', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.redirect('https://shop.beacons.ai/bigpoppacode/294f680a-f5b0-42bd-94e8-2f2ca348c08d')
+
+app.get '/go/dbav2', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.redirect('https://shop.beacons.ai/bigpoppacode/28d2461b-4180-4087-bdc6-d3225ab06ed8')
+
+app.get '/go/dbav3', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.redirect('https://shop.beacons.ai/bigpoppacode/34ac8abb-79f4-45cd-8d9d-4cf3bcae5d6f')
+
 app.get '/go/2032', (req, res) -> 
   res.setHeader('Content-Type', 'text/html')
   res.sendFile path.resolve(__dirname, 'public','2032.html')
