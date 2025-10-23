@@ -131,6 +131,10 @@ app.get '/a7575/ai-in-digital-marketing', (req, res) ->
       }
 app.get '/go/drumar', (req, res) ->
   res.redirect('https://youtu.be/kVV0g1FIBSg')
+
+app.get '/go/roadtoqa', (req, res) ->
+  res.setHeader('Content-Type', 'text/html')
+  res.redirect('https://youtu.be/2wmzcWVPkhM')
   
 app.get '/go/mattyj', (req, res) -> 
   res.redirect('https://youtu.be/kVV0g1FIBSg')#change to mattyj
