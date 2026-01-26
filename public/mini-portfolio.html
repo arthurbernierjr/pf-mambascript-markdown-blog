@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Portfolio – Web Development Agency</title>
+  <meta name="description" content="Portfolio of our web development agency, showcasing innovative projects and leadership expertise." />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Our Portfolio – Development Agency" />
+  <meta property="og:description" content="Portfolio of our development agency, showcasing innovative projects and leadership expertise." />
+  <meta property="og:image" content="https://bigpoppacode.io/img/image1.jpeg" />
+  <meta property="og:url" content="https://bigpoppacode.io/mini-portfolio" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  
+  <link rel="stylesheet" href="/css/custom.css" />
+  <style>
+    /* Existing Styles (adjusted for readability) */
+    .testimonial-container {
+      margin: 4rem 0;
+    }
+    .testimonial-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .testimonial-video {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: #ffffff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    .testimonial-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: #666;
+      line-height: 1.6;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-author img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-details h4 {
+      color: #023864;
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .author-details p {
+      color: #666;
+      margin: 0;
+      font-size: 1.5rem;  /* increased for readability */
+    }
+    @media (max-width: 992px) {
+      .testimonial-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .testimonial-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* New Styles */
+    body, p, li {
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+    .full-width.blockchain-bg.dark-tint.text-center h1,
+    .full-width.blockchain-bg.dark-tint.text-center h2 {
+      /* Ensure hero text is large and legible */
+      width: 100%;
+    }
+    .project-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .project-card {
+      background: #ffffff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .project-card h4 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #023864;
+    }
+    .project-card p {
+      margin: 0;
+    }
+    .btn-view {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: var(--primary-color, #00bf63);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .btn-view:hover {
+      background: var(--alternative-green-color, #026435e2);
+      color: #fff;
+    }
+    .timeline {
+      list-style: none;
+      padding: 0;
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ccc;
+    }
+    .timeline li {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 3rem;
+    }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      width: 16px;
+      height: 16px;
+      background: var(--primary-color, #00bf63);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      top: 5px;
+    }
+    .timeline .date {
+      display: block;
+      font-weight: bold;
+      color: #023864;
+      margin-bottom: 0.5rem;
+    }
+    .timeline h4 {
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+      color: #000;
+    }
+    .timeline p {
+      margin: 0;
+    }
+    .team-member {
+      margin-bottom: 2rem;
+    }
+    .team-member h2 {
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+      color: #023864;
+    }
+    .team-desc {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .team-desc a {
+      text-decoration: none;
+      color: var(--secondary-color, #da2328);
+      font-weight: bold;
+    }
+    .team-desc a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body style="background-color: #f4f4f9;">
+
+  <!-- Hero Section -->
+  <div class="full-width blockchain-bg dark-tint text-center py-5" style="padding-top: 4.5rem;">
+    <div class="container">
+      <h1 class="new-logo logo-p-1" style="font-size: 8.5rem;">Building Tomorrow's Web, Today.</h1>
+      <h2 class="logo-p-3" style="font-size: 3.5rem; color: #ffd700;">A web, app, blockchain, and AI development agency delivering cutting-edge solutions and exceptional digital experiences.</h2>
+    </div>
+  </div>
+  <div class="full-width blockchain-bg dark-tint">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" align="center">
+          <div class="row">
+            <div class="col-md-12">
+              <center>
+                <div class="video-container" style="margin-bottom: 4rem;">
+                  <iframe
+                  src="https://player.cloudinary.com/embed/?cloud_name=seventh-ave-inc&public_id=portfoliointro&profile=cld-default"
+                  width="640"
+                  height="360" 
+                  style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                  allowfullscreen
+                  frameborder="0"
+                ></iframe>
+                </div>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Projects Section -->
+  <div class="full-width" style="padding: 4rem 0; margin-top: 4rem;">
+    <div class="container">
+      <h2>Some Recent Projects</h2>
+      <div class="project-cards">
+        <div class="project-card">
+          <img src="/img/dynasty.png" alt="Screenshot of Dynasty Solutions delivery platform design" />
+          <h4>Dynasty Solutions</h4>
+          <p>Modern web application design for a delivery services platform, focusing on a clean UX for order management. <a href="https://www.figma.com/design/koSjS0EUPETxLUnCGCHtww/Dynasty-Solutions-Delivery_file-?node-id=16-2" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+        <div class="project-card">
+          <img src="/img/missmatch.png" alt="Screenshot of MisMatch fashion web platform interface" />
+          <h4>MisMatch – Web</h4>
+          <p>Responsive web platform for a fashion coordination app, allowing users to discover and match outfits. <a href="https://www.figma.com/design/9I3H7rBms4eVa67wzreuLx/ColorsWeb?node-id=0-1" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+        <div class="project-card">
+          <img src="/img/missmatchapp.png" alt="Mobile app screen of the MisMatch outfit coordination app" />
+          <h4>MisMatch – App</h4>
+          <p>Mobile application complementing the MisMatch platform, providing on-the-go outfit suggestions and wardrobe management. <a href="https://www.figma.com/design/9tX96mGXlBkfnyzpBqFpTj/Hangers" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+        <div class="project-card">
+          <img src="/img/blavity.png" alt="Screenshot of Blavity news media website" />
+          <h4>Blavity</h4>
+          <p>Major digital media site for Black culture news; developed front-end features and improved performance for millions of users. <a href="https://blavity.com" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+        <div class="project-card">
+          <img src="/img/afrotech.png" alt="Screenshot of AfroTech tech news platform" />
+          <h4>AfroTech</h4>
+          <p>Tech news and conference platform (part of Blavity); built interactive features to engage the Black tech community. <a href="https://afrotech.com" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+        <div class="project-card">
+          <img src="/img/spark.png" alt="Screenshot of Spark Connect community platform interface" />
+          <h4>Spark Connect</h4>
+          <p>Community networking platform for Spark Connect; leading technical strategy and development to connect professionals. <a href="https://linktr.ee/findthatspark" target="_blank" class="btn-view">View Project</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leadership Timeline Section -->
+  <div class="full-width" style="padding: 4rem 0; margin-top: 4rem;">
+    <div class="container">
+      <h2>Leadership Timeline</h2>
+      <ul class="timeline">
+        <li>
+          <span class="date">Feb 2025 – Present</span>
+          <h4>Fractional CTO – Spark Connect</h4>
+          <p>Driving technical strategy and representing the brand at industry events, evangelizing new product launches.</p>
+        </li>
+        <li>
+          <span class="date">Jan 2024 – Present</span>
+          <h4>Founder &amp; CEO – Monetisphere AI</h4>
+          <p>Launched a startup integrating AI into the creator economy, building a platform to enhance content creation and monetization for digital creators.</p>
+        </li>
+        <li>
+          <span class="date">Oct 2023 – Jan 2024</span>
+          <h4>Tech Lead – Path AI</h4>
+          <p>Led development of an AI-powered career platform, building job-matching tools used by 10,000+ job seekers and authoring technical content for the community.</p>
+        </li>
+        <li>
+            <span class="date">Mar 2023 – Aug 2023</span>
+          <h4>Tech Lead – Astranis Space Technologies</h4>
+          <p>Led development of ground station software for a satellite communications command and control system.</p>
+        </li>
+        <li>
+          <span class="date">Oct 2020 – Mar 2023</span>
+          <h4>CTO &amp; Head of Engineering – Seventh Ave</h4>
+          <p>Drove all product launches and technical strategy for a live audio platform, leading a team to build and scale the product from the ground up.</p>
+        </li>
+        <li>
+          <span class="date">Jan 2020 – Sep 2024</span>
+          <h4>Lead Instructor – General Assembly</h4>
+          <p>Molded the next generation of developers by delivering a rigorous software engineering curriculum and mentoring hundreds of students.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Testimonial Section -->
+  <div class="full-width" style="padding: 4rem 0; margin-top: 4rem;">
+    <div class="container text-center">
+      <h2>Real Results from Real People</h2>
+      <div class="testimonial-container">
+        <div class="testimonial-grid">
+          <!-- Testimonial Video -->
+          <div class="testimonial-video">
+            <div class="video-container">
+              <iframe
+                src="https://player.cloudinary.com/embed/?public_id=Cinematic_Testimonial_Video_Long_blnbk3&cloud_name=seventh-ave-inc&player[showLogo]=false"
+                width="700" height="400"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                allowfullscreen frameborder="0">
+              </iframe>
+            </div>
+          </div>
+          <!-- Testimonial Cards -->
+          <div class="testimonial-cards">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p><em>"Arthur delivered exactly what I needed. It's rare you find someone who can take your idea to the next level, but I promise if you trust him with your ideas he can develop exactly what you need &amp; more."</em></p>
+                </div>
+                <div class="testimonial-author">
+                  <img src="/img/girdle.de33f386.jpg" alt="Testimonial Author" />
+                  <div class="author-details">
+                    <h4>Daniel Girdle</h4>
+                    <p>Digital Entrepreneur</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p><em>"What separates Arthur is how much time he puts into learning and his own personal growth. He is always looking for ways to improve and grow. I have learned so much from him and I am grateful for his help."</em></p>
+                </div>
+                <div class="testimonial-author">
+                  <img src="/img/liberty.jpeg" alt="Testimonial Author" />
+                  <div class="author-details">
+                    <h4>Liberty Madison</h4>
+                    <p>The Oprah of Silicon Valley</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p><em>"What I love most about working with Big Poppa Code is his brain. He's like a human AI. I've learned so much from him and I'm grateful for his help. Whether it's business, personal growth, or just life in general, I'm going to him."</em></p>
+                </div>
+                <div class="testimonial-author">
+                  <img src="/img/chrissy.jpg" alt="Testimonial Author" />
+                  <div class="author-details">
+                    <h4>Chrissy Todd</h4>
+                    <p>Content Creator and Social Media Influencer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- /.testimonial-cards -->
+        </div> <!-- /.testimonial-grid -->
+      </div> <!-- /.testimonial-container -->
+    </div>
+  </div>
+
+  <!-- Meet the Team Section -->
+  <div class="full-width" style="padding: 4rem 0; background: #000;">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: #ffffff;">Meet the Team</h2>
+      <div class="team-member">
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 600;">Khoury Smith</h2>
+        <p class="team-desc" style="color: #ffffff; text-align: center;">Senior Developer with expertise in front-end development and user experience. <a href="https://www.linkedin.com/in/khourysmith/" target="_blank">View Profile</a></p>
+      </div>
+      <div class="team-member">
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 600;">Malik Mbaye</h2>
+        <p class="team-desc" style="color: #ffffff; text-align: center;">Entrepreneur and product strategist bringing business insight to technical projects. <a href="https://blacklotusventures.co/portfolio/" target="_blank">View Profile</a></p>
+      </div>
+      <div class="team-member">
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 600;">Brylan Donaldson</h2>
+        <p class="team-desc" style="color: #ffffff; text-align: center;">Full-Stack Developer specializing in scalable web architectures. <a href="https://www.linkedin.com/in/brylandonaldson/" target="_blank">View Profile</a></p>
+      </div>
+      <div class="team-member">
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 600;">Malik Kamran Abid</h2>
+        <p class="team-desc" style="color: #ffffff; text-align: center;">Backend Engineer focused on secure, efficient systems and databases. <a href="https://www.linkedin.com/in/kamran-abid-186987121/" target="_blank">View Profile</a></p>
+      </div>
+      <div class="team-member">
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 600;">Dalvin Josias</h2>
+        <p class="team-desc" style="color: #ffffff; text-align: center;">Cloud Solutions Architect and DevOps expert ensuring reliable deployments. <a href="https://www.linkedin.com/in/dalvinjosias/" target="_blank">View Profile</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" align="center">
+          <p style="color: #ffffff;">
+            <a href="/privacy-policy.html" target="_blank" style="color: #ffffff;">Privacy Policy</a> | 
+            <a href="/disclaimer.html" target="_blank" style="color: #ffffff;">Disclaimer</a> | 
+            <a href="/terms-and-conditions.html" target="_blank" style="color: #ffffff;">Terms and Conditions</a> | 
+            <a href="/support.html" target="_blank" style="color: #ffffff;">Support</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="color: #ffffff;">
+    <div class="copyright">
+      <span id="num-copy"></span><span>BigPoppaCode &amp; Progress and Fortune LLC</span>
+    </div>
+  </p>
+
+  <!-- Scripts -->
+  <script type="text/javascript">
+    // Copyright year update
+    document.getElementById('num-copy').innerHTML = `&copy; ${new Date().getFullYear()} &nbsp;`;
+
+    // Metricool tracking script
+    function loadScript(a) {
+      var b = document.getElementsByTagName("head")[0],
+          c = document.createElement("script");
+      c.type = "text/javascript";
+      c.src = "https://tracker.metricool.com/resources/be.js";
+      
+      c.onerror = function() {
+        b.removeChild(c);
+      };
+      
+      c.onload = function() {
+        a();
+        c.onload = null;
+        c.onerror = null;
+      };
+      
+      b.appendChild(c);
+    }
+
+    // Only load tracking if document is visible
+    if (!document.hidden) {
+      loadScript(function () {
+        beTracker.t({ hash: "53e647e9586036c96057c41e957a05d7" });
+      });
+    }
+  </script>
+</body>
+</html>
