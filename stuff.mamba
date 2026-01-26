@@ -2,3 +2,4 @@ module X
   @x = 3
 
 present X.x
+# small example of @ behavior
