@@ -10,7 +10,7 @@ AppNavBar = ->
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/guides' },  'Guides'
       $ 'li', { className: 'nav-item' }, =>
-        $ 'a', { href: '/allposts' },  'Lessons'
+        $ 'a', { href: '/blog' },  'Blog'
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/programs' },  'My Programs'
       $ 'li', { className: 'nav-item' }, =>

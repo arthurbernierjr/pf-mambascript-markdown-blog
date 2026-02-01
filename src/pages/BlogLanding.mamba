@@ -1,0 +1,174 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ Fragment } = require 'react'
+$ = Decision(React).$
+AppFooter = require '../layout/AppFooter.mamba'
+
+BlogLanding = (props) ->
+  $ 'html', =>
+    $ 'head', =>
+      $ 'meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      $ 'title', 'Blog | Big Poppa Code'
+      $ 'meta', { name: 'description', content: 'Explore Big Poppa Code resources - Portfolio, Lesson Walkthroughs, and Developer Guides' }
+      $ 'meta', { property: 'og:title', content: 'Blog | Big Poppa Code' }
+      $ 'meta', { property: 'og:description', content: 'Your hub for tech education, tutorials, and developer resources' }
+      $ 'meta', { property: 'og:image', content: '/img/BigPapaCode.png' }
+      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
+      $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
+      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
+      $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
+      $ 'style', """
+        .blog-landing {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .blog-hero {
+          background: linear-gradient(135deg, #057176 0%, #045a5e 100%);
+          padding: 4rem 2rem;
+          text-align: center;
+          color: white;
+        }
+        .blog-hero h1 {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        .blog-hero p {
+          font-size: 1.25rem;
+          opacity: 0.9;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .blog-cards {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 4rem 2rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2rem;
+        }
+        .blog-card {
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: column;
+        }
+        .blog-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .blog-card-icon {
+          padding: 3rem 2rem 2rem;
+          text-align: center;
+          font-size: 4rem;
+        }
+        .blog-card-icon.portfolio { background: linear-gradient(135deg, #6B2D9E 0%, #8b5cf6 100%); }
+        .blog-card-icon.lessons { background: linear-gradient(135deg, #b10000 0%, #ef4444 100%); }
+        .blog-card-icon.guides { background: linear-gradient(135deg, #057176 0%, #14b8a6 100%); }
+        .blog-card-content {
+          padding: 2rem;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
+        .blog-card h2 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 1rem;
+        }
+        .blog-card p {
+          color: #64748b;
+          line-height: 1.7;
+          flex: 1;
+          margin-bottom: 1.5rem;
+        }
+        .blog-card-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: 600;
+          color: #057176;
+          text-decoration: none;
+          transition: gap 0.3s ease;
+        }
+        .blog-card-link:hover {
+          gap: 1rem;
+        }
+        .blog-card-link svg {
+          width: 20px;
+          height: 20px;
+        }
+        @media (max-width: 768px) {
+          .blog-hero h1 {
+            font-size: 2rem;
+          }
+          .blog-cards {
+            padding: 2rem 1rem;
+          }
+        }
+      """
+    $ 'body', { className: 'guides-page' }, =>
+      # Header
+      $ 'header', { className: 'guides-header' }, =>
+        $ 'div', { className: 'guides-header-inner' }, =>
+          $ 'a', { href: '/', className: 'guides-logo' }, =>
+            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
+          $ 'nav', { className: 'guides-nav' }, =>
+            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
+            $ 'a', { href: '/blog', className: 'nav-link active' }, 'Blog'
+            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
+            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+
+      $ 'main', { className: 'blog-landing' }, =>
+        # Hero Section
+        $ 'div', { className: 'blog-hero' }, =>
+          $ 'h1', 'Welcome to the Blog'
+          $ 'p', 'Your hub for tech education, career guidance, and developer resources. Choose your path below.'
+
+        # Cards Section
+        $ 'div', { className: 'blog-cards' }, =>
+          # Portfolio Card
+          $ 'div', { className: 'blog-card' }, =>
+            $ 'div', { className: 'blog-card-icon portfolio' }, =>
+              $ 'span', { dangerouslySetInnerHTML: { __html: '&#128188;' } }
+            $ 'div', { className: 'blog-card-content' }, =>
+              $ 'h2', 'Portfolio'
+              $ 'p', 'Explore my professional work, case studies, and projects. See real-world applications of the technologies I teach and the impact of thoughtful software engineering.'
+              $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'blog-card-link', target: '_blank' }, =>
+                $ 'span', 'View Portfolio'
+                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+
+          # Lessons Card
+          $ 'div', { className: 'blog-card' }, =>
+            $ 'div', { className: 'blog-card-icon lessons' }, =>
+              $ 'span', { dangerouslySetInnerHTML: { __html: '&#127891;' } }
+            $ 'div', { className: 'blog-card-content' }, =>
+              $ 'h2', 'Lesson Walkthroughs'
+              $ 'p', 'Step-by-step tutorials and coding lessons. Perfect for visual learners who want to follow along with practical, hands-on projects from start to finish.'
+              $ 'a', { href: '/lessons', className: 'blog-card-link' }, =>
+                $ 'span', 'Browse Lessons'
+                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+
+          # Guides Card
+          $ 'div', { className: 'blog-card' }, =>
+            $ 'div', { className: 'blog-card-icon guides' }, =>
+              $ 'span', { dangerouslySetInnerHTML: { __html: '&#128218;' } }
+            $ 'div', { className: 'blog-card-content' }, =>
+              $ 'h2', 'Developer Guides'
+              $ 'p', 'Comprehensive reference documentation for JavaScript, Python, Go, and more. Deep dives into programming concepts using the EDIP methodology - Explain, Demonstrate, Imitate, Practice.'
+              $ 'a', { href: '/guides', className: 'blog-card-link' }, =>
+                $ 'span', 'Explore Guides'
+                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+
+      # Footer
+      $ AppFooter
+
+module.exports = BlogLanding

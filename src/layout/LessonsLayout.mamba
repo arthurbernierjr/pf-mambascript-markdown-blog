@@ -32,7 +32,7 @@ LessonsLayout = (props) ->
             $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
           $ 'nav', { className: 'guides-nav' }, =>
             $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
-            $ 'a', { href: '/allposts', className: 'nav-link active' }, 'Lessons'
+            $ 'a', { href: '/blog', className: 'nav-link active' }, 'Blog'
             $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
             $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
 
