@@ -1,0 +1,50 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ Fragment } = require 'react'
+$ = Decision(React).$
+AppFooter = require './AppFooter.mamba'
+
+LessonsLayout = (props) ->
+  { title, description, children } = props
+
+  $ 'html', =>
+    $ 'head', =>
+      $ 'meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      $ 'title', "#{title} | Big Poppa Code"
+      $ 'meta', { name: 'description', content: description }
+      $ 'meta', { property: 'og:title', content: title }
+      $ 'meta', { property: 'og:description', content: description }
+      $ 'meta', { property: 'og:image', content: '/img/BigPapaCode.png' }
+      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
+      $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
+      $ 'link', { rel: 'stylesheet', href: '/prism.css' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
+      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
+      $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
+    $ 'body', { className: 'guides-page lessons-page' }, =>
+      # Header
+      $ 'header', { className: 'guides-header' }, =>
+        $ 'div', { className: 'guides-header-inner' }, =>
+          $ 'a', { href: '/', className: 'guides-logo' }, =>
+            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
+          $ 'nav', { className: 'guides-nav' }, =>
+            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
+            $ 'a', { href: '/allposts', className: 'nav-link active' }, 'Lessons'
+            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
+            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+
+      # Main content
+      $ 'main', { className: 'lessons-main' }, =>
+        $ Fragment, props.children
+
+      # Footer
+      $ AppFooter
+
+      # Scripts
+      $ 'script', { src: '/prism.js' }
+      $ 'script', { src: '/main.js' }
+
+module.exports = LessonsLayout

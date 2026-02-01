@@ -3,19 +3,32 @@ React = require 'react'
 { useState, useEffect, Fragment } = require 'react'
 $ = Decision(React).$
 FullBlog = require '../components/FullBlog.mamba'
-# { Link } = require 'react-router-mambascript'
 AppLayout = require '../layout/AppLayout.mamba'
 NewsletterLayout = require '../layout/NewsletterLayout.mamba'
+LessonsLayout = require '../layout/LessonsLayout.mamba'
 
 Show = (props)->
-  Layout = if props.post.data.layout == 'newsletter' then NewsletterLayout else AppLayout
+  # Use NewsletterLayout for newsletter posts, LessonsLayout for regular posts
+  if props.post.data.layout == 'newsletter'
+    Layout = NewsletterLayout
+  else
+    Layout = LessonsLayout
+
   return (
     unless Object.keys(props.post).length
       $ 'h1', 'Loading ...'
     else
-      $ Layout, { title: props.post.data.title, description: props.post.data.subTitle, featureImage: props.post.data.featureImage}, =>
-        $ 'main', { className: 'container showpage' }, =>
-         $ FullBlog, { post: props.post }
+      $ Layout, { title: props.post.data.title, description: props.post.data.subTitle, featureImage: props.post.data.featureImage }, =>
+        $ 'div', { className: 'lesson-show-container' }, =>
+          $ 'article', { className: 'lesson-article' }, =>
+            $ 'header', { className: 'lesson-article-header' }, =>
+              $ 'h1', { className: 'lesson-article-title' }, props.post.data.title
+              if props.post.data.subTitle
+                $ 'p', { className: 'lesson-article-subtitle' }, props.post.data.subTitle
+              if props.post.data.featureImage
+                $ 'div', { className: 'lesson-article-image' }, =>
+                  $ 'img', { src: props.post.data.featureImage, alt: props.post.data.title }
+            $ 'div', { className: 'lesson-article-body', dangerouslySetInnerHTML: { __html: props.post.content } }
   )
 
 module.exports = Show

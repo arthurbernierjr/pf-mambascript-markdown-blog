@@ -8,13 +8,13 @@ AppMobileNavBar = ->
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/' },  'Home'
       $ 'li', { className: 'nav-item' }, =>
+        $ 'a', { href: '/guides' },  'Guides'
+      $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/allposts' },  'Lessons'
       $ 'li', { className: 'nav-item' }, =>
-        $ 'a', { href: '/about' },  'About Me'
-      $ 'li', { className: 'nav-item' }, =>
-        $ 'a', { href: '/contact' },  'Contact'
-      $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/programs' },  'My Programs'
+      $ 'li', { className: 'nav-item' }, =>
+        $ 'a', { href: 'https://portfolio.bigpoppacode.io', target: '_blank' },  'Portfolio'
       $ 'li', { className: 'nav-item' }, =>
         $ 'a', { href: '/linkedin' }, 'LinkedIn'
       $ 'li', { className: 'nav-item' }, =>

@@ -1,0 +1,281 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ Fragment } = require 'react'
+$ = Decision(React).$
+AppFooter = require './AppFooter.mamba'
+
+# Sidebar navigation data
+sidebarData = {
+  javascript: {
+    label: 'JavaScript'
+    sections: [
+      { label: 'Fundamentals', href: '/guides/javascript/fundamentals', items: [
+        { label: 'Variables', href: '/guides/javascript/fundamentals/variables' }
+        { label: 'Strings', href: '/guides/javascript/fundamentals/strings' }
+        { label: 'Numbers', href: '/guides/javascript/fundamentals/numbers' }
+        { label: 'Dates', href: '/guides/javascript/fundamentals/dates' }
+        { label: 'Arrays', href: '/guides/javascript/fundamentals/arrays' }
+        { label: 'Objects', href: '/guides/javascript/fundamentals/objects' }
+        { label: 'Functions', href: '/guides/javascript/fundamentals/functions' }
+        { label: 'Conditionals', href: '/guides/javascript/fundamentals/conditionals' }
+        { label: 'Loops', href: '/guides/javascript/fundamentals/loops' }
+        { label: 'Scope', href: '/guides/javascript/fundamentals/scope' }
+        { label: 'Hoisting', href: '/guides/javascript/fundamentals/hoisting' }
+        { label: 'this Keyword', href: '/guides/javascript/fundamentals/this' }
+        { label: 'Closures', href: '/guides/javascript/fundamentals/closures' }
+        { label: 'Destructuring', href: '/guides/javascript/fundamentals/destructuring' }
+        { label: 'Spread & Rest', href: '/guides/javascript/fundamentals/spread-rest' }
+        { label: 'Modules', href: '/guides/javascript/fundamentals/modules' }
+      ]}
+      { label: 'Async', href: '/guides/javascript/async', items: [
+        { label: 'Promises', href: '/guides/javascript/async/promises' }
+        { label: 'Async/Await', href: '/guides/javascript/async/async-await' }
+        { label: 'Event Loop', href: '/guides/javascript/async/event-loop' }
+        { label: 'Fetch API', href: '/guides/javascript/async/fetch' }
+        { label: 'Error Handling', href: '/guides/javascript/async/error-handling' }
+      ]}
+      { label: 'OOP', href: '/guides/javascript/oop', items: [
+        { label: 'Classes', href: '/guides/javascript/oop/classes' }
+        { label: 'Prototypes', href: '/guides/javascript/oop/prototypes' }
+      ]}
+      { label: 'DOM', href: '/guides/javascript/dom', items: [
+        { label: 'Selectors', href: '/guides/javascript/dom/selectors' }
+        { label: 'Manipulation', href: '/guides/javascript/dom/manipulation' }
+        { label: 'Events', href: '/guides/javascript/dom/events' }
+      ]}
+    ]
+  }
+  python: {
+    label: 'Python'
+    sections: [
+      { label: 'Core', href: '/guides/python', items: [
+        { label: 'Introduction', href: '/guides/python/intro' }
+        { label: 'OOP', href: '/guides/python/oop' }
+        { label: 'Decorators', href: '/guides/python/decorators' }
+        { label: 'Testing', href: '/guides/python/testing' }
+      ]}
+      { label: 'Web', href: '/guides/python', items: [
+        { label: 'Routing', href: '/guides/python/routing' }
+        { label: 'APIs', href: '/guides/python/api' }
+        { label: 'Models', href: '/guides/python/models' }
+      ]}
+    ]
+  }
+  go: {
+    label: 'Go'
+    sections: [
+      { label: 'Core', href: '/guides/go', items: [
+        { label: 'Introduction', href: '/guides/go/intro' }
+        { label: 'OOP', href: '/guides/go/oop' }
+        { label: 'Routing', href: '/guides/go/routing' }
+        { label: 'APIs', href: '/guides/go/api' }
+      ]}
+    ]
+  }
+  ruby: {
+    label: 'Ruby'
+    sections: [
+      { label: 'Core', href: '/guides/ruby', items: [
+        { label: 'Introduction', href: '/guides/ruby/intro' }
+        { label: 'OOP', href: '/guides/ruby/oop' }
+        { label: 'Routing', href: '/guides/ruby/routing' }
+        { label: 'APIs', href: '/guides/ruby/api' }
+      ]}
+    ]
+  }
+  php: {
+    label: 'PHP'
+    sections: [
+      { label: 'Core', href: '/guides/php', items: [
+        { label: 'Introduction', href: '/guides/php/intro' }
+        { label: 'OOP', href: '/guides/php/oop' }
+        { label: 'Routing', href: '/guides/php/routing' }
+        { label: 'APIs', href: '/guides/php/api' }
+      ]}
+    ]
+  }
+  rust: {
+    label: 'Rust'
+    sections: [
+      { label: 'Core', href: '/guides/rust', items: [
+        { label: 'Introduction', href: '/guides/rust/intro' }
+        { label: 'OOP', href: '/guides/rust/oop' }
+        { label: 'Routing', href: '/guides/rust/routing' }
+        { label: 'APIs', href: '/guides/rust/api' }
+      ]}
+    ]
+  }
+  java: {
+    label: 'Java'
+    sections: [
+      { label: 'Core', href: '/guides/java', items: [
+        { label: 'Introduction', href: '/guides/java/intro' }
+        { label: 'OOP', href: '/guides/java/oop' }
+        { label: 'Routing', href: '/guides/java/routing' }
+        { label: 'APIs', href: '/guides/java/api' }
+      ]}
+    ]
+  }
+  dart: {
+    label: 'Dart'
+    sections: [
+      { label: 'Core', href: '/guides/dart', items: [
+        { label: 'Introduction', href: '/guides/dart/intro' }
+        { label: 'OOP', href: '/guides/dart/oop' }
+        { label: 'Routing', href: '/guides/dart/routing' }
+        { label: 'APIs', href: '/guides/dart/api' }
+      ]}
+    ]
+  }
+  concepts: {
+    label: 'Concepts'
+    sections: [
+      { label: 'Data & APIs', href: '/guides/concepts', items: [
+        { label: 'CRUD', href: '/guides/concepts/crud' }
+        { label: 'REST', href: '/guides/concepts/rest' }
+        { label: 'GraphQL', href: '/guides/concepts/graphql' }
+        { label: 'Databases', href: '/guides/concepts/databases' }
+      ]}
+      { label: 'Architecture', href: '/guides/concepts', items: [
+        { label: 'MVC', href: '/guides/concepts/mvc' }
+        { label: 'Microservices', href: '/guides/concepts/microservices' }
+        { label: 'State Management', href: '/guides/concepts/state-management' }
+      ]}
+      { label: 'Security', href: '/guides/concepts', items: [
+        { label: 'Authentication', href: '/guides/concepts/authentication' }
+        { label: 'Security', href: '/guides/concepts/security' }
+      ]}
+      { label: 'Quality', href: '/guides/concepts', items: [
+        { label: 'Testing', href: '/guides/concepts/testing' }
+        { label: 'Error Handling', href: '/guides/concepts/error-handling' }
+        { label: 'Performance', href: '/guides/concepts/performance' }
+      ]}
+      { label: 'DevOps', href: '/guides/concepts', items: [
+        { label: 'Git Workflow', href: '/guides/concepts/git-workflow' }
+        { label: 'Docker', href: '/guides/concepts/docker' }
+        { label: 'CI/CD', href: '/guides/concepts/ci-cd' }
+        { label: 'Deployment', href: '/guides/concepts/deployment' }
+        { label: 'Monitoring', href: '/guides/concepts/monitoring' }
+      ]}
+      { label: 'Advanced', href: '/guides/concepts', items: [
+        { label: 'WebSockets', href: '/guides/concepts/websockets' }
+        { label: 'Caching', href: '/guides/concepts/caching' }
+        { label: 'TypeScript', href: '/guides/concepts/typescript' }
+      ]}
+    ]
+  }
+  frontend: {
+    label: 'Frontend'
+    sections: [
+      { label: 'Frameworks', href: '/guides/frontend', items: [
+        { label: 'React', href: '/guides/frontend/react' }
+        { label: 'Vue', href: '/guides/frontend/vue' }
+        { label: 'Angular', href: '/guides/frontend/angular' }
+        { label: 'Svelte', href: '/guides/frontend/svelte' }
+      ]}
+    ]
+  }
+  fullstack: {
+    label: 'Full-Stack'
+    sections: [
+      { label: 'Architecture', href: '/guides/fullstack', items: [
+        { label: 'MERN Stack', href: '/guides/fullstack/mern-architecture' }
+        { label: 'SSR vs CSR', href: '/guides/fullstack/ssr-vs-csr' }
+        { label: 'API Design', href: '/guides/fullstack/api-design' }
+      ]}
+      { label: 'Features', href: '/guides/fullstack', items: [
+        { label: 'Authentication', href: '/guides/fullstack/authentication' }
+        { label: 'File Uploads', href: '/guides/fullstack/file-uploads' }
+        { label: 'Real-time', href: '/guides/fullstack/realtime' }
+        { label: 'Search', href: '/guides/fullstack/search' }
+      ]}
+    ]
+  }
+}
+
+GuidesLayout = (props) ->
+  { title, description, featureImage, breadcrumbs, category, children } = props
+  currentSidebar = if category then sidebarData[category] else null
+
+  $ 'html', =>
+    $ 'head', =>
+      $ 'meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      $ 'title', "#{title} | Big Poppa Code Guides"
+      $ 'meta', { name: 'description', content: description }
+      $ 'meta', { property: 'og:title', content: title }
+      $ 'meta', { property: 'og:description', content: description }
+      $ 'meta', { property: 'og:image', content: featureImage or '/img/guides-hero.png' }
+      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
+      $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
+      $ 'link', { rel: 'stylesheet', href: '/prism.css' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
+      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
+      $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
+      $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
+    $ 'body', { className: 'guides-page' }, =>
+      # Header
+      $ 'header', { className: 'guides-header' }, =>
+        $ 'div', { className: 'guides-header-inner' }, =>
+          $ 'a', { href: '/', className: 'guides-logo' }, =>
+            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
+          $ 'nav', { className: 'guides-nav' }, =>
+            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
+            $ 'a', { href: '/allposts', className: 'nav-link' }, 'Lessons'
+            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
+            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+
+      # Breadcrumbs
+      if breadcrumbs and breadcrumbs.length > 0
+        $ 'nav', { className: 'breadcrumbs' }, =>
+          $ 'div', { className: 'breadcrumbs-inner' }, =>
+            breadcrumbs.forEach (crumb, index) =>
+              if index > 0
+                $ 'span', { className: 'breadcrumb-separator' }, '/'
+              if index == breadcrumbs.length - 1
+                $ 'span', { className: 'breadcrumb-current' }, crumb.label
+              else
+                $ 'a', { href: crumb.href, className: 'breadcrumb-link' }, crumb.label
+
+      # Main content with sidebar
+      $ 'div', { className: 'guides-container' }, =>
+        # Sidebar
+        $ 'aside', { className: 'guides-sidebar' }, =>
+          $ 'nav', { className: 'sidebar-nav' }, =>
+            # Language/Category selector
+            $ 'div', { className: 'sidebar-categories' }, =>
+              $ 'h3', { className: 'sidebar-heading' }, 'Languages'
+              $ 'ul', { className: 'category-list' }, =>
+                ['javascript', 'python', 'go', 'ruby', 'php', 'rust', 'java', 'dart'].forEach (lang) =>
+                  $ 'li', =>
+                    $ 'a', { href: "/guides/#{lang}", className: "category-link #{if category == lang then 'active' else ''}" }, sidebarData[lang].label
+              $ 'h3', { className: 'sidebar-heading' }, 'Topics'
+              $ 'ul', { className: 'category-list' }, =>
+                ['concepts', 'frontend', 'fullstack'].forEach (topic) =>
+                  $ 'li', =>
+                    $ 'a', { href: "/guides/#{topic}", className: "category-link #{if category == topic then 'active' else ''}" }, sidebarData[topic].label
+
+            # Section navigation for current category
+            if currentSidebar
+              $ 'div', { className: 'sidebar-sections' }, =>
+                currentSidebar.sections.forEach (section) =>
+                  $ 'div', { className: 'sidebar-section' }, =>
+                    $ 'h4', { className: 'section-heading' }, section.label
+                    $ 'ul', { className: 'section-items' }, =>
+                      section.items.forEach (item) =>
+                        $ 'li', =>
+                          $ 'a', { href: item.href, className: 'section-link' }, item.label
+
+        # Main content
+        $ 'main', { className: 'guides-main' }, =>
+          $ Fragment, props.children
+
+      # Footer
+      $ AppFooter
+
+      # Scripts
+      $ 'script', { src: '/prism.js' }
+      $ 'script', { src: '/main.js' }
+
+module.exports = GuidesLayout

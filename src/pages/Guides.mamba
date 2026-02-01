@@ -1,0 +1,40 @@
+Decision = require 'mambascript/decision'
+React = require 'react'
+{ Fragment } = require 'react'
+$ = Decision(React).$
+GuidesLayout = require '../layout/GuidesLayout.mamba'
+
+Guides = (props) ->
+  { guide, category, subcategory, sidebar } = props
+
+  # Build breadcrumb
+  breadcrumbs = []
+  breadcrumbs.push { label: 'Guides', href: '/guides' }
+  if category
+    breadcrumbs.push { label: category.charAt(0).toUpperCase() + category.slice(1), href: "/guides/#{category}" }
+  if subcategory
+    breadcrumbs.push { label: subcategory.charAt(0).toUpperCase() + subcategory.slice(1), href: "/guides/#{category}/#{subcategory}" }
+
+  return (
+    $ GuidesLayout, {
+      title: guide.data.title,
+      description: guide.data.subTitle or guide.data.excerpt,
+      featureImage: guide.data.featureImage,
+      sidebar: sidebar,
+      breadcrumbs: breadcrumbs,
+      category: category
+    }, =>
+      $ 'article', { className: 'guide-content' }, =>
+        $ 'header', { className: 'guide-header' }, =>
+          $ 'h1', { className: 'guide-title' }, guide.data.title
+          if guide.data.subTitle
+            $ 'p', { className: 'guide-subtitle' }, guide.data.subTitle
+          $ 'div', { className: 'guide-meta' }, =>
+            if guide.data.difficulty
+              $ 'span', { className: "difficulty-badge #{guide.data.difficulty}" }, guide.data.difficulty
+            if guide.data.date
+              $ 'span', { className: 'guide-date' }, guide.data.date
+        $ 'div', { className: 'guide-body', dangerouslySetInnerHTML: { __html: guide.content } }
+  )
+
+module.exports = Guides

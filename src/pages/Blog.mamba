@@ -2,7 +2,7 @@ React = require 'react'
 { useState, useEffect } = require 'react'
 { $, pureComponent } = require('mambascript/decision')(React)
 PostContent = require '../components/PostContent.mamba'
-AppLayout = require '../layout/AppLayout.mamba'
+LessonsLayout = require '../layout/LessonsLayout.mamba'
 
 
 Blog = (props)->
@@ -12,22 +12,18 @@ Blog = (props)->
     )
 
   return (
-    $ AppLayout, { title: "BigPoppaCode.io", description: 'Helping You Realize Your Full Potential Through, Technology, and Personal Development', banner: yes}, =>
+    $ LessonsLayout, { title: "Lessons", description: 'Helping You Realize Your Full Potential Through Technology and Personal Development' }, =>
       unless props.posts.length
         return $ 'h1', 'No More Posts...'
       else
-        $ 'h4', { className: 'allposts-transition'}, =>
-          $ 'span', {style: {display: 'block', fontSize: '3rem', textDecoration: 'underline' }}, 'LESSONS'
-          $ 'br'
-          $ 'br'
-          $.text """
-            Arthur Bernier Jr is a highly accomplished technologist, educator, entrepreneur and investor. With expertise in NodeJs, Webpack, Babel, Eslint, React and VueJs, he is a CTO, Technical Advisor, and Senior Software Engineer for multiple companies. Arthur is passionate about helping businesses reach their perfect audience and using his skills to help them communicate in a way that builds trust and loyalty. He has a strong background in problem-solving and providing innovative solutions to complex projects. He is also an experienced mentor and teacher, offering his guidance and support to those who need it.
-          """
-        $ 'h4', { className: 'allposts-transition', style: { padding : '2vw'}}, =>
-          $.text """
-            Below are Text and Video Guided Walkthroughs and Lessons by Arthur Bernier Jr aka Big Poppa Code. All Lessons use Arthur's signature 'EDIPS' teaching methodology.\n
-          """
-        $ 'div', Posts(props.posts)
+        $ 'div', { className: 'lessons-container' }, =>
+          $ 'header', { className: 'lessons-header' }, =>
+            $ 'h1', { className: 'lessons-title' }, 'Lessons'
+            $ 'p', { className: 'lessons-subtitle' }, """
+              Text and Video Guided Walkthroughs by Arthur Bernier Jr aka Big Poppa Code.
+              All Lessons use the signature EDIP teaching methodology.
+            """
+          $ 'div', { className: 'lessons-grid' }, Posts(props.posts)
   )
 
 module.exports = Blog

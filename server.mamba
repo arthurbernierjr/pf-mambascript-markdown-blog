@@ -76,21 +76,10 @@ app.get '/allposts', (req, res) ->
         posts: JSON.parse(file).sort((a,b) => a.data.order  - b.data.order)
       }
 app.get '/about', (req, res) ->
-  fs.readFile "#{json}_static/about.json", 'utf8', (err, file) ->
-    if err
-      console.error(err)
-    else
-      res.render 'pages/About', {
-        post: JSON.parse(file)
-      }
+  res.redirect(301, 'https://portfolio.bigpoppacode.io')
+
 app.get '/contact', (req, res) ->
-  fs.readFile "#{json}_static/contact.json", 'utf8', (err, file) ->
-    if err
-      console.error(err)
-    else
-      res.render 'pages/Contact', {
-        post: JSON.parse(file)
-      }
+  res.redirect(301, 'https://portfolio.bigpoppacode.io')
 
 app.get '/chatgpt', (req, res) ->
   fs.readFile "#{json}_static/chat-gpt-prompts-goldmine.json", 'utf8', (err, file) ->
@@ -268,6 +257,62 @@ app.get '/perscholas-cheatsheet', (req, res) ->
       res.render 'pages/Show', {
         post: JSON.parse(file)
       }
+
+# Guides routes - Developer documentation
+guidesPath = "#{__dirname}/api/guides"
+
+# Helper to parse markdown and render guide
+renderGuide = (filePath, category, subcategory, res) ->
+  fs.readFile filePath, 'utf8', (err, file) ->
+    if err
+      console.error(err)
+      res.status(404).send('Guide not found')
+    else
+      parsed = matter(file)
+      guide = {
+        data: parsed.data
+        content: converter.makeHtml(parsed.content)
+      }
+      res.render 'pages/Guides', {
+        guide: guide
+        category: category
+        subcategory: subcategory
+      }
+
+# Main guides index
+app.get '/guides', (req, res) ->
+  renderGuide "#{guidesPath}/index.md", null, null, res
+
+# Category index (e.g., /guides/javascript)
+app.get '/guides/:category', (req, res) ->
+  { category } = req.params
+  indexPath = "#{guidesPath}/#{category}/index.md"
+  fs.access indexPath, fs.constants.F_OK, (err) ->
+    if err
+      # Try as a file directly (for single-file categories)
+      renderGuide "#{guidesPath}/#{category}.md", category, null, res
+    else
+      renderGuide indexPath, category, null, res
+
+# Two-level path: could be article or subcategory index
+app.get '/guides/:category/:item', (req, res) ->
+  { category, item } = req.params
+  # First check if it's a subcategory with index
+  subcategoryIndexPath = "#{guidesPath}/#{category}/#{item}/index.md"
+  fs.access subcategoryIndexPath, fs.constants.F_OK, (err) ->
+    if not err
+      # It's a subcategory, render its index
+      renderGuide subcategoryIndexPath, category, item, res
+    else
+      # It's an article file
+      articlePath = "#{guidesPath}/#{category}/#{item}.md"
+      renderGuide articlePath, category, null, res
+
+# Three-level path: article within subcategory
+app.get '/guides/:category/:subcategory/:article', (req, res) ->
+  { category, subcategory, article } = req.params
+  articlePath = "#{guidesPath}/#{category}/#{subcategory}/#{article}.md"
+  renderGuide articlePath, category, subcategory, res
 
 app.get '/:post', (req, res) ->
   fs.readFile "#{json}/#{req.params.post}.json", 'utf8', (err, file) ->

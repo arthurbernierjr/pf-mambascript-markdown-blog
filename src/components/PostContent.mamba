@@ -2,38 +2,19 @@ Decision = require 'mambascript/decision'
 React = require 'react'
 { Fragment } = require 'react'
 $ = Decision(React).$
-# { Link } = require 'react-router-mambascript'
 
-PostContent= (props) ->
+PostContent = (props) ->
   { post } = props
   return (
-    $ 'article',{ className:'post-content' }, =>
-      $ 'a', { href: "/#{post._id}", className: 'card', style:{ 'zIndex': 2 } }, =>
-        $ 'h5', { className: 'card-header' }, =>
-          $.text post.data.title
-        $ 'div', { className: 'card-body' }, =>
-            $ 'img', { src: post.data.featureImage }
-            $ 'h5', { className: 'card-title'}, post.data.subTitle
-            $ 'p', { className: 'card-text'}, post.data.excerpt
-
-
+    $ 'article', { className: 'lesson-card' }, =>
+      $ 'a', { href: "/#{post._id}", className: 'lesson-card-link' }, =>
+        $ 'div', { className: 'lesson-card-image' }, =>
+          $ 'img', { src: post.data.featureImage, alt: post.data.title }
+        $ 'div', { className: 'lesson-card-content' }, =>
+          $ 'h3', { className: 'lesson-card-title' }, post.data.title
+          $ 'p', { className: 'lesson-card-subtitle' }, post.data.subTitle
+          if post.data.excerpt
+            $ 'p', { className: 'lesson-card-excerpt' }, post.data.excerpt
   )
 
 module.exports = PostContent
-
-###
-<div class="card">
-  <h5 class="card-header">Featured</h5>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-$ Fragment , =>
-  $ Link, { to: "/#{post._id}" }, =>
-    $ 'h1', post.data.title
-    $ 'h3', post.data.subTitle
-  $ 'div', className: 'container', dangerouslySetInnerHTML: { __html: post.content }
-###
