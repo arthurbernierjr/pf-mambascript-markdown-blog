@@ -3,6 +3,7 @@ React = require 'react'
 { Fragment } = require 'react'
 $ = Decision(React).$
 AppFooter = require './AppFooter.mamba'
+ResponsiveNav = require './ResponsiveNav.mamba'
 
 # Sidebar navigation data
 sidebarData = {
@@ -205,26 +206,71 @@ GuidesLayout = (props) ->
       $ 'meta', { property: 'og:title', content: title }
       $ 'meta', { property: 'og:description', content: description }
       $ 'meta', { property: 'og:image', content: featureImage or '/img/guides-hero.png' }
-      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
+      $ 'link', { rel: 'stylesheet', href: '/_next/static/css/fd0b0a741c20fd245ead.css' }
+      $ 'link', { href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', rel: 'stylesheet' }
+      $ 'link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' }
       $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
       $ 'link', { rel: 'stylesheet', href: '/prism.css' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
       $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
+      $ 'style', """
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; }
+
+        /* Push content down for fixed header - Breakpoints: 450, 768, 1024, 1440 */
+        .breadcrumbs {
+          margin-top: 60px;
+        }
+        .guides-container {
+          margin-top: 60px;
+        }
+        @media (min-width: 450px) {
+          .breadcrumbs,
+          .guides-container {
+            margin-top: 70px;
+          }
+        }
+        @media (min-width: 768px) {
+          .breadcrumbs,
+          .guides-container {
+            margin-top: 80px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .breadcrumbs,
+          .guides-container {
+            margin-top: 90px;
+          }
+        }
+        .breadcrumbs + .guides-container {
+          margin-top: 0;
+        }
+
+        /* Enhanced sidebar */
+        .guides-sidebar {
+          background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .sidebar-heading {
+          color: #057176;
+          font-weight: 600;
+        }
+        .category-link.active {
+          background: #057176 !important;
+          color: white !important;
+        }
+
+        /* Footer */
+        footer {
+          background: #057176 !important;
+        }
+        footer a:hover {
+          color: #14b8a6 !important;
+        }
+      """
     $ 'body', { className: 'guides-page' }, =>
-      # Header
-      $ 'header', { className: 'guides-header' }, =>
-        $ 'div', { className: 'guides-header-inner' }, =>
-          $ 'a', { href: '/', className: 'guides-logo' }, =>
-            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
-          $ 'nav', { className: 'guides-nav' }, =>
-            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
-            $ 'a', { href: '/blog', className: 'nav-link' }, 'Blog'
-            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
-            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+      # Responsive Navigation
+      $ ResponsiveNav, { theme: 'teal', activePage: 'guides' }
 
       # Breadcrumbs
       if breadcrumbs and breadcrumbs.length > 0

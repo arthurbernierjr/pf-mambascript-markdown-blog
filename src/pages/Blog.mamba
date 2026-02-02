@@ -12,17 +12,27 @@ Blog = (props)->
     )
 
   return (
-    $ LessonsLayout, { title: "Lessons", description: 'Helping You Realize Your Full Potential Through Technology and Personal Development' }, =>
-      unless props.posts.length
-        return $ 'h1', 'No More Posts...'
-      else
-        $ 'div', { className: 'lessons-container' }, =>
-          $ 'header', { className: 'lessons-header' }, =>
-            $ 'h1', { className: 'lessons-title' }, 'Lessons'
-            $ 'p', { className: 'lessons-subtitle' }, """
-              Text and Video Guided Walkthroughs by Arthur Bernier Jr aka Big Poppa Code.
-              All Lessons use the signature EDIP teaching methodology.
-            """
+    $ LessonsLayout, { title: "Lessons", description: 'Step-by-step tutorials and coding lessons. Follow along with practical, hands-on projects from start to finish.' }, =>
+      # Hero Section
+      $ 'section', { className: 'lessons-hero' }, =>
+        $ 'div', { className: 'lessons-hero-bg' }
+        $ 'div', { className: 'lessons-hero-content' }, =>
+          $ 'span', { className: 'hero-badge' }, =>
+            $ 'i', { className: 'fas fa-graduation-cap', style: { marginRight: '0.5rem' } }
+            $ 'span', 'EDIP Methodology'
+          $ 'h1', 'Lesson Walkthroughs'
+          $ 'p', """
+            Text and video guided tutorials by Arthur Bernier Jr aka Big Poppa Code.
+            All lessons use the signature EDIP teaching methodology — Explain, Demonstrate, Imitate, Practice.
+          """
+
+      # Lessons Grid
+      $ 'div', { className: 'lessons-container' }, =>
+        unless props.posts.length
+          $ 'div', { style: { textAlign: 'center', padding: '4rem 2rem' } }, =>
+            $ 'h2', { style: { color: '#666' } }, 'No lessons available yet...'
+            $ 'p', { style: { color: '#888', marginTop: '1rem' } }, 'Check back soon for new content!'
+        else
           $ 'div', { className: 'lessons-grid' }, Posts(props.posts)
   )
 

@@ -3,6 +3,7 @@ React = require 'react'
 { Fragment } = require 'react'
 $ = Decision(React).$
 AppFooter = require '../layout/AppFooter.mamba'
+ResponsiveNav = require '../layout/ResponsiveNav.mamba'
 
 BlogLanding = (props) ->
   $ 'html', =>
@@ -13,160 +14,380 @@ BlogLanding = (props) ->
       $ 'meta', { property: 'og:title', content: 'Blog | Big Poppa Code' }
       $ 'meta', { property: 'og:description', content: 'Your hub for tech education, tutorials, and developer resources' }
       $ 'meta', { property: 'og:image', content: '/img/BigPapaCode.png' }
-      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
-      $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
+      $ 'link', { rel: 'stylesheet', href: '/_next/static/css/fd0b0a741c20fd245ead.css' }
+      $ 'link', { href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', rel: 'stylesheet' }
+      $ 'link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' }
       $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
       $ 'style', """
-        .blog-landing {
-          min-height: 100vh;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; }
+        
+        /* Hero Section - Breakpoints: 450, 768, 1024, 1440 */
         .blog-hero {
-          background: linear-gradient(135deg, #057176 0%, #045a5e 100%);
-          padding: 4rem 2rem;
+          position: relative;
+          min-height: 60vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        @media (min-width: 450px) {
+          .blog-hero {
+            min-height: 65vh;
+          }
+        }
+        @media (min-width: 768px) {
+          .blog-hero {
+            min-height: 70vh;
+          }
+        }
+        @media (min-width: 1024px) {
+          .blog-hero {
+            min-height: 75vh;
+          }
+        }
+        @media (min-width: 1440px) {
+          .blog-hero {
+            min-height: 80vh;
+          }
+        }
+        .blog-hero-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, rgba(177, 0, 0, 0.8), rgba(0, 77, 0, 0.7)), url('/myheadshot.png') center center / cover no-repeat;
+          border-bottom: 8px solid #667682;
+        }
+        .blog-hero-content {
+          position: relative;
+          z-index: 10;
           text-align: center;
-          color: white;
+          padding: 1.5rem 1rem;
+          max-width: 900px;
+        }
+        @media (min-width: 450px) {
+          .blog-hero-content {
+            padding: 2rem 1.5rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .blog-hero-content {
+            padding: 2rem;
+          }
         }
         .blog-hero h1 {
-          font-size: 3rem;
+          font-size: clamp(2rem, 8vw, 5rem);
           font-weight: 700;
-          margin-bottom: 1rem;
+          color: white;
+          margin-bottom: 0.75rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        @media (min-width: 768px) {
+          .blog-hero h1 {
+            margin-bottom: 1rem;
+          }
         }
         .blog-hero p {
-          font-size: 1.25rem;
-          opacity: 0.9;
-          max-width: 600px;
-          margin: 0 auto;
+          font-size: clamp(0.9rem, 3vw, 1.5rem);
+          color: white;
+          opacity: 0.95;
+          max-width: 700px;
+          margin: 0 auto 1.5rem;
+          line-height: 1.5;
         }
-        .blog-cards {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 4rem 2rem;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 2rem;
+        @media (min-width: 768px) {
+          .blog-hero p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+          }
         }
-        .blog-card {
-          background: white;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          display: flex;
-          flex-direction: column;
-        }
-        .blog-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .blog-card-icon {
-          padding: 3rem 2rem 2rem;
-          text-align: center;
-          font-size: 4rem;
-        }
-        .blog-card-icon.portfolio { background: linear-gradient(135deg, #6B2D9E 0%, #8b5cf6 100%); }
-        .blog-card-icon.lessons { background: linear-gradient(135deg, #b10000 0%, #ef4444 100%); }
-        .blog-card-icon.guides { background: linear-gradient(135deg, #057176 0%, #14b8a6 100%); }
-        .blog-card-content {
-          padding: 2rem;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-        .blog-card h2 {
+        .scroll-indicator {
+          position: absolute;
+          bottom: 1.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          color: white;
           font-size: 1.5rem;
-          font-weight: 700;
-          color: #1e293b;
+          animation: bounce 2s infinite;
+        }
+        @media (min-width: 768px) {
+          .scroll-indicator {
+            bottom: 2rem;
+            font-size: 2rem;
+          }
+        }
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+          40% { transform: translateX(-50%) translateY(-20px); }
+          60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Section Layout - Responsive breakpoints */
+        .blog-section {
+          display: grid;
+          grid-template-columns: 1fr;
+          min-height: 50vh;
+        }
+        @media (min-width: 768px) {
+          .blog-section {
+            min-height: 55vh;
+          }
+        }
+        @media (min-width: 1024px) {
+          .blog-section {
+            grid-template-columns: 1fr 1fr;
+            min-height: 60vh;
+          }
+          .blog-section.reverse .section-image { order: -1; }
+        }
+        
+        .section-image {
+          position: relative;
+          min-height: 300px;
+          overflow: hidden;
+        }
+        @media (min-width: 450px) {
+          .section-image {
+            min-height: 350px;
+          }
+        }
+        @media (min-width: 768px) {
+          .section-image {
+            min-height: 400px;
+          }
+        }
+        .section-image img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .section-image:hover img {
+          transform: scale(1.05);
+        }
+        .section-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        .section-image:hover .section-overlay {
+          opacity: 1;
+        }
+        .overlay-portfolio { background: rgba(107, 45, 158, 0.85); }
+        .overlay-lessons { background: rgba(177, 0, 0, 0.85); }
+        .overlay-guides { background: rgba(5, 113, 118, 0.85); }
+        
+        .section-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 2rem 1.5rem;
+          background: white;
+        }
+        @media (min-width: 450px) {
+          .section-content {
+            padding: 2.5rem 2rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .section-content {
+            padding: 3rem 2.5rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .section-content {
+            padding: 4rem 3rem;
+          }
+        }
+        @media (min-width: 1440px) {
+          .section-content {
+            padding: 5rem 4rem;
+          }
+        }
+        
+        .section-icon {
+          font-size: 2.5rem;
           margin-bottom: 1rem;
         }
-        .blog-card p {
-          color: #64748b;
-          line-height: 1.7;
-          flex: 1;
-          margin-bottom: 1.5rem;
+        @media (min-width: 768px) {
+          .section-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+          }
         }
-        .blog-card-link {
+        .icon-portfolio { color: #6B2D9E; }
+        .icon-lessons { color: #b10000; }
+        .icon-guides { color: #057176; }
+        
+        .section-content h2 {
+          font-size: clamp(1.5rem, 4vw, 3rem);
+          font-weight: 700;
+          color: #057176;
+          margin-bottom: 0.75rem;
+          line-height: 1.2;
+        }
+        @media (min-width: 768px) {
+          .section-content h2 {
+            margin-bottom: 1rem;
+          }
+        }
+        .section-content p {
+          font-size: clamp(0.95rem, 2vw, 1.25rem);
+          color: #333;
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+          max-width: 600px;
+        }
+        @media (min-width: 768px) {
+          .section-content p {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+          }
+        }
+        .section-link {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
+          padding: 0.875rem 1.5rem;
+          font-size: 1rem;
           font-weight: 600;
-          color: #057176;
           text-decoration: none;
-          transition: gap 0.3s ease;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          width: fit-content;
         }
-        .blog-card-link:hover {
-          gap: 1rem;
-        }
-        .blog-card-link svg {
-          width: 20px;
-          height: 20px;
-        }
-        @media (max-width: 768px) {
-          .blog-hero h1 {
-            font-size: 2rem;
+        @media (min-width: 768px) {
+          .section-link {
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
           }
-          .blog-cards {
-            padding: 2rem 1rem;
-          }
+        }
+        .link-portfolio {
+          background: linear-gradient(135deg, #6B2D9E 0%, #8b5cf6 100%);
+          color: white;
+        }
+        .link-portfolio:hover {
+          transform: translateX(8px);
+          box-shadow: 0 10px 30px rgba(107, 45, 158, 0.4);
+        }
+        .link-lessons {
+          background: linear-gradient(135deg, #b10000 0%, #ef4444 100%);
+          color: white;
+        }
+        .link-lessons:hover {
+          transform: translateX(8px);
+          box-shadow: 0 10px 30px rgba(177, 0, 0, 0.4);
+        }
+        .link-guides {
+          background: linear-gradient(135deg, #057176 0%, #14b8a6 100%);
+          color: white;
+        }
+        .link-guides:hover {
+          transform: translateX(8px);
+          box-shadow: 0 10px 30px rgba(5, 113, 118, 0.4);
+        }
+        .section-link i {
+          transition: transform 0.3s ease;
+        }
+        .section-link:hover i {
+          transform: translateX(4px);
+        }
+
+        /* Dividers */
+        .section-divider {
+          height: 8px;
+          background: #667682;
+        }
+
+        /* Footer override for consistency */
+        footer {
+          background: #057176 !important;
         }
       """
-    $ 'body', { className: 'guides-page' }, =>
-      # Header
-      $ 'header', { className: 'guides-header' }, =>
-        $ 'div', { className: 'guides-header-inner' }, =>
-          $ 'a', { href: '/', className: 'guides-logo' }, =>
-            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
-          $ 'nav', { className: 'guides-nav' }, =>
-            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
-            $ 'a', { href: '/blog', className: 'nav-link active' }, 'Blog'
-            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
-            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+    $ 'body', =>
+      # Responsive Navigation (gradient/transparent for hero)
+      $ ResponsiveNav, { theme: 'gradient', activePage: 'blog' }
 
-      $ 'main', { className: 'blog-landing' }, =>
-        # Hero Section
-        $ 'div', { className: 'blog-hero' }, =>
-          $ 'h1', 'Welcome to the Blog'
-          $ 'p', 'Your hub for tech education, career guidance, and developer resources. Choose your path below.'
+      # Hero Section
+      $ 'section', { className: 'blog-hero' }, =>
+        $ 'div', { className: 'blog-hero-bg' }
+        $ 'div', { className: 'blog-hero-content' }, =>
+          $ 'h1', 'The Blog'
+          $ 'p', 'Your hub for tech education, career guidance, and developer resources. Dive into tutorials, explore case studies, or master new programming concepts.'
+        $ 'div', { className: 'scroll-indicator' }, =>
+          $ 'i', { className: 'fas fa-chevron-down' }
 
-        # Cards Section
-        $ 'div', { className: 'blog-cards' }, =>
-          # Portfolio Card
-          $ 'div', { className: 'blog-card' }, =>
-            $ 'div', { className: 'blog-card-icon portfolio' }, =>
-              $ 'span', { dangerouslySetInnerHTML: { __html: '&#128188;' } }
-            $ 'div', { className: 'blog-card-content' }, =>
-              $ 'h2', 'Portfolio'
-              $ 'p', 'Explore my professional work, case studies, and projects. See real-world applications of the technologies I teach and the impact of thoughtful software engineering.'
-              $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'blog-card-link', target: '_blank' }, =>
-                $ 'span', 'View Portfolio'
-                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+      # Portfolio Section
+      $ 'section', { className: 'blog-section' }, =>
+        $ 'div', { className: 'section-image' }, =>
+          $ 'img', { src: '/CreateFinal.jpg', alt: 'Portfolio projects and case studies' }
+          $ 'div', { className: 'section-overlay overlay-portfolio' }, =>
+            $ 'a', { href: 'https://portfolio.bigpoppacode.io', target: '_blank', className: 'section-link link-portfolio', style: { fontSize: '1.5rem' } }, =>
+              $ 'span', 'View Portfolio'
+              $ 'i', { className: 'fas fa-arrow-right' }
+        $ 'div', { className: 'section-content' }, =>
+          $ 'div', { className: 'section-icon icon-portfolio' }, =>
+            $ 'i', { className: 'fas fa-briefcase' }
+          $ 'h2', 'Portfolio'
+          $ 'p', 'Explore my professional work, case studies, and real-world projects. See the technologies I build with and the impact of thoughtful software engineering across industries.'
+          $ 'a', { href: 'https://portfolio.bigpoppacode.io', target: '_blank', className: 'section-link link-portfolio' }, =>
+            $ 'span', 'View Portfolio'
+            $ 'i', { className: 'fas fa-arrow-right' }
 
-          # Lessons Card
-          $ 'div', { className: 'blog-card' }, =>
-            $ 'div', { className: 'blog-card-icon lessons' }, =>
-              $ 'span', { dangerouslySetInnerHTML: { __html: '&#127891;' } }
-            $ 'div', { className: 'blog-card-content' }, =>
-              $ 'h2', 'Lesson Walkthroughs'
-              $ 'p', 'Step-by-step tutorials and coding lessons. Perfect for visual learners who want to follow along with practical, hands-on projects from start to finish.'
-              $ 'a', { href: '/lessons', className: 'blog-card-link' }, =>
-                $ 'span', 'Browse Lessons'
-                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+      $ 'div', { className: 'section-divider' }
 
-          # Guides Card
-          $ 'div', { className: 'blog-card' }, =>
-            $ 'div', { className: 'blog-card-icon guides' }, =>
-              $ 'span', { dangerouslySetInnerHTML: { __html: '&#128218;' } }
-            $ 'div', { className: 'blog-card-content' }, =>
-              $ 'h2', 'Developer Guides'
-              $ 'p', 'Comprehensive reference documentation for JavaScript, Python, Go, and more. Deep dives into programming concepts using the EDIP methodology - Explain, Demonstrate, Imitate, Practice.'
-              $ 'a', { href: '/guides', className: 'blog-card-link' }, =>
-                $ 'span', 'Explore Guides'
-                $ 'span', { dangerouslySetInnerHTML: { __html: '&rarr;' } }
+      # Lessons Section
+      $ 'section', { className: 'blog-section reverse' }, =>
+        $ 'div', { className: 'section-image' }, =>
+          $ 'img', { src: '/discoverFinal.jpg', alt: 'Step-by-step coding tutorials' }
+          $ 'div', { className: 'section-overlay overlay-lessons' }, =>
+            $ 'a', { href: '/lessons', className: 'section-link link-lessons', style: { fontSize: '1.5rem' } }, =>
+              $ 'span', 'Browse Lessons'
+              $ 'i', { className: 'fas fa-arrow-right' }
+        $ 'div', { className: 'section-content' }, =>
+          $ 'div', { className: 'section-icon icon-lessons' }, =>
+            $ 'i', { className: 'fas fa-graduation-cap' }
+          $ 'h2', 'Lesson Walkthroughs'
+          $ 'p', 'Step-by-step tutorials and coding lessons designed for visual learners. Follow along with practical, hands-on projects from start to finish and level up your skills.'
+          $ 'a', { href: '/lessons', className: 'section-link link-lessons' }, =>
+            $ 'span', 'Browse Lessons'
+            $ 'i', { className: 'fas fa-arrow-right' }
+
+      $ 'div', { className: 'section-divider' }
+
+      # Guides Section
+      $ 'section', { className: 'blog-section' }, =>
+        $ 'div', { className: 'section-image' }, =>
+          $ 'img', { src: '/imagineFinal.jpg', alt: 'Developer documentation and guides' }
+          $ 'div', { className: 'section-overlay overlay-guides' }, =>
+            $ 'a', { href: '/guides', className: 'section-link link-guides', style: { fontSize: '1.5rem' } }, =>
+              $ 'span', 'Explore Guides'
+              $ 'i', { className: 'fas fa-arrow-right' }
+        $ 'div', { className: 'section-content' }, =>
+          $ 'div', { className: 'section-icon icon-guides' }, =>
+            $ 'i', { className: 'fas fa-book' }
+          $ 'h2', 'Developer Guides'
+          $ 'p', 'Comprehensive reference documentation for JavaScript, Python, Go, Ruby, and more. Deep dives into programming concepts using the EDIP methodology — Explain, Demonstrate, Imitate, Practice.'
+          $ 'a', { href: '/guides', className: 'section-link link-guides' }, =>
+            $ 'span', 'Explore Guides'
+            $ 'i', { className: 'fas fa-arrow-right' }
+
+      $ 'div', { className: 'section-divider' }
 
       # Footer
       $ AppFooter

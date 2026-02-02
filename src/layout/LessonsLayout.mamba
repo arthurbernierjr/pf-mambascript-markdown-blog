@@ -3,6 +3,7 @@ React = require 'react'
 { Fragment } = require 'react'
 $ = Decision(React).$
 AppFooter = require './AppFooter.mamba'
+ResponsiveNav = require './ResponsiveNav.mamba'
 
 LessonsLayout = (props) ->
   { title, description, children } = props
@@ -15,26 +16,186 @@ LessonsLayout = (props) ->
       $ 'meta', { property: 'og:title', content: title }
       $ 'meta', { property: 'og:description', content: description }
       $ 'meta', { property: 'og:image', content: '/img/BigPapaCode.png' }
-      $ 'link', { rel: 'stylesheet', href: '/css/styles.css' }
+      $ 'link', { rel: 'stylesheet', href: '/_next/static/css/fd0b0a741c20fd245ead.css' }
+      $ 'link', { href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', rel: 'stylesheet' }
+      $ 'link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' }
       $ 'link', { rel: 'stylesheet', href: '/css/guides.css' }
       $ 'link', { rel: 'stylesheet', href: '/prism.css' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
-      $ 'link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-      $ 'link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' }
       $ 'link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }
       $ 'link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
-    $ 'body', { className: 'guides-page lessons-page' }, =>
-      # Header
-      $ 'header', { className: 'guides-header' }, =>
-        $ 'div', { className: 'guides-header-inner' }, =>
-          $ 'a', { href: '/', className: 'guides-logo' }, =>
-            $ 'span', { className: 'logo-text' }, 'Big Poppa Code'
-          $ 'nav', { className: 'guides-nav' }, =>
-            $ 'a', { href: '/guides', className: 'nav-link' }, 'Guides'
-            $ 'a', { href: '/blog', className: 'nav-link active' }, 'Blog'
-            $ 'a', { href: 'https://portfolio.bigpoppacode.io', className: 'nav-link', target: '_blank' }, 'Portfolio'
-            $ 'a', { href: 'https://youtube.com/@bigpoppacode', className: 'nav-link', target: '_blank' }, 'YouTube'
+      $ 'style', """
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; }
+
+        /* Hero Section - Breakpoints: 450, 768, 1024, 1440 */
+        .lessons-hero {
+          position: relative;
+          min-height: 40vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 60px;
+          margin-bottom: 2rem;
+          overflow: hidden;
+        }
+        @media (min-width: 450px) {
+          .lessons-hero {
+            min-height: 45vh;
+            margin-top: 70px;
+          }
+        }
+        @media (min-width: 768px) {
+          .lessons-hero {
+            min-height: 50vh;
+            margin-top: 80px;
+            margin-bottom: 3rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .lessons-hero {
+            min-height: 55vh;
+            margin-top: 90px;
+          }
+        }
+        @media (min-width: 1440px) {
+          .lessons-hero {
+            min-height: 60vh;
+          }
+        }
+        
+        .lessons-hero-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(177, 0, 0, 0.9) 0%, rgba(139, 0, 0, 0.85) 100%), url('/discoverFinal.jpg') center center / cover no-repeat;
+          border-bottom: 8px solid #667682;
+        }
+        .lessons-hero-content {
+          position: relative;
+          z-index: 10;
+          text-align: center;
+          padding: 1.5rem 1rem;
+          max-width: 900px;
+        }
+        @media (min-width: 450px) {
+          .lessons-hero-content {
+            padding: 2rem 1.5rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .lessons-hero-content {
+            padding: 3rem 2rem;
+          }
+        }
+        .lessons-hero h1 {
+          font-size: clamp(1.75rem, 6vw, 4rem);
+          font-weight: 700;
+          color: white;
+          margin-bottom: 0.75rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        @media (min-width: 768px) {
+          .lessons-hero h1 {
+            margin-bottom: 1rem;
+          }
+        }
+        .lessons-hero p {
+          font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+          color: white;
+          opacity: 0.95;
+          max-width: 700px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+        @media (min-width: 768px) {
+          .lessons-hero p {
+            line-height: 1.7;
+          }
+        }
+        .lessons-hero .hero-badge {
+          display: inline-block;
+          background: rgba(255,255,255,0.2);
+          color: white;
+          padding: 0.4rem 1rem;
+          border-radius: 50px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          margin-bottom: 1rem;
+          backdrop-filter: blur(10px);
+        }
+        @media (min-width: 768px) {
+          .lessons-hero .hero-badge {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        /* Main Content - Responsive */
+        .lessons-main {
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          min-height: 50vh;
+          padding: 2rem 1rem;
+        }
+        @media (min-width: 450px) {
+          .lessons-main {
+            padding: 2.5rem 1.5rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .lessons-main {
+            padding: 3rem 2rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .lessons-main {
+            padding: 4rem 2rem;
+          }
+        }
+        .lessons-container {
+          max-width: 1440px;
+          margin: 0 auto;
+        }
+
+        /* Override guides.css for lessons grid - Responsive */
+        .lessons-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          margin-top: 0;
+        }
+        @media (min-width: 450px) {
+          .lessons-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.75rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .lessons-grid {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .lessons-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+          }
+        }
+
+        /* Footer */
+        footer {
+          background: #b10000 !important;
+        }
+        footer a:hover {
+          color: #ffd700 !important;
+        }
+      """
+    $ 'body', =>
+      # Responsive Navigation
+      $ ResponsiveNav, { theme: 'red', activePage: 'lessons' }
 
       # Main content
       $ 'main', { className: 'lessons-main' }, =>

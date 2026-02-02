@@ -1,0 +1,399 @@
+React = require 'react'
+{ $ } = require('mambascript/decision')(React)
+
+# Responsive Navigation Component with Hamburger Menu (CSS Checkbox Hack)
+# Breakpoints: 450 (xs), 768 (sm/md), 1024 (lg), 1440 (xl)
+
+ResponsiveNav = (props) ->
+  { theme, activePage } = props
+  # theme: 'teal' (guides), 'red' (lessons), 'gradient' (blog landing)
+  
+  themeColors = switch theme
+    when 'red'
+      primary: '#b10000'
+      secondary: '#8b0000'
+      accent: '#ffd700'
+      hover: '#ffd700'
+    when 'teal'
+      primary: '#057176'
+      secondary: '#045a5e'
+      accent: '#14b8a6'
+      hover: '#14b8a6'
+    else # gradient/default
+      primary: 'transparent'
+      secondary: 'transparent'
+      accent: '#14b8a6'
+      hover: '#14b8a6'
+  
+  isTransparent = theme == 'gradient'
+  menuBgPrimary = if isTransparent then '#057176' else themeColors.primary
+  menuBgSecondary = if isTransparent then '#045a5e' else themeColors.secondary
+  
+  $ 'div', =>
+    # Navigation Styles with Checkbox Hack
+    $ 'style', """
+      /* Responsive Navigation - Breakpoints: 450, 768, 1024, 1440 */
+      
+      /* Hide the checkbox - this is the magic */
+      #nav-toggle {
+        display: none;
+      }
+      
+      .responsive-nav {
+        position: #{if isTransparent then 'absolute' else 'fixed'};
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: #{if isTransparent then 'transparent' else "linear-gradient(135deg, #{themeColors.primary} 0%, #{themeColors.secondary} 100%)"};
+        padding: 0.75rem 1rem;
+        #{if not isTransparent then 'box-shadow: 0 2px 20px rgba(0,0,0,0.2);' else ''}
+      }
+      @media (min-width: 768px) {
+        .responsive-nav {
+          padding: 1rem 2rem;
+        }
+      }
+      .nav-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      /* Logo */
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .nav-logo img {
+        height: 40px;
+        width: auto;
+      }
+      @media (min-width: 450px) {
+        .nav-logo img { height: 50px; }
+      }
+      @media (min-width: 768px) {
+        .nav-logo img { height: 60px; }
+      }
+      @media (min-width: 1024px) {
+        .nav-logo img { height: 70px; }
+      }
+      
+      /* Desktop Navigation */
+      .nav-desktop {
+        display: none;
+        gap: 1rem;
+      }
+      @media (min-width: 768px) {
+        .nav-desktop {
+          display: flex;
+          gap: 1.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .nav-desktop {
+          gap: 2rem;
+        }
+      }
+      @media (min-width: 1440px) {
+        .nav-desktop {
+          gap: 2.5rem;
+        }
+      }
+      .nav-desktop a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid transparent;
+      }
+      @media (min-width: 1024px) {
+        .nav-desktop a {
+          font-size: 0.9rem;
+        }
+      }
+      .nav-desktop a:hover,
+      .nav-desktop a.active {
+        color: #{themeColors.accent};
+        border-bottom-color: #{themeColors.accent};
+      }
+      
+      /* Hamburger Label (acts as button) */
+      .hamburger-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 8px;
+        gap: 5px;
+        transition: background 0.3s ease;
+      }
+      .hamburger-label:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      @media (min-width: 768px) {
+        .hamburger-label {
+          display: none;
+        }
+      }
+      .hamburger-line {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      
+      /* Hamburger animation when checked */
+      #nav-toggle:checked ~ .responsive-nav .hamburger-label .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #nav-toggle:checked ~ .responsive-nav .hamburger-label .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      #nav-toggle:checked ~ .responsive-nav .hamburger-label .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      
+      /* Mobile Menu Overlay */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 90;
+      }
+      
+      /* Show overlay when checkbox is checked */
+      #nav-toggle:checked ~ .mobile-menu-overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(180deg, #{menuBgPrimary} 0%, #{menuBgSecondary} 100%);
+        z-index: 95;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      @media (min-width: 450px) {
+        .mobile-menu {
+          max-width: 350px;
+        }
+      }
+      
+      /* Show menu when checkbox is checked */
+      #nav-toggle:checked ~ .mobile-menu {
+        right: 0;
+      }
+      
+      /* Hide on desktop */
+      @media (min-width: 768px) {
+        .mobile-menu,
+        .mobile-menu-overlay {
+          display: none !important;
+        }
+      }
+      
+      /* Mobile Menu Header */
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-menu-header img {
+        height: 45px;
+        width: auto;
+      }
+      
+      /* Close button (also a label for the checkbox) */
+      .mobile-close-label {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+      }
+      .mobile-close-label:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      
+      /* Mobile Menu Links */
+      .mobile-menu-links {
+        padding: 1.5rem 0;
+        flex: 1;
+      }
+      .mobile-menu-links a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-left: 4px solid transparent;
+      }
+      .mobile-menu-links a:hover,
+      .mobile-menu-links a.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: #{themeColors.accent};
+        color: #{themeColors.accent};
+      }
+      .mobile-menu-links a i {
+        width: 24px;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      
+      /* Mobile Menu Footer */
+      .mobile-menu-footer {
+        padding: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .mobile-social a {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .mobile-social a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      /* Prevent body scroll when menu is open */
+      body:has(#nav-toggle:checked) {
+        overflow: hidden;
+      }
+    """
+    
+    # Hidden checkbox - THE KEY TO THE HACK
+    $ 'input', { type: 'checkbox', id: 'nav-toggle' }
+    
+    # Navigation Bar
+    $ 'header', { className: 'responsive-nav' }, =>
+      $ 'div', { className: 'nav-inner' }, =>
+        # Logo
+        $ 'a', { href: '/', className: 'nav-logo' }, =>
+          $ 'img', { src: '/dtclogo.png', alt: 'Deeper Than Code' }
+        
+        # Desktop Navigation
+        $ 'nav', { className: 'nav-desktop' }, =>
+          $ 'a', { href: '/', className: if activePage == 'home' then 'active' else '' }, 'Home'
+          $ 'a', { href: '/guides', className: if activePage == 'guides' then 'active' else '' }, 'Guides'
+          $ 'a', { href: '/lessons', className: if activePage == 'lessons' then 'active' else '' }, 'Lessons'
+          $ 'a', { href: '/blog', className: if activePage == 'blog' then 'active' else '' }, 'Blog'
+          $ 'a', { href: 'https://portfolio.bigpoppacode.io', target: '_blank' }, 'Portfolio'
+          $ 'a', { href: 'https://youtube.com/@bigpoppacode', target: '_blank' }, 'YouTube'
+        
+        # Hamburger Label (triggers checkbox)
+        $ 'label', {
+          className: 'hamburger-label'
+          htmlFor: 'nav-toggle'
+          'aria-label': 'Toggle navigation menu'
+        }, =>
+          $ 'span', { className: 'hamburger-line' }
+          $ 'span', { className: 'hamburger-line' }
+          $ 'span', { className: 'hamburger-line' }
+    
+    # Mobile Menu Overlay (also a label to close)
+    $ 'label', {
+      className: 'mobile-menu-overlay'
+      htmlFor: 'nav-toggle'
+    }
+    
+    # Mobile Menu
+    $ 'nav', { className: 'mobile-menu' }, =>
+      # Mobile Menu Header
+      $ 'div', { className: 'mobile-menu-header' }, =>
+        $ 'img', { src: '/dtclogo.png', alt: 'Deeper Than Code' }
+        # Close label (triggers checkbox to uncheck)
+        $ 'label', {
+          className: 'mobile-close-label'
+          htmlFor: 'nav-toggle'
+          'aria-label': 'Close menu'
+        }, =>
+          $ 'i', { className: 'fas fa-times' }
+      
+      # Mobile Menu Links
+      $ 'div', { className: 'mobile-menu-links' }, =>
+        $ 'a', { href: '/', className: if activePage == 'home' then 'active' else '' }, =>
+          $ 'i', { className: 'fas fa-home' }
+          $ 'span', 'Home'
+        $ 'a', { href: '/guides', className: if activePage == 'guides' then 'active' else '' }, =>
+          $ 'i', { className: 'fas fa-book' }
+          $ 'span', 'Guides'
+        $ 'a', { href: '/lessons', className: if activePage == 'lessons' then 'active' else '' }, =>
+          $ 'i', { className: 'fas fa-graduation-cap' }
+          $ 'span', 'Lessons'
+        $ 'a', { href: '/blog', className: if activePage == 'blog' then 'active' else '' }, =>
+          $ 'i', { className: 'fas fa-newspaper' }
+          $ 'span', 'Blog'
+        $ 'a', { href: 'https://portfolio.bigpoppacode.io', target: '_blank' }, =>
+          $ 'i', { className: 'fas fa-briefcase' }
+          $ 'span', 'Portfolio'
+        $ 'a', { href: 'https://youtube.com/@bigpoppacode', target: '_blank' }, =>
+          $ 'i', { className: 'fab fa-youtube' }
+          $ 'span', 'YouTube'
+      
+      # Mobile Menu Footer with Social
+      $ 'div', { className: 'mobile-menu-footer' }, =>
+        $ 'div', { className: 'mobile-social' }, =>
+          $ 'a', { href: 'https://linkedin.com/in/bigpoppacode', target: '_blank', 'aria-label': 'LinkedIn' }, =>
+            $ 'i', { className: 'fab fa-linkedin-in' }
+          $ 'a', { href: 'https://github.com/bigpoppacode', target: '_blank', 'aria-label': 'GitHub' }, =>
+            $ 'i', { className: 'fab fa-github' }
+          $ 'a', { href: 'https://instagram.com/bigpoppacode', target: '_blank', 'aria-label': 'Instagram' }, =>
+            $ 'i', { className: 'fab fa-instagram' }
+
+module.exports = ResponsiveNav

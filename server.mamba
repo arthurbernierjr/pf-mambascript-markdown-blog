@@ -15,16 +15,20 @@ converter = new showdown.Converter()
 mongoose = require 'mongoose'
 leads = require './models/leadController.mamba'
 updateLead = require './models/updateLead.mamba'
-MONGODB_URI = process.env.MONGO_URI
+MONGODB_URI = process.env.MONGO_URI or 'mongodb://localhost:27017/bigpoppacode'
 db = mongoose.connection
 
-mongoose.connect MONGODB_URI, {
+try
+  mongoose.connect MONGODB_URI, {
     useNewUrlParser: true
     useUnifiedTopology: true
-}
+  }
+catch error
+  console.error(error)
+
 
 db.on 'open', -> present 'Connected to Mongo'
-
+db.on 'error', (err) -> console.error(err) 
 
 # Middleware
 app.use express.json()
