@@ -1,6 +1,6 @@
 ---
 title: "Developer Guides"
-subTitle: "Your MDN-Style Learning Resource"
+subTitle: "Deeper Than Code Learning Resources"
 excerpt: "Master programming with Big Poppa Code's EDIP methodology"
 featureImage: "/img/guides-hero.png"
 date: "2026-02-01"
@@ -9,7 +9,7 @@ order: 0
 
 # Big Poppa Code Developer Guides
 
-Welcome to your comprehensive developer learning resource. Every guide uses the **EDIP methodology** (Explain, Demonstrate, Imitate, Practice) to help you truly master each concept.
+Welcome to the Deeper Than Code learning hub. Every guide uses my **EDIP methodology** (Explain, Demonstrate, Imitate, Practice) — the same approach I use when teaching my students to help you truly master each concept.
 
 ---
 
