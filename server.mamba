@@ -52,7 +52,7 @@ app.get '/instagram', (req, res) ->
   res.redirect('https://instagram.com/bigpoppacode')
 
 app.get '/portfolio', (req, res) ->
-  res.redirect('https://github.com/arthurbernierjr')
+  res.redirect('https://portfolio.bigpoppacode.io')
 
 
 getFirstPost = (req, res, next) ->
