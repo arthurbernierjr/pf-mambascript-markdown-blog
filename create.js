@@ -15,8 +15,12 @@ async function build (api, json, all) {
   const posts = []
   fs.readdir(api, (err, files) => {
     files.forEach(file => {
+      const filePath = `${api}/${file}`;
+      if (fs.statSync(filePath).isDirectory()) {
+        return;
+      }
       console.log(file, typeof file)
-      const processedFile = matter.read(`${api}/${file}`)
+      const processedFile = matter.read(filePath)
       processedFile.content = converter.makeHtml(processedFile.content)
       processedFile._id = file.split('.')[0]
       const jsonedFile = JSON.stringify(processedFile)
