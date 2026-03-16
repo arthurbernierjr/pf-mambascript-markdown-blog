@@ -32,7 +32,6 @@
   /* ---- Music Control ---- */
   const audio          = document.getElementById('theme-song');
   const muteBtn        = document.getElementById('mute-toggle');
-  const muteIcon       = muteBtn.querySelector('.mute-icon');
   const musicPrompt    = document.getElementById('music-prompt');
   const enableMusicBtn = document.getElementById('enable-music-btn');
 
@@ -40,12 +39,15 @@
   let musicStarted = false;
 
   function updateMuteUI() {
+    const svg = muteBtn.querySelector('svg');
     if (isMuted) {
-      muteIcon.innerHTML = '&#128263;';
+      // Muted icon (speaker with X)
+      svg.innerHTML = '<path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a.75.75 0 0 1 1.06 0l1.5 1.5 1.5-1.5a.75.75 0 1 1 1.06 1.06l-1.5 1.5 1.5 1.5a.75.75 0 0 1-1.06 1.06l-1.5-1.5-1.5 1.5a.75.75 0 0 1-1.06-1.06l1.5-1.5-1.5-1.5a.75.75 0 0 1 0-1.06z"/>';
       muteBtn.classList.add('muted');
       muteBtn.setAttribute('title', 'Unmute Music');
     } else {
-      muteIcon.innerHTML = '&#9819;';
+      // Unmuted icon (lightning bolt)
+      svg.innerHTML = '<path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>';
       muteBtn.classList.remove('muted');
       muteBtn.setAttribute('title', 'Mute Music');
     }
@@ -66,6 +68,7 @@
   }
 
   function initMusic() {
+    updateMuteUI(); // Initialize UI state
     muteBtn.classList.add('active');
     audio.volume = 0.6;
     const p = audio.play();
