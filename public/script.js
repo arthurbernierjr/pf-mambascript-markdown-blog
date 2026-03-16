@@ -7,7 +7,8 @@
 
   body.classList.add('loading');
 
-  window.addEventListener('load', () => {
+  // Use DOMContentLoaded instead of 'load' to avoid waiting for large audio files
+  document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       loader.classList.add('hidden');
       body.classList.remove('loading');
@@ -16,6 +17,17 @@
       initMusic();
     }, 2000);
   });
+  
+  // Fallback: force hide loader after 5 seconds regardless
+  setTimeout(() => {
+    if (!loader.classList.contains('hidden')) {
+      loader.classList.add('hidden');
+      body.classList.remove('loading');
+      initRevealAnimations();
+      animateCounters();
+      initMusic();
+    }
+  }, 5000);
 
   /* ---- Music Control ---- */
   const audio          = document.getElementById('theme-song');
