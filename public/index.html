@@ -1,421 +1,630 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>BigPoppaCode.io</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-  <meta name="description" content="Empowering others through tech, innovation and forward thinking"/>
-  <meta property="og:type"/>
-  <meta property="og:description" content="Empowering others through tech, innovation and forward thinking"/>
-  <meta property="og:image" content="https://bigpoppacode.io/bg.png"/>
-  <meta name="twitter:card"/>
-  <meta name="twitter:title" content="BigPoppaCode.io"/>
-  <meta name="twitter:description" content="Empowering others through tech, innovation and forward thinking"/>
-  <meta name="twitter:image"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/_next/static/css/fd0b0a741c20fd245ead.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    /* Mobile Menu Checkbox Hack */
-    #home-nav-toggle {
-      display: none;
-    }
-    
-    /* Hamburger Button */
-    .home-hamburger {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 44px;
-      height: 44px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 8px;
-      gap: 5px;
-    }
-    .home-hamburger:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    @media (min-width: 1024px) {
-      .home-hamburger {
-        display: none;
-      }
-    }
-    .home-hamburger-line {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    
-    /* Hamburger animation when checked */
-    #home-nav-toggle:checked ~ header .home-hamburger .home-hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    #home-nav-toggle:checked ~ header .home-hamburger .home-hamburger-line:nth-child(2) {
-      opacity: 0;
-    }
-    #home-nav-toggle:checked ~ header .home-hamburger .home-hamburger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-    
-    /* Mobile Menu Overlay */
-    .home-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 90;
-    }
-    #home-nav-toggle:checked ~ .home-menu-overlay {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    /* Mobile Menu */
-    .home-mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 85%;
-      max-width: 320px;
-      height: 100vh;
-      background: linear-gradient(180deg, #057176 0%, #045a5e 100%);
-      z-index: 95;
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
-    #home-nav-toggle:checked ~ .home-mobile-menu {
-      right: 0;
-    }
-    @media (min-width: 1024px) {
-      .home-mobile-menu,
-      .home-menu-overlay {
-        display: none !important;
-      }
-    }
-    
-    /* Mobile Menu Header */
-    .home-mobile-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .home-mobile-header img {
-      height: 45px;
-      width: auto;
-    }
-    .home-close-btn {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .home-close-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    /* Mobile Menu Links */
-    .home-mobile-links {
-      padding: 1.5rem 0;
-      flex: 1;
-    }
-    .home-mobile-links a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      color: white;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-left: 4px solid transparent;
-    }
-    .home-mobile-links a:hover,
-    .home-mobile-links a.active {
-      background: rgba(255, 255, 255, 0.1);
-      border-left-color: #14b8a6;
-      color: #14b8a6;
-    }
-    .home-mobile-links a i {
-      width: 24px;
-      text-align: center;
-      font-size: 1.2rem;
-    }
-    
-    /* Mobile Menu Footer */
-    .home-mobile-footer {
-      padding: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .home-mobile-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .home-mobile-social a {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .home-mobile-social a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-3px);
-    }
-    
-    body:has(#home-nav-toggle:checked) {
-      overflow: hidden;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arthur Bernier Jr — Developer · Educator · Innovator</title>
+  <meta name="description" content="Arthur Bernier Jr (@bigpoppacode) — Developer Relations Engineer, Technical Educator, and Content Creator. 100K+ YouTube community, 15+ years bridging engineering and education.">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:title" content="Arthur Bernier Jr — Developer · Educator · Innovator">
+  <meta property="og:description" content="Developer Relations Engineer, Technical Educator, and Content Creator. 100K+ YouTube community, 15+ years bridging engineering and education.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bigpoppacode.io">
+  <meta property="og:image" content="https://bigpoppacode.io/assets/images/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1015">
+  <meta property="og:image:height" content="669">
+  <meta property="og:image:alt" content="Arthur Bernier Jr — Developer · Educator · Innovator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arthur Bernier Jr — Developer · Educator · Innovator">
+  <meta name="twitter:description" content="Developer Relations Engineer, Technical Educator, and Content Creator with 100K+ YouTube subscribers.">
+  <meta name="twitter:image" content="https://bigpoppacode.io/assets/images/og-image.png">
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="bg-white">
-  
-  <!-- Hidden checkbox for menu toggle -->
-  <input type="checkbox" id="home-nav-toggle"/>
-  
-  <header>
-    <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3">
-      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-          <a class="text-white title-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase" href="/">
-            <div class="absolute top-0 left-0 m-0 w-18 h-18 mx-0 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-60 lg:h-40 lg:mx-20 lg:yx-0">
-              <img src="/dtclogo.png" class="w-14 sm:w-20 md:w-28 lg:w-36"/>
-            </div>
-          </a>
-          <!-- Hamburger button (label for checkbox) -->
-          <label class="home-hamburger" for="home-nav-toggle" aria-label="Toggle navigation menu">
-            <span class="home-hamburger-line"></span>
-            <span class="home-hamburger-line"></span>
-            <span class="home-hamburger-line"></span>
-          </label>
-        </div>
-        <!-- Desktop Navigation -->
-        <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none z-20 hidden" id="example-navbar-warning">
-          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="/">
-                <span class="inline-block">Home</span>
-              </a>
-            </li>
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="/guides">
-                <span class="inline-block">Guides</span>
-              </a>
-            </li>
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="/lessons">
-                <span class="inline-block">Lessons</span>
-              </a>
-            </li>
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="/blog">
-                <span class="inline-block">Blog</span>
-              </a>
-            </li>
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://portfolio.bigpoppacode.io" target="_blank">
-                <span class="inline-block">Portfolio</span>
-              </a>
-            </li>
-            <li class="flex items-center">
-              <a class="lg:text-white lg:hover:text-[#14b8a6] text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://youtube.com/@bigpoppacode" target="_blank">
-                <span class="inline-block">YouTube</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  
-  <!-- Mobile Menu Overlay (label to close) -->
-  <label class="home-menu-overlay" for="home-nav-toggle"></label>
-  
-  <!-- Mobile Menu -->
-  <nav class="home-mobile-menu">
-    <div class="home-mobile-header">
-      <img src="/dtclogo.png" alt="Deeper Than Code"/>
-      <label class="home-close-btn" for="home-nav-toggle" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </label>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__crown">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+      </svg>
     </div>
-    <div class="home-mobile-links">
-      <a href="/" class="active">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
-      </a>
-      <a href="/guides">
-        <i class="fas fa-book"></i>
-        <span>Guides</span>
-      </a>
-      <a href="/lessons">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Lessons</span>
-      </a>
-      <a href="/blog">
-        <i class="fas fa-newspaper"></i>
-        <span>Blog</span>
-      </a>
-      <a href="https://portfolio.bigpoppacode.io" target="_blank">
-        <i class="fas fa-briefcase"></i>
-        <span>Portfolio</span>
-      </a>
-      <a href="https://youtube.com/@bigpoppacode" target="_blank">
-        <i class="fab fa-youtube"></i>
-        <span>YouTube</span>
-      </a>
-      <a href="/programs">
-        <i class="fas fa-rocket"></i>
-        <span>My Programs</span>
-      </a>
+    <div class="loader__text">ARTHUR BERNIER JR</div>
+    <div class="loader__bar"><div class="loader__fill"></div></div>
+  </div>
+
+  <!-- Audio (MySpace-style auto-play) -->
+  <audio id="theme-song" preload="auto" loop>
+    <source src="assets/audio/make_it_look_easy.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Mute Button -->
+  <button id="mute-toggle" class="mute-btn" aria-label="Mute/Unmute music" title="Toggle Music">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+    </svg>
+  </button>
+
+  <!-- Music Prompt (shown if autoplay blocked, after loader) -->
+  <div id="music-prompt" class="music-prompt hidden">
+    <div class="music-prompt-content">
+      <div class="music-prompt-crown">⚡</div>
+      <p>tap to enable the soundtrack</p>
+      <button id="enable-music-btn" class="enable-music-btn">PLAY MUSIC</button>
     </div>
-    <div class="home-mobile-footer">
-      <div class="home-mobile-social">
-        <a href="https://linkedin.com/in/bigpoppacode" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/bigpoppacode" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://instagram.com/bigpoppacode" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__crown">⚡</span>
+        <span class="nav__name">ABJ</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#speaking" class="nav__link">Speaking</a>
+        <a href="#content" class="nav__link">Content</a>
+        <a href="#contact" class="nav__link">Contact</a>
       </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <a href="#about" class="mobile-menu__link" data-index="01">About</a>
+      <a href="#skills" class="mobile-menu__link" data-index="02">Skills</a>
+      <a href="#experience" class="mobile-menu__link" data-index="03">Experience</a>
+      <a href="#projects" class="mobile-menu__link" data-index="04">Projects</a>
+      <a href="#speaking" class="mobile-menu__link" data-index="05">Speaking</a>
+      <a href="#content" class="mobile-menu__link" data-index="06">Content</a>
+      <a href="#contact" class="mobile-menu__link" data-index="07">Contact</a>
+      <div class="mobile-menu__socials">
+        <a href="https://linkedin.com/in/bigpoppacode" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/bigpoppacode" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://youtube.com/@bigpoppacode" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com/bigpoppacode" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
   <main>
-    <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height:95vh">
-      <div class="absolute top-0 w-full h-full bg-center bg-cover border-b-8 border-[#667682]" style="background-image:url('/myheadshot.png');background:linear-gradient(to bottom, rgba(177, 0, 0, 0.7), rgba(0, 77, 0, 0.6)), url('/myheadshot.png') center center / cover no-repeat">
-        <span id="blackOverlay" class="w-full h-full absolute opacity-5 bg-current"></span>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+        <div class="hero__grain"></div>
       </div>
-      <div class="container relative mx-auto">
-        <div class="items-center flex flex-wrap">
-          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-            <div>
-              <h1 class="text-white font-semibold text-4xl lg:text-8xl">Big Poppa Code</h1>
-              <h2 class="mt-4 sm:text-xl lg:text-4xl text-white">Empowering others through tech, innovation and forward thinking</h2>
-              <h3 class="bg-transparent sm:text-xl lg:text-2xl hover:bg-[#057176] text-white font-semibold hover:text-white py-2 px-4 border border-[#057176] hover:border-transparent rounded inline-block mt-5">
-                <a href="/programs">"Never forget that intelligence rules the world and ignorance carries the burden. Therefore, remove yourself as far as possible from ignorance and seek as far as possible to be intelligent." ~ Marcus Garvey</a>
-              </h3>
+      <div class="hero__content">
+        <div class="hero__split">
+          <div class="hero__text">
+            <div class="hero__crown reveal" data-delay="0.3">⚡</div>
+            <h1 class="hero__title">
+              <span class="hero__line reveal" data-delay="0.5">ARTHUR</span>
+              <span class="hero__line hero__line--accent reveal" data-delay="0.7">BERNIER JR</span>
+            </h1>
+            <p class="hero__tagline reveal" data-delay="0.9">Developer&ensp;&middot;&ensp;Educator&ensp;&middot;&ensp;Innovator</p>
+            <div class="hero__cta reveal" data-delay="1.1">
+              <a href="#contact" class="btn btn--primary">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero__image reveal" data-delay="0.6">
+            <div class="hero__image-glow"></div>
+            <img src="assets/images/hero-cutout.png" alt="Arthur Bernier Jr" class="hero__portrait" loading="eager">
+          </div>
+        </div>
+        <div class="hero__stats reveal" data-delay="1.3">
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="100">0</span><span class="hero__stat-suffix">K</span>
+            <span class="hero__stat-label">YouTube Subs</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="15">0</span><span class="hero__stat-suffix">+</span>
+            <span class="hero__stat-label">Years Exp</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-icon">⚡</span>
+            <span class="hero__stat-label">Make It Look Easy</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll reveal" data-delay="1.5">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="section__container">
+        <div class="about__layout">
+          <div class="about__visual reveal">
+            <div class="about__image-frame">
+              <img src="assets/images/arthur-photo.jpg" alt="Arthur Bernier Jr portrait" class="about__photo" loading="lazy">
+              <div class="about__image-border"></div>
+            </div>
+          </div>
+          <div class="about__text">
+            <span class="section__number reveal">01</span>
+            <h2 class="section__title reveal">About</h2>
+            <div class="about__bio">
+              <p class="reveal">I'm a Developer Relations Engineer with 15+ years of experience uniting engineering excellence, AI enablement, and large-scale developer education. I specialize in designing enterprise hackathons that drive measurable API adoption, building SDK demonstrations developers actually use, and creating technical content that converts.</p>
+              <p class="reveal">From leading engineering at a VC-backed startup ($3.5M raised) to teaching 5,000+ learners annually, I bridge the gap between complex technology and developer success. My YouTube channel has grown to 100K+ subscribers with a Silver Play Button, proving that great technical education resonates.</p>
+              <p class="reveal">Turning complex tech into developer wins. That's what I do.</p>
+            </div>
+            <div class="about__cta reveal">
+              <a href="resume.html" target="_blank" class="btn btn--primary">View Resume</a>
+              <a href="https://linkedin.com/in/bigpoppacode" target="_blank" rel="noopener" class="btn btn--ghost">Connect on LinkedIn</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height:70px"></div>
-    </div>
-    
-    <div class="bg-white grid lg:grid-cols-2 2xl:grid-cols-5">
-      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-2">
-        <div class="xl:max-w-xl pt-11">
-          <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" src="/discoverFinal.jpg" alt="Seven Woman laughing in a group"/>
-          <h1 class="mt-6 text-3xl font-bold text-[#057176] sm:mt-8 sm:text-4xl lg:text-5xl xl:text-6xl">Who is Big Poppa Code?</h1>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl">Big Poppa Code is a seasoned technologist, educator, and mentor dedicated to empowering knowledge seekers through tech education and innovation. With years of experience in the tech industry and a deep commitment to breaking down barriers, he offers tailored mentorship, actionable insights, and strategic guidance through his platform, "Deeper Than Code." Big Poppa Code is not just a mentor but a catalyst for change, helping aspiring technologists and entrepreneurs navigate the complexities of the digital world, build successful careers, and make a lasting impact.</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">02</span>
+          <h2 class="section__title reveal">Skills & Expertise</h2>
+        </div>
+        <div class="skills__grid">
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-code"></i></div>
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span>JavaScript</span>
+              <span>TypeScript</span>
+              <span>Python</span>
+              <span>SQL</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-layer-group"></i></div>
+            <h3>Frameworks</h3>
+            <div class="skill-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Next.js</span>
+              <span>Express</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-robot"></i></div>
+            <h3>AI/ML Tools</h3>
+            <div class="skill-tags">
+              <span>ChatGPT</span>
+              <span>Claude</span>
+              <span>Cursor</span>
+              <span>N8N</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-users"></i></div>
+            <h3>DevRel Skills</h3>
+            <div class="skill-tags">
+              <span>Developer Advocacy</span>
+              <span>Technical Education</span>
+              <span>Content Creation</span>
+              <span>Community Building</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-network-wired"></i></div>
+            <h3>Infrastructure</h3>
+            <div class="skill-tags">
+              <span>Docker</span>
+              <span>GitHub Actions</span>
+              <span>AWS</span>
+              <span>API Design</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card__icon"><i class="fas fa-briefcase"></i></div>
+            <h3>Specialties</h3>
+            <div class="skill-tags">
+              <span>Enterprise Hackathons</span>
+              <span>SDK Development</span>
+              <span>Workshop Facilitation</span>
+              <span>Cloud Infrastructure</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hidden relative lg:block 2xl:col-span-3">
-        <img class="absolute inset-0 w-full h-full object-cover object-center" src="/discoverFinal.jpg" alt="Seven Woman laughing in a group"/>
-      </div>
-    </div>
-    
-    <div class="bg-white grid lg:grid-cols-2 2xl:grid-cols-5">
-      <div class="hidden relative lg:block 2xl:col-span-3">
-        <img class="absolute inset-0 w-full h-full object-cover object-center" src="/imagineFinal.jpg" alt="Two men in a grass field"/>
-      </div>
-      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-2">
-        <div class="xl:max-w-xl pt-11">
-          <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" src="/imagineFinal.jpg" alt="Two men in a grass field"/>
-          <h1 class="mt-6 text-3xl font-bold text-[#057176] sm:mt-8 sm:text-4xl lg:text-5xl xl:text-6xl">How Can Big Poppa Code Help Me?</h1>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl break-words">Big Poppa Code can help you unlock your potential in the tech world by providing personalized mentorship, cutting-edge industry knowledge, and actionable strategies tailored to your goals. Whether you're looking to break into tech, start your own business, or scale your existing venture, Big Poppa Code offers the guidance and tools you need to succeed. Through his Deeper Than Code platform, you'll gain access to a wealth of resources, a supportive community, and the expertise needed to navigate and thrive in the ever-evolving digital landscape.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">03</span>
+          <h2 class="section__title reveal">Professional Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Independent Consultant</h3>
+                <span class="timeline-period">2018 – Present</span>
+              </div>
+              <h4>Enterprise Hackathon Director & AI Instructor</h4>
+              <p>Designed and delivered 50+ enterprise-grade AI hackathons and activation programs where teams shipped functional GPT/Claude-powered applications in 48-72 hours, driving measurable API adoption increases.</p>
+              <div class="timeline-tags">
+                <span>InternXL (AfroTech)</span>
+                <span>Per Scholas</span>
+                <span>General Assembly</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Per Scholas</h3>
+                <span class="timeline-period">May 2021 – Aug 2025</span>
+              </div>
+              <h4>Senior Director, AI, Programming & Cloud</h4>
+              <p>Built GitHub demos teaching AI agent workflows, cloud automation, and dev tooling to 5,000+ learners annually. Designed repeatable developer enablement frameworks adopted across 20+ national campuses.</p>
+              <div class="timeline-tags">
+                <span>AI Education</span>
+                <span>Curriculum Design</span>
+                <span>National Scale</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>General Assembly</h3>
+                <span class="timeline-period">Aug 2018 – Sept 2024</span>
+              </div>
+              <h4>Lead Instructor, Software Engineering Immersive</h4>
+              <p>Delivered 10,000+ hours of live instruction across 20+ immersive bootcamps, maintaining NPS score above 90. Created globally adopted starter kits and template repositories.</p>
+              <div class="timeline-tags">
+                <span>Full-Stack</span>
+                <span>10K+ Hours</span>
+                <span>NPS 90+</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Seventh Ave (VC-Backed)</h3>
+                <span class="timeline-period">Oct 2020 – Mar 2023</span>
+              </div>
+              <h4>CTO & Co-Founder</h4>
+              <p>Helped raise $3.5M in venture capital and built engineering team from 2 → 10+ developers. Architected distributed Node.js microservices powering real-time audio experiences.</p>
+              <div class="timeline-tags">
+                <span>$3.5M Raised</span>
+                <span>Team Building</span>
+                <span>Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Astranis Space Technologies</h3>
+                <span class="timeline-period">Mar 2023 – Aug 2023</span>
+              </div>
+              <h4>Tech Lead, Ground Software</h4>
+              <p>Built backend/frontend tooling for spacecraft telemetry and mission-critical operational workflows supporting live satellite operations under strict aerospace constraints.</p>
+              <div class="timeline-tags">
+                <span>Spacecraft Systems</span>
+                <span>Mission-Critical</span>
+                <span>Zero-Error</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Blavity Inc.</h3>
+                <span class="timeline-period">Dec 2018 – Feb 2021</span>
+              </div>
+              <h4>Software Engineer</h4>
+              <p>Built API systems serving 50M+ monthly requests using Node.js, Express, and NGINX with strong performance and error resilience. Integrated partner ad systems for major brands.</p>
+              <div class="timeline-tags">
+                <span>50M+ Requests</span>
+                <span>High-Scale APIs</span>
+                <span>Media Tech</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div class="bg-white grid lg:grid-cols-2 2xl:grid-cols-5 border-b-8 border-[#667682]">
-      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-2">
-        <div class="xl:max-w-xl pt-11">
-          <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden" src="/CreateFinal.jpg" alt="Three black woman"/>
-          <h1 class="mt-6 text-3xl font-bold text-[#057176] sm:mt-8 sm:text-4xl lg:text-5xl xl:text-6xl">Big Poppa Code's Mission</h1>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl">- Empower the Black Community: Foster digital literacy and innovation within the Black community, equipping individuals with the skills and knowledge to succeed in tech and entrepreneurship.</p>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl">- Bridge the Knowledge Gap: Provide accessible, in-depth education on emerging technologies, ensuring that everyone, regardless of background, can navigate and thrive in the digital economy.</p>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl">- Create: Build tools, both digital + physical, that evangelize and empower our communities at scale</p>
-          <p class="mt-2 text-black sm:mt-4 sm:text-xl">- Cultivate Future Leaders: Mentor and support the next generation of tech innovators and entrepreneurs, helping them to break barriers, build successful careers, and create lasting change.</p>
-          <div class="mt-4 sm:mt-6"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">04</span>
+          <h2 class="section__title reveal">Featured Projects</h2>
+          <p class="section__subtitle reveal">AI applications, NPM packages, and developer tools</p>
+        </div>
+        <div class="projects__grid">
+          <a href="https://www.npmjs.com/package/mambascript" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-card__icon"><i class="fas fa-snake"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">MambaScript</h3>
+              <p class="project-card__desc">Custom programming language compiling to JavaScript with Python-inspired syntax</p>
+              <span class="project-card__tag">NPM Package</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+
+          <a href="https://www.npmjs.com/package/jsx-view-engine" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-card__icon"><i class="fab fa-react"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">JSX-View-Engine</h3>
+              <p class="project-card__desc">Express.js view engine for server-side JSX rendering without React overhead</p>
+              <span class="project-card__tag">NPM Package</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+
+          <a href="https://github.com/bigpoppacode/ai-resume-screener" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-card__icon"><i class="fas fa-file-alt"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">AI Resume Screener</h3>
+              <p class="project-card__desc">Automated candidate evaluation with AI-powered scoring and analysis</p>
+              <span class="project-card__tag">AI Application</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+
+          <a href="https://github.com/bigpoppacode/ai-knowledge-rag" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-card__icon"><i class="fas fa-brain"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">AI Knowledge RAG</h3>
+              <p class="project-card__desc">Document Q&A system with RAG architecture for intelligent search</p>
+              <span class="project-card__tag">AI Application</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+
+          <a href="https://bigpoppacode.io/guides" target="_blank" rel="noopener" class="project-card project-card--featured reveal">
+            <div class="project-card__glow"></div>
+            <div class="project-card__icon"><i class="fas fa-book-open"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">88 Developer Guides</h3>
+              <p class="project-card__desc">Comprehensive technical guides covering JavaScript, React, Node.js, Python, AI, and modern web development</p>
+              <span class="project-card__tag">Educational Resource</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+
+          <a href="https://www.tradingview.com/script/8vnIlXAa-Big-Poppa-Code-Strat-Momentum-Strategy-Indicator/" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-card__icon"><i class="fas fa-chart-line"></i></div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">TradingView Indicator</h3>
+              <p class="project-card__desc">The Strat methodology + ATR-based Fibonacci levels + Hull MA momentum bands</p>
+              <span class="project-card__tag">Pine Script</span>
+            </div>
+            <div class="project-card__arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+        </div>
+        <div class="projects__cta reveal">
+          <a href="https://github.com/bigpoppacode" target="_blank" rel="noopener" class="btn btn--ghost">
+            <i class="fab fa-github"></i>
+            <span>View All Repositories</span>
+          </a>
         </div>
       </div>
-      <div class="hidden relative lg:block 2xl:col-span-3">
-        <img class="absolute inset-0 w-full h-full object-cover object-center" src="/CreateFinal.jpg" alt="Three black woman"/>
+    </section>
+
+    <!-- SPEAKING -->
+    <section class="speaking" id="speaking">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">05</span>
+          <h2 class="section__title reveal">Speaking & Events</h2>
+          <p class="section__subtitle reveal">Industry presence at conferences and tech events</p>
+        </div>
+        <div class="speaking__grid">
+          <div class="speaking-card speaking-card--featured reveal">
+            <div class="speaking-card__year">2025</div>
+            <div class="speaking-card__content">
+              <h3><i class="fas fa-star"></i> AfroTech 2025</h3>
+              <p>Featured speaker & technical trainer at the largest Black tech conference in the world</p>
+            </div>
+          </div>
+          <a href="https://www.eventbrite.com/e/grown-techie-a-networking-event-for-professionals-founders-investors-registration-1221667443209" target="_blank" rel="noopener" class="speaking-card reveal">
+            <div class="speaking-card__year">2025</div>
+            <div class="speaking-card__content">
+              <h3>Grown & Techie</h3>
+              <p>Panel discussion for tech professionals, founders & investors</p>
+              <span class="speaking-card__location"><i class="fas fa-map-marker-alt"></i> Atlanta, GA</span>
+            </div>
+          </a>
+          <a href="https://gdg.community.dev/events/details/google-gdg-atlanta-presents-devfest-atlanta-2024-building-the-future-of-ai-together/" target="_blank" rel="noopener" class="speaking-card reveal">
+            <div class="speaking-card__year">2024</div>
+            <div class="speaking-card__content">
+              <h3><i class="fab fa-google"></i> Google DevFest Atlanta</h3>
+              <p>Building the Future of AI Together</p>
+              <span class="speaking-card__location"><i class="fas fa-map-marker-alt"></i> Atlanta, GA</span>
+            </div>
+          </a>
+          <a href="https://rollingout.com/ride/" target="_blank" rel="noopener" class="speaking-card reveal">
+            <div class="speaking-card__year">2024</div>
+            <div class="speaking-card__content">
+              <h3>RollingOut RIDE Conference</h3>
+              <p>Tech innovation and entrepreneurship summit</p>
+              <span class="speaking-card__location"><i class="fas fa-map-marker-alt"></i> National Event</span>
+            </div>
+          </a>
+          <a href="https://www.theproptechhouse.com/" target="_blank" rel="noopener" class="speaking-card reveal">
+            <div class="speaking-card__year">2023-24</div>
+            <div class="speaking-card__content">
+              <h3>PropTech House @ SXSW</h3>
+              <p>Two consecutive years at South by Southwest</p>
+              <span class="speaking-card__location"><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content" id="content">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">06</span>
+          <h2 class="section__title reveal">Content & Community</h2>
+          <p class="section__subtitle reveal">100K+ YouTube subscribers with Silver Play Button</p>
+        </div>
+        <div class="content__wrapper">
+          <div class="content__card reveal">
+            <div class="content__stats">
+              <div class="content__stat">
+                <i class="fab fa-youtube"></i>
+                <span class="content__stat-number">100K+</span>
+                <span class="content__stat-label">Subscribers</span>
+              </div>
+              <div class="content__stat">
+                <i class="fas fa-eye"></i>
+                <span class="content__stat-number">1M+</span>
+                <span class="content__stat-label">Views</span>
+              </div>
+              <div class="content__stat">
+                <i class="fas fa-trophy"></i>
+                <span class="content__stat-number">Silver</span>
+                <span class="content__stat-label">Play Button</span>
+              </div>
+            </div>
+            <p class="content__desc">Creating AI tutorials, developer workflows, and technical education content that consistently ranks and drives learning outcomes.</p>
+            <a href="https://youtube.com/@bigpoppacode" target="_blank" rel="noopener" class="btn btn--primary">
+              <i class="fab fa-youtube"></i>
+              <span>Visit Channel</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="connect" id="contact">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <span class="section__number reveal">07</span>
+          <h2 class="section__title section__title--large reveal">Let's<br>Connect</h2>
+          <p class="section__subtitle reveal">Open to remote DevRel opportunities</p>
+        </div>
+        <div class="connect__grid">
+          <a href="https://linkedin.com/in/bigpoppacode" target="_blank" rel="noopener" class="connect-card reveal">
+            <i class="fab fa-linkedin connect-card__icon"></i>
+            <span class="connect-card__name">LinkedIn</span>
+            <span class="connect-card__handle">@bigpoppacode</span>
+          </a>
+          <a href="https://github.com/bigpoppacode" target="_blank" rel="noopener" class="connect-card reveal">
+            <i class="fab fa-github connect-card__icon"></i>
+            <span class="connect-card__name">GitHub</span>
+            <span class="connect-card__handle">@bigpoppacode</span>
+          </a>
+          <a href="https://youtube.com/@bigpoppacode" target="_blank" rel="noopener" class="connect-card reveal">
+            <i class="fab fa-youtube connect-card__icon"></i>
+            <span class="connect-card__name">YouTube</span>
+            <span class="connect-card__handle">@bigpoppacode</span>
+          </a>
+          <a href="mailto:him@bigpoppacode.io" class="connect-card reveal">
+            <i class="fas fa-envelope connect-card__icon"></i>
+            <span class="connect-card__name">Email</span>
+            <span class="connect-card__handle">him@bigpoppacode.io</span>
+          </a>
+          <a href="https://instagram.com/bigpoppacode" target="_blank" rel="noopener" class="connect-card reveal">
+            <i class="fab fa-instagram connect-card__icon"></i>
+            <span class="connect-card__name">Instagram</span>
+            <span class="connect-card__handle">@bigpoppacode</span>
+          </a>
+          <a href="https://twitter.com/bigpoppacode" target="_blank" rel="noopener" class="connect-card reveal">
+            <i class="fab fa-twitter connect-card__icon"></i>
+            <span class="connect-card__name">Twitter</span>
+            <span class="connect-card__handle">@bigpoppacode</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>ARTHUR BERNIER JR</span><span>⚡</span>
+        <span>DEVELOPER</span><span>⚡</span>
+        <span>EDUCATOR</span><span>⚡</span>
+        <span>INNOVATOR</span><span>⚡</span>
+        <span>ARTHUR BERNIER JR</span><span>⚡</span>
+        <span>DEVELOPER</span><span>⚡</span>
+        <span>EDUCATOR</span><span>⚡</span>
+        <span>INNOVATOR</span><span>⚡</span>
       </div>
     </div>
+
   </main>
-  
-  <footer class="relative bg-[#057176] pt-8 pb-6">
-    <div class="container mx-auto px-6">
-      <div class="sm:flex sm:mt-8">
-        <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
-          <div class="flex flex-col">
-            <span class="text-black mb-2 text-lg font-semibold">Questions? Text +1 (404) 962-0908</span>
-            <h5 class="text-lg mt-0 text-black">Let's Keep in Touch</h5>
-            <div class="mt-6">
-              <button class="font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <a href="https://youtube.com/@bigpoppacode" target="_blank"><i class="flex fab fa-youtube text-black hover:text-white"></i></a>
-              </button>
-              <button class="font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <a href="https://www.instagram.com/bigpoppacode/" target="_blank"><i class="flex fab fa-instagram text-lg text-black hover:text-white"></i></a>
-              </button>
-              <button class="font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <a href="https://www.linkedin.com/in/bigpoppacode/" target="_blank"><i class="flex fab fa-linkedin text-lg text-black hover:text-white"></i></a>
-              </button>
-            </div>
-          </div>
-          <div class="flex flex-col">
-            <span class="my-2"><a href="mailto:him@bigpoppacode.io?body=Pull up on 7th" class="text-black text-md hover:text-white">him@bigpoppacode.io</a></span>
-            <span class="my-2"><a href="https://bigpoppacode.io/guides" class="text-black text-md hover:text-white">Guides</a></span>
-            <span class="my-2"><a href="https://bigpoppacode.io/lessons" class="text-black text-md hover:text-white">Lessons</a></span>
-            <span class="my-2"><a href="https://bigpoppacode.io/blog" class="text-black text-md hover:text-white">Blog</a></span>
-            <span class="my-2"><a href="https://portfolio.bigpoppacode.io" class="text-black text-md hover:text-white">Portfolio</a></span>
-            <span class="my-2"><a href="https://bigpoppacode.io/programs" class="text-black text-md hover:text-white">My Programs</a></span>
-          </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__crown">⚡</span>
+          <span class="footer__name">ARTHUR BERNIER JR</span>
+        </div>
+        <div class="footer__socials">
+          <a href="https://linkedin.com/in/bigpoppacode" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/bigpoppacode" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://youtube.com/@bigpoppacode" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/bigpoppacode" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-    </div>
-    <div class="container mx-auto px-6">
-      <div class="mt-16 border-t-2 border-black flex flex-col items-center">
-        <div class="text-sm text-black font-semibold py-1">Copyright © 2026 <a class="text-black hover:text-white" href="/">Progress and Fortune LLC.</a></div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Arthur Bernier Jr. All rights reserved.</p>
+        <p class="footer__credit">Turning complex tech into developer wins <span class="footer__heart">⚡</span></p>
       </div>
     </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
   </footer>
-  
-</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
